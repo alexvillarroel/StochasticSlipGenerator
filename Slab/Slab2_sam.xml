@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <origin>Hayes, Gavin</origin>
+        <pubdate>2018</pubdate>
+        <title>Slab2 - A Comprehensive Subduction Zone Geometry Model, South America Region</title>
+        <geoform>electronic</geoform>
+        <pubinfo>
+          <pubplace>Reston, VA</pubplace>
+          <publish>U.S. Geological Survey</publish>
+        </pubinfo>
+        <onlink>https://doi.org/10.5066/F7PV6JNV</onlink>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>Subduction zones are home to the most seismically active faults on the planet. The shallow megathrust interface of subduction zones host our largest earthquakes, and are the only faults capable of M9+ ruptures. Despite these facts, our knowledge of subduction zone geometry - which likely plays a key role in determining the spatial extent and ultimately the size of subduction zone earthquakes - is incomplete. Here we calculate the three- dimensional geometries of all active global subduction zones. The resulting model - Slab2 - provides for the first time a comprehensive geometrical analysis of all known slabs in unprecedented detail.</abstract>
+      <purpose>Description of the three dimensional geometries of global subducted slabs.</purpose>
+    </descript>
+    <timeperd>
+      <timeinfo>
+        <rngdates>
+          <begdate>1900</begdate>
+          <enddate>present</enddate>
+        </rngdates>
+      </timeinfo>
+      <current>ground condition</current>
+    </timeperd>
+    <status>
+      <progress>Complete</progress>
+      <update>None planned</update>
+    </status>
+    <spdom>
+      <bounding>
+        <westbc>-88.0</westbc>
+        <eastbc>-58.0</eastbc>
+        <northbc>12.0</northbc>
+        <southbc>-50.0</southbc>
+      </bounding>
+    </spdom>
+    <keywords>
+      <theme>
+        <themekt>USGS Thesaurus</themekt>
+        <themekey>USGS</themekey>
+        <themekey>Geologic Hazards Science Center</themekey>
+        <themekey>GHSC</themekey>
+        <themekey>Earthquake Hazards Program</themekey>
+        <themekey>EHP</themekey>
+        <themekey>earth science</themekey>
+        <themekey>earthquake hazard</themekey>
+        <themekey>shallow megathrust interface</themekey>
+        <themekey>subduction zone</themekey>
+        <themekey>large earthquake ruptures</themekey>
+        <themekey>subduction zone geometry model</themekey>
+      </theme>
+      <theme>
+        <themekt>USGS Metadata Identifier</themekt>
+        <themekey>USGS:5aa41473e4b0b1c392eaaf2d</themekey>
+      </theme>
+      <place>
+        <placekt>Geographic Names Information System (GNIS)</placekt>
+        <placekey>Earth</placekey>
+      </place>
+    </keywords>
+    <accconst>none</accconst>
+    <useconst>none</useconst>
+    <ptcontac>
+      <cntinfo>
+        <cntperp>
+          <cntper>Gavin Hayes</cntper>
+          <cntorg>U.S. Geological Survey, Earthquake Hazards Program</cntorg>
+        </cntperp>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>1711 Illinois St MS 966</address>
+          <city>Golden</city>
+          <state>CO</state>
+          <postal>80401</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>303-273-8421</cntvoice>
+        <cntemail>ghayes@usgs.gov</cntemail>
+      </cntinfo>
+    </ptcontac>
+  </idinfo>
+  <dataqual>
+    <attracc>
+      <attraccr>No formal attribute accuracy tests were conducted</attraccr>
+    </attracc>
+    <logic>No formal logical accuracy tests were conducted</logic>
+    <complete>Data set is considered complete for the information presented, as described in the abstract. Users are advised to read the rest of the metadata record carefully for additional details.</complete>
+    <posacc>
+      <horizpa>
+        <horizpar>No formal positional accuracy tests were conducted</horizpar>
+      </horizpa>
+      <vertacc>
+        <vertaccr>No formal positional accuracy tests were conducted</vertaccr>
+      </vertacc>
+    </posacc>
+    <lineage>
+      <procstep>
+        <procdesc>Refer to the associated publication (“Systematic Observations of the Slip-pulse Properties of Large Earthquake Ruptures”) at http://onlinelibrary.wiley.com/doi/10.1002/2017GL074916/full</procdesc>
+        <procdate>2017</procdate>
+      </procstep>
+    </lineage>
+  </dataqual>
+  <eainfo>
+    <overview>
+      <eaover>Refer to the associated publication</eaover>
+      <eadetcit>http://onlinelibrary.wiley.com/doi/</eadetcit>
+    </overview>
+  </eainfo>
+  <distinfo>
+    <distrib>
+      <cntinfo>
+        <cntperp>
+          <cntper>Staff</cntper>
+          <cntorg>U.S. Geological Survey - ScienceBase</cntorg>
+        </cntperp>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>Denver Federal Center, Building 810, Mail Stop 302</address>
+          <city>Denver</city>
+          <state>CO</state>
+          <postal>80225</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>1-888-275-8747</cntvoice>
+        <cntemail>sciencebase@usgs.gov</cntemail>
+      </cntinfo>
+    </distrib>
+    <distliab>Unless otherwise stated, all data, metadata and related materials are considered to satisfy the quality standards relative to the purpose for which the data were collected. Although these data and associated metadata have been reviewed for accuracy and completeness and approved for release by the U.S. Geological Survey (USGS), no warranty expressed or implied is made regarding the display or utility of the data on any other system or for general or scientific purposes, nor shall the act of distribution constitute any such warranty.</distliab>
+    <techpreq>Data are provided as NetCDF formatted grid files.</techpreq>
+  </distinfo>
+  <metainfo>
+    <metd>20200818</metd>
+    <metc>
+      <cntinfo>
+        <cntperp>
+          <cntper>GHSC Data Steward</cntper>
+          <cntorg>U.S. Geological Survey, Geologic Hazards Science Center</cntorg>
+        </cntperp>
+        <cntpos>Open Data Policy coordinator</cntpos>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>1711 Illinois Street</address>
+          <city>Golden</city>
+          <state>Colorado</state>
+          <postal>80401</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>303-273-8500</cntvoice>
+        <cntemail>ghsc_metadata@usgs.gov</cntemail>
+      </cntinfo>
+    </metc>
+    <metstdn>Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+  </metainfo>
+</metadata>
