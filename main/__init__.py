@@ -11,6 +11,7 @@ import numpy as np
 from numpy import linalg as la
 import matplotlib.pyplot as plt 
 from mpl_toolkits.basemap import Basemap, cm
+import cartopy.crs as ccrs
 import collections as col
 from geopy import distance
 import geographiclib as geo 
@@ -22,6 +23,7 @@ import scipy.ndimage.filters as filters
 from clawpack.geoclaw import dtopotools, topotools
 from multiprocessing import Pool, Process, cpu_count
 import pygmt
+import os
 
 # Ms to Mw kausel Ramirez function
 def Mw_kauselramirez(ms):
@@ -453,12 +455,12 @@ def dist_sf( lon1, lon2, lat1, lat2 ):
     lat1: latitud de subfalla i-esima
     lat2: latitud de subfalla j-esima
     """
-    dx=deg2km(np.abs(lon1-lon2))*1000
-    dy=deg2km(np.abs(lat1-lat2))*1000
-    distancia=np.sqrt(dx**2+dy**2)
-    # subfalla_i = (lon1, lat1)
-    # subfalla_j = (lon2, lat2)
-    # distancia = distance.distance( subfalla_i, subfalla_j ).meters
+    #dx=deg2km(np.abs(lon1-lon2))*1000
+    #dy=deg2km(np.abs(lat1-lat2))*1000
+    #distancia=np.sqrt(dx**2+dy**2)
+    subfalla_i = (lon1, lat1)
+    subfalla_j = (lon2, lat2)
+    distancia = distance.distance( subfalla_i, subfalla_j ).meters
     return distancia
 
 # metodo alternativo de calculo de distancias entre subfallas
@@ -1024,7 +1026,7 @@ def plot_grid(region,data_trench,lons,lats):
     fig.savefig('grid.png')
     fig.show()
     return
-def plot_slip(X_grid,Y_grid,lonfosa,latfosa,Slip):
+def plot_slip(X_grid,Y_grid,lonfosa,latfosa,Slip,cmap='rainbow'):
         fig = plt.figure()
         # iniciliazar mapa
         m = Basemap(projection='merc', lat_0=35, lon_0=210,
@@ -1035,7 +1037,7 @@ def plot_slip(X_grid,Y_grid,lonfosa,latfosa,Slip):
         mlons, mlats         = m(X_grid,Y_grid)
         mfosalons, mfosalats = m(lonfosa, latfosa)
         # promedio
-        my_cmap = plt.get_cmap('rainbow')
+        my_cmap = plt.get_cmap(cmap)
         csave = m.pcolormesh(mlons, mlats, Slip,cmap=my_cmap,shading='gouraud')
         cbar     = m.colorbar(csave,location='bottom',pad="5%")
         cbar.set_label('m')
@@ -1047,3 +1049,31 @@ def plot_slip(X_grid,Y_grid,lonfosa,latfosa,Slip):
         m.drawparallels(np.arange(-50,-30,2),labels=[1,1,0,1])
         plt.show()
         return
+def plot_slip_gmt(region,X_grid,Y_grid,lonfosa,latfsa,Slip,archivo_salida,dx,dy):
+    # define parameters for plotting
+    latmax=np.max(Y_grid.flat)
+    latmin=np.min(Y_grid.flat)
+    lonmax=np.max(X_grid.flat)
+    lonmin=np.min(X_grid.flat)
+    reg2=(lonmin,lonmax,latmin,latmax)
+    #
+    fig=pygmt.Figure()
+    spacing=f"{dx}k/{dy}k"
+    cmap2use = 'rainbow'
+    pygmt.makecpt(cmap = 
+              cmap2use, 
+              series = [0, np.max(Slip.flat),2], 
+              continuous = True)
+    grid=pygmt.xyz2grd(x=X_grid.flatten(),y=Y_grid.flatten(),z=Slip.flatten(),region = reg2,spacing=spacing)
+    fig.basemap(region=region, projection="M12c", frame=True)
+    fig.coast(land="darkgray", transparency=40)
+    fig.grdimage(grid, 
+             cmap = True, 
+             region = region, 
+             projection = 'M12c',
+             interpolation="c",
+             nan_transparent=True
+             )
+    fig.colorbar(frame="x+lSlip[m]")
+    fig.savefig(archivo_salida+'.png')
+    return
