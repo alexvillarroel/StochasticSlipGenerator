@@ -1,0 +1,1543 @@
+ ***********************************************************
+ *           INPUT INFORMATION - COMCOT V1.7               *
+ ***********************************************************
+ #Job Description: NZ30sec bathymetry, Spherical Coordinates for code testing   
+                                                                                
+                                           
+ ------------------- GENERAL INFORMATION -------------------
+     TOTAL RUN TIME            (SECOND) :   1800.000    
+     TIME INTERVAL FOR OUTPUT  (SECOND) :   60.00000    
+     TIME STEP SIZE            (SECOND) :   1.000000    
+     TOTAL STEPS TO RUN         (STEPS) :        1800
+     STEP INTERVAL FOR OUTPUT   (STEPS) :          60
+     MAX. SURFACE DISPLACEMENT OUTPUT   : ENABLED
+     TIME HISTORY RECORD OUTPUT         : DISABLED
+     SHORELINE LOCATED AT DEPTH CONTOUR :   10.00000    
+     BOUNDARY CONDITION                 : RADIATION (OPEN)
+  
+ ---------------- INITIAL CONDITION INFORMATION ---------------
+     #USE BUILT-IN FAULT MODEL
+        TOTAL NUMBER OF FAULT SEGMENTS  :         150
+      PARAMETERS FOR FAULT SEGMENT      :           1
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.20260      -29.61660    
+        FOCAL DEPTH         (KILOMETER) :   9.171329    
+        FAULT LENGTH        (KILOMETER) :   25.92330    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   7.794700    
+        DIP ANGLE       (DELTA, DEGREE) :   6.642000    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   90.99240    
+        DISLOCATION             (METER) :   3.171600    
+      PARAMETERS FOR FAULT SEGMENT      :           2
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.84257      -29.61667    
+        FOCAL DEPTH         (KILOMETER) :   14.60942    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   8.077049    
+        DIP ANGLE       (DELTA, DEGREE) :   11.62464    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   95.04483    
+        DISLOCATION             (METER) :   3.177263    
+      PARAMETERS FOR FAULT SEGMENT      :           3
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.48253      -29.61667    
+        FOCAL DEPTH         (KILOMETER) :   23.84388    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   8.559597    
+        DIP ANGLE       (DELTA, DEGREE) :   18.55622    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   96.94915    
+        DISLOCATION             (METER) :   3.000065    
+      PARAMETERS FOR FAULT SEGMENT      :           4
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.12250      -29.61667    
+        FOCAL DEPTH         (KILOMETER) :   37.66673    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   9.292813    
+        DIP ANGLE       (DELTA, DEGREE) :   24.61901    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   96.38293    
+        DISLOCATION             (METER) :   2.697369    
+      PARAMETERS FOR FAULT SEGMENT      :           5
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -70.76246      -29.61667    
+        FOCAL DEPTH         (KILOMETER) :   54.18189    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   10.10209    
+        DIP ANGLE       (DELTA, DEGREE) :   25.67633    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   95.81671    
+        DISLOCATION             (METER) : -0.1373170    
+      PARAMETERS FOR FAULT SEGMENT      :           6
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.25305      -29.85000    
+        FOCAL DEPTH         (KILOMETER) :   8.971215    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   6.027759    
+        DIP ANGLE       (DELTA, DEGREE) :   6.466505    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   90.56753    
+        DISLOCATION             (METER) :   3.157816    
+      PARAMETERS FOR FAULT SEGMENT      :           7
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.89302      -29.85000    
+        FOCAL DEPTH         (KILOMETER) :   14.29769    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   6.585534    
+        DIP ANGLE       (DELTA, DEGREE) :   11.40367    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   94.61999    
+        DISLOCATION             (METER) :   3.053775    
+      PARAMETERS FOR FAULT SEGMENT      :           8
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.53298      -29.85000    
+        FOCAL DEPTH         (KILOMETER) :   23.39550    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   7.036966    
+        DIP ANGLE       (DELTA, DEGREE) :   18.36474    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   98.67245    
+        DISLOCATION             (METER) :   3.028445    
+      PARAMETERS FOR FAULT SEGMENT      :           9
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.17294      -29.85000    
+        FOCAL DEPTH         (KILOMETER) :   37.17582    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   7.525293    
+        DIP ANGLE       (DELTA, DEGREE) :   24.62960    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   100.2571    
+        DISLOCATION             (METER) :   2.935379    
+      PARAMETERS FOR FAULT SEGMENT      :          10
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -70.81291      -29.85000    
+        FOCAL DEPTH         (KILOMETER) :   53.82484    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   8.171340    
+        DIP ANGLE       (DELTA, DEGREE) :   25.89899    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   99.69091    
+        DISLOCATION             (METER) :  0.4917340    
+      PARAMETERS FOR FAULT SEGMENT      :          11
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.29180      -30.08333    
+        FOCAL DEPTH         (KILOMETER) :   8.826550    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   4.723567    
+        DIP ANGLE       (DELTA, DEGREE) :   6.373274    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   90.27442    
+        DISLOCATION             (METER) :   3.445392    
+      PARAMETERS FOR FAULT SEGMENT      :          12
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.93176      -30.08333    
+        FOCAL DEPTH         (KILOMETER) :   14.09210    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   5.457919    
+        DIP ANGLE       (DELTA, DEGREE) :   11.31731    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   94.32689    
+        DISLOCATION             (METER) :   3.104563    
+      PARAMETERS FOR FAULT SEGMENT      :          13
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.57173      -30.08333    
+        FOCAL DEPTH         (KILOMETER) :   23.13227    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   6.028770    
+        DIP ANGLE       (DELTA, DEGREE) :   18.30282    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   98.37936    
+        DISLOCATION             (METER) :   3.165316    
+      PARAMETERS FOR FAULT SEGMENT      :          14
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.21169      -30.08333    
+        FOCAL DEPTH         (KILOMETER) :   36.91617    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   6.484890    
+        DIP ANGLE       (DELTA, DEGREE) :   24.69736    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   102.4318    
+        DISLOCATION             (METER) :   3.155128    
+      PARAMETERS FOR FAULT SEGMENT      :          15
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -70.85166      -30.08333    
+        FOCAL DEPTH         (KILOMETER) :   53.68180    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   7.102410    
+        DIP ANGLE       (DELTA, DEGREE) :   26.15021    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   103.5467    
+        DISLOCATION             (METER) :  0.8208300    
+      PARAMETERS FOR FAULT SEGMENT      :          16
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.32188      -30.31667    
+        FOCAL DEPTH         (KILOMETER) :   8.719361    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   4.119528    
+        DIP ANGLE       (DELTA, DEGREE) :   6.320074    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   90.07884    
+        DISLOCATION             (METER) :   3.806418    
+      PARAMETERS FOR FAULT SEGMENT      :          17
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.96185      -30.31667    
+        FOCAL DEPTH         (KILOMETER) :   13.96917    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   4.668994    
+        DIP ANGLE       (DELTA, DEGREE) :   11.32186    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   94.13131    
+        DISLOCATION             (METER) :   3.703751    
+      PARAMETERS FOR FAULT SEGMENT      :          18
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.60181      -30.31667    
+        FOCAL DEPTH         (KILOMETER) :   23.03049    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   5.228959    
+        DIP ANGLE       (DELTA, DEGREE) :   18.35731    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   98.18378    
+        DISLOCATION             (METER) :   3.377216    
+      PARAMETERS FOR FAULT SEGMENT      :          19
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.24178      -30.31667    
+        FOCAL DEPTH         (KILOMETER) :   36.86696    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   5.753063    
+        DIP ANGLE       (DELTA, DEGREE) :   24.84888    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   102.2362    
+        DISLOCATION             (METER) :   3.056861    
+      PARAMETERS FOR FAULT SEGMENT      :          20
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -70.88174      -30.31667    
+        FOCAL DEPTH         (KILOMETER) :   53.77863    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   6.517762    
+        DIP ANGLE       (DELTA, DEGREE) :   26.45200    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   106.2887    
+        DISLOCATION             (METER) :  0.8515900    
+      PARAMETERS FOR FAULT SEGMENT      :          21
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.35786      -30.55000    
+        FOCAL DEPTH         (KILOMETER) :   8.549680    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   4.172238    
+        DIP ANGLE       (DELTA, DEGREE) :   6.165014    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   89.81692    
+        DISLOCATION             (METER) :   4.198014    
+      PARAMETERS FOR FAULT SEGMENT      :          22
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.99783      -30.55000    
+        FOCAL DEPTH         (KILOMETER) :   13.68687    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   4.209204    
+        DIP ANGLE       (DELTA, DEGREE) :   11.14900    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   93.86938    
+        DISLOCATION             (METER) :   3.730905    
+      PARAMETERS FOR FAULT SEGMENT      :          23
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.63779      -30.55000    
+        FOCAL DEPTH         (KILOMETER) :   22.61945    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   4.467987    
+        DIP ANGLE       (DELTA, DEGREE) :   18.20447    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   97.92185    
+        DISLOCATION             (METER) :   3.465517    
+      PARAMETERS FOR FAULT SEGMENT      :          24
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.27776      -30.55000    
+        FOCAL DEPTH         (KILOMETER) :   36.38997    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   4.935422    
+        DIP ANGLE       (DELTA, DEGREE) :   24.91671    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   101.9743    
+        DISLOCATION             (METER) :   2.843706    
+      PARAMETERS FOR FAULT SEGMENT      :          25
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -70.91772      -30.55000    
+        FOCAL DEPTH         (KILOMETER) :   53.46112    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   5.834378    
+        DIP ANGLE       (DELTA, DEGREE) :   26.86691    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   106.0268    
+        DISLOCATION             (METER) :   1.494043    
+      PARAMETERS FOR FAULT SEGMENT      :          26
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.38068      -30.78333    
+        FOCAL DEPTH         (KILOMETER) :   8.525867    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   4.501571    
+        DIP ANGLE       (DELTA, DEGREE) :   6.130813    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   89.70306    
+        DISLOCATION             (METER) :   3.237328    
+      PARAMETERS FOR FAULT SEGMENT      :          27
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.02065      -30.78333    
+        FOCAL DEPTH         (KILOMETER) :   13.61484    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   4.052223    
+        DIP ANGLE       (DELTA, DEGREE) :   11.09594    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   93.75553    
+        DISLOCATION             (METER) :   3.289351    
+      PARAMETERS FOR FAULT SEGMENT      :          28
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.66061      -30.78333    
+        FOCAL DEPTH         (KILOMETER) :   22.51371    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   3.842186    
+        DIP ANGLE       (DELTA, DEGREE) :   18.20004    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   97.80800    
+        DISLOCATION             (METER) :   3.271547    
+      PARAMETERS FOR FAULT SEGMENT      :          29
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.30058      -30.78333    
+        FOCAL DEPTH         (KILOMETER) :   36.32673    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   4.044742    
+        DIP ANGLE       (DELTA, DEGREE) :   25.07931    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   101.8605    
+        DISLOCATION             (METER) :   2.947823    
+      PARAMETERS FOR FAULT SEGMENT      :          30
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -70.94054      -30.78333    
+        FOCAL DEPTH         (KILOMETER) :   53.59041    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   4.891250    
+        DIP ANGLE       (DELTA, DEGREE) :   27.27578    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   105.9129    
+        DISLOCATION             (METER) :   1.340799    
+      PARAMETERS FOR FAULT SEGMENT      :          31
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.39074      -31.01667    
+        FOCAL DEPTH         (KILOMETER) :   8.649660    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   4.673609    
+        DIP ANGLE       (DELTA, DEGREE) :   6.237419    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   89.73293    
+        DISLOCATION             (METER) :   3.478036    
+      PARAMETERS FOR FAULT SEGMENT      :          32
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.03071      -31.01667    
+        FOCAL DEPTH         (KILOMETER) :   13.79179    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   4.040553    
+        DIP ANGLE       (DELTA, DEGREE) :   11.20083    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   93.78539    
+        DISLOCATION             (METER) :   3.250393    
+      PARAMETERS FOR FAULT SEGMENT      :          33
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.67067      -31.01667    
+        FOCAL DEPTH         (KILOMETER) :   22.73055    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   3.441664    
+        DIP ANGLE       (DELTA, DEGREE) :   18.33465    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   97.83785    
+        DISLOCATION             (METER) :   3.212948    
+      PARAMETERS FOR FAULT SEGMENT      :          34
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.31064      -31.01667    
+        FOCAL DEPTH         (KILOMETER) :   36.64529    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   3.250200    
+        DIP ANGLE       (DELTA, DEGREE) :   25.31026    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   101.8903    
+        DISLOCATION             (METER) :   3.311600    
+      PARAMETERS FOR FAULT SEGMENT      :          35
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -70.95060      -31.01667    
+        FOCAL DEPTH         (KILOMETER) :   54.11496    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   3.754611    
+        DIP ANGLE       (DELTA, DEGREE) :   27.64458    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   105.9428    
+        DISLOCATION             (METER) :  1.0807000E-02
+      PARAMETERS FOR FAULT SEGMENT      :          36
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.41863      -31.25000    
+        FOCAL DEPTH         (KILOMETER) :   8.585717    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   4.570852    
+        DIP ANGLE       (DELTA, DEGREE) :   6.158325    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   89.90510    
+        DISLOCATION             (METER) :   4.890747    
+      PARAMETERS FOR FAULT SEGMENT      :          37
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.05859      -31.25000    
+        FOCAL DEPTH         (KILOMETER) :   13.63510    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   4.122605    
+        DIP ANGLE       (DELTA, DEGREE) :   10.98342    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   92.67747    
+        DISLOCATION             (METER) :   4.368715    
+      PARAMETERS FOR FAULT SEGMENT      :          38
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.69855      -31.25000    
+        FOCAL DEPTH         (KILOMETER) :   22.37098    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   3.313917    
+        DIP ANGLE       (DELTA, DEGREE) :   17.97116    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   96.72993    
+        DISLOCATION             (METER) :   4.057609    
+      PARAMETERS FOR FAULT SEGMENT      :          39
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.33852      -31.25000    
+        FOCAL DEPTH         (KILOMETER) :   36.02092    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   2.636835    
+        DIP ANGLE       (DELTA, DEGREE) :   25.08667    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   100.7824    
+        DISLOCATION             (METER) :   3.843062    
+      PARAMETERS FOR FAULT SEGMENT      :          40
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -70.97849      -31.25000    
+        FOCAL DEPTH         (KILOMETER) :   53.45652    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   2.452893    
+        DIP ANGLE       (DELTA, DEGREE) :   27.88183    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   104.8349    
+        DISLOCATION             (METER) :   1.184345    
+      PARAMETERS FOR FAULT SEGMENT      :          41
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.44677      -31.48333    
+        FOCAL DEPTH         (KILOMETER) :   8.519385    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   4.198425    
+        DIP ANGLE       (DELTA, DEGREE) :   6.108169    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   90.87864    
+        DISLOCATION             (METER) :   6.763001    
+      PARAMETERS FOR FAULT SEGMENT      :          42
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.08673      -31.48333    
+        FOCAL DEPTH         (KILOMETER) :   13.48516    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   4.155961    
+        DIP ANGLE       (DELTA, DEGREE) :   10.79141    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   91.92500    
+        DISLOCATION             (METER) :   6.546025    
+      PARAMETERS FOR FAULT SEGMENT      :          43
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.72669      -31.48333    
+        FOCAL DEPTH         (KILOMETER) :   21.98967    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   3.325560    
+        DIP ANGLE       (DELTA, DEGREE) :   17.53417    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   94.91638    
+        DISLOCATION             (METER) :   5.560665    
+      PARAMETERS FOR FAULT SEGMENT      :          44
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.36666      -31.48333    
+        FOCAL DEPTH         (KILOMETER) :   35.27551    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   2.156511    
+        DIP ANGLE       (DELTA, DEGREE) :   24.64140    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   98.96885    
+        DISLOCATION             (METER) :   4.631588    
+      PARAMETERS FOR FAULT SEGMENT      :          45
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.00662      -31.48333    
+        FOCAL DEPTH         (KILOMETER) :   52.47391    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   1.162664    
+        DIP ANGLE       (DELTA, DEGREE) :   27.81176    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   103.0213    
+        DISLOCATION             (METER) :   2.097614    
+      PARAMETERS FOR FAULT SEGMENT      :          46
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.47491      -31.71667    
+        FOCAL DEPTH         (KILOMETER) :   8.418617    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   3.583420    
+        DIP ANGLE       (DELTA, DEGREE) :   6.062445    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   91.85219    
+        DISLOCATION             (METER) :   6.728036    
+      PARAMETERS FOR FAULT SEGMENT      :          47
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.11487      -31.71667    
+        FOCAL DEPTH         (KILOMETER) :   13.32769    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   3.976478    
+        DIP ANGLE       (DELTA, DEGREE) :   10.63863    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   92.89854    
+        DISLOCATION             (METER) :   6.776700    
+      PARAMETERS FOR FAULT SEGMENT      :          48
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.75484      -31.71667    
+        FOCAL DEPTH         (KILOMETER) :   21.63163    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   3.265771    
+        DIP ANGLE       (DELTA, DEGREE) :   17.06049    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   93.94490    
+        DISLOCATION             (METER) :   5.650543    
+      PARAMETERS FOR FAULT SEGMENT      :          49
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.39480      -31.71667    
+        FOCAL DEPTH         (KILOMETER) :   34.47461    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   1.716597    
+        DIP ANGLE       (DELTA, DEGREE) :   23.96743    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   97.15530    
+        DISLOCATION             (METER) :   4.823830    
+      PARAMETERS FOR FAULT SEGMENT      :          50
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.03476      -31.71667    
+        FOCAL DEPTH         (KILOMETER) :   51.20975    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   253.5800    
+        DIP ANGLE       (DELTA, DEGREE) :   27.41991    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   101.2078    
+        DISLOCATION             (METER) :   2.909359    
+      PARAMETERS FOR FAULT SEGMENT      :          51
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.50304      -31.95000    
+        FOCAL DEPTH         (KILOMETER) :   8.294670    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   2.765107    
+        DIP ANGLE       (DELTA, DEGREE) :   6.009199    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   92.82574    
+        DISLOCATION             (METER) :   4.279361    
+      PARAMETERS FOR FAULT SEGMENT      :          52
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.14301      -31.95000    
+        FOCAL DEPTH         (KILOMETER) :   13.15206    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   3.432540    
+        DIP ANGLE       (DELTA, DEGREE) :   10.51828    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   93.87209    
+        DISLOCATION             (METER) :   3.872196    
+      PARAMETERS FOR FAULT SEGMENT      :          53
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.78297      -31.95000    
+        FOCAL DEPTH         (KILOMETER) :   21.25718    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   2.969812    
+        DIP ANGLE       (DELTA, DEGREE) :   16.57868    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   94.91845    
+        DISLOCATION             (METER) :   4.449380    
+      PARAMETERS FOR FAULT SEGMENT      :          54
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.42294      -31.95000    
+        FOCAL DEPTH         (KILOMETER) :   33.60199    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   1.296383    
+        DIP ANGLE       (DELTA, DEGREE) :   23.15752    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   95.96480    
+        DISLOCATION             (METER) :   4.386274    
+      PARAMETERS FOR FAULT SEGMENT      :          55
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.06290      -31.95000    
+        FOCAL DEPTH         (KILOMETER) :   49.73903    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   359.1899    
+        DIP ANGLE       (DELTA, DEGREE) :   26.78788    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   99.39423    
+        DISLOCATION             (METER) :   3.358303    
+      PARAMETERS FOR FAULT SEGMENT      :          56
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.52301      -32.18333    
+        FOCAL DEPTH         (KILOMETER) :   8.204593    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   1.935432    
+        DIP ANGLE       (DELTA, DEGREE) :   5.993169    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   93.82302    
+        DISLOCATION             (METER) :   3.571060    
+      PARAMETERS FOR FAULT SEGMENT      :          57
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.16298      -32.18333    
+        FOCAL DEPTH         (KILOMETER) :   13.05553    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   2.634154    
+        DIP ANGLE       (DELTA, DEGREE) :   10.50531    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   94.86938    
+        DISLOCATION             (METER) :   3.409047    
+      PARAMETERS FOR FAULT SEGMENT      :          58
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.80294      -32.18333    
+        FOCAL DEPTH         (KILOMETER) :   21.06564    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   2.428092    
+        DIP ANGLE       (DELTA, DEGREE) :   16.25870    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   95.91573    
+        DISLOCATION             (METER) :   3.661671    
+      PARAMETERS FOR FAULT SEGMENT      :          59
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.44291      -32.18333    
+        FOCAL DEPTH         (KILOMETER) :   33.02782    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :  0.9267160    
+        DIP ANGLE       (DELTA, DEGREE) :   22.43142    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   96.96208    
+        DISLOCATION             (METER) :   3.721763    
+      PARAMETERS FOR FAULT SEGMENT      :          60
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.08287      -32.18333    
+        FOCAL DEPTH         (KILOMETER) :   48.57283    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   358.8799    
+        DIP ANGLE       (DELTA, DEGREE) :   26.08882    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   98.00844    
+        DISLOCATION             (METER) :   3.313292    
+      PARAMETERS FOR FAULT SEGMENT      :          61
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.54070      -32.41667    
+        FOCAL DEPTH         (KILOMETER) :   8.113541    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   1.480380    
+        DIP ANGLE       (DELTA, DEGREE) :   5.952588    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   94.82693    
+        DISLOCATION             (METER) :   4.496834    
+      PARAMETERS FOR FAULT SEGMENT      :          62
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.18067      -32.41667    
+        FOCAL DEPTH         (KILOMETER) :   12.93918    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   1.962385    
+        DIP ANGLE       (DELTA, DEGREE) :   10.49001    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   95.87328    
+        DISLOCATION             (METER) :   4.084863    
+      PARAMETERS FOR FAULT SEGMENT      :          63
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.82063      -32.41667    
+        FOCAL DEPTH         (KILOMETER) :   20.85775    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   1.895919    
+        DIP ANGLE       (DELTA, DEGREE) :   16.01074    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   96.91964    
+        DISLOCATION             (METER) :   3.516492    
+      PARAMETERS FOR FAULT SEGMENT      :          64
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.46059      -32.41667    
+        FOCAL DEPTH         (KILOMETER) :   32.49658    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :  0.7540430    
+        DIP ANGLE       (DELTA, DEGREE) :   21.81304    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   97.96600    
+        DISLOCATION             (METER) :   3.187202    
+      PARAMETERS FOR FAULT SEGMENT      :          65
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.10056      -32.41667    
+        FOCAL DEPTH         (KILOMETER) :   47.53975    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   359.1043    
+        DIP ANGLE       (DELTA, DEGREE) :   25.46866    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   99.01234    
+        DISLOCATION             (METER) :   3.414204    
+      PARAMETERS FOR FAULT SEGMENT      :          66
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.55840      -32.65000    
+        FOCAL DEPTH         (KILOMETER) :   8.014898    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   1.895620    
+        DIP ANGLE       (DELTA, DEGREE) :   5.869317    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   95.83083    
+        DISLOCATION             (METER) :   5.748379    
+      PARAMETERS FOR FAULT SEGMENT      :          67
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.19836      -32.65000    
+        FOCAL DEPTH         (KILOMETER) :   12.79037    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   1.911599    
+        DIP ANGLE       (DELTA, DEGREE) :   10.42609    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   96.87719    
+        DISLOCATION             (METER) :   4.729557    
+      PARAMETERS FOR FAULT SEGMENT      :          68
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.83833      -32.65000    
+        FOCAL DEPTH         (KILOMETER) :   20.61933    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   1.708353    
+        DIP ANGLE       (DELTA, DEGREE) :   15.78830    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   97.92355    
+        DISLOCATION             (METER) :   3.688072    
+      PARAMETERS FOR FAULT SEGMENT      :          69
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.47829      -32.65000    
+        FOCAL DEPTH         (KILOMETER) :   31.97883    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :  0.8633130    
+        DIP ANGLE       (DELTA, DEGREE) :   21.32317    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   98.96990    
+        DISLOCATION             (METER) :   3.191651    
+      PARAMETERS FOR FAULT SEGMENT      :          70
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.11826      -32.65000    
+        FOCAL DEPTH         (KILOMETER) :   46.62343    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   359.7149    
+        DIP ANGLE       (DELTA, DEGREE) :   25.01737    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   100.0163    
+        DISLOCATION             (METER) :   3.332263    
+      PARAMETERS FOR FAULT SEGMENT      :          71
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.58905      -32.88333    
+        FOCAL DEPTH         (KILOMETER) :   7.843625    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   3.444215    
+        DIP ANGLE       (DELTA, DEGREE) :   5.659129    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   96.79707    
+        DISLOCATION             (METER) :   5.205252    
+      PARAMETERS FOR FAULT SEGMENT      :          72
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.22901      -32.88333    
+        FOCAL DEPTH         (KILOMETER) :   12.45269    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   2.799567    
+        DIP ANGLE       (DELTA, DEGREE) :   10.15005    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   97.84342    
+        DISLOCATION             (METER) :   4.739303    
+      PARAMETERS FOR FAULT SEGMENT      :          73
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.86898      -32.88333    
+        FOCAL DEPTH         (KILOMETER) :   20.04857    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   2.180185    
+        DIP ANGLE       (DELTA, DEGREE) :   15.38244    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   98.88978    
+        DISLOCATION             (METER) :   4.160464    
+      PARAMETERS FOR FAULT SEGMENT      :          74
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.50894      -32.88333    
+        FOCAL DEPTH         (KILOMETER) :   31.06405    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   1.390620    
+        DIP ANGLE       (DELTA, DEGREE) :   20.77636    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   99.93613    
+        DISLOCATION             (METER) :   3.726334    
+      PARAMETERS FOR FAULT SEGMENT      :          75
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.14891      -32.88333    
+        FOCAL DEPTH         (KILOMETER) :   45.32915    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :  0.6299630    
+        DIP ANGLE       (DELTA, DEGREE) :   24.64131    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   100.9825    
+        DISLOCATION             (METER) :   3.151504    
+      PARAMETERS FOR FAULT SEGMENT      :          76
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.64430      -33.11667    
+        FOCAL DEPTH         (KILOMETER) :   7.556176    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   6.195346    
+        DIP ANGLE       (DELTA, DEGREE) :   5.273131    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   97.69183    
+        DISLOCATION             (METER) :   4.655299    
+      PARAMETERS FOR FAULT SEGMENT      :          77
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.28426      -33.11667    
+        FOCAL DEPTH         (KILOMETER) :   11.85094    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   4.846317    
+        DIP ANGLE       (DELTA, DEGREE) :   9.573102    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   98.73817    
+        DISLOCATION             (METER) :   4.550478    
+      PARAMETERS FOR FAULT SEGMENT      :          78
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.92423      -33.11667    
+        FOCAL DEPTH         (KILOMETER) :   19.00966    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   3.663780    
+        DIP ANGLE       (DELTA, DEGREE) :   14.64402    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   99.78453    
+        DISLOCATION             (METER) :   4.441774    
+      PARAMETERS FOR FAULT SEGMENT      :          79
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.56419      -33.11667    
+        FOCAL DEPTH         (KILOMETER) :   29.47209    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   2.666604    
+        DIP ANGLE       (DELTA, DEGREE) :   19.98508    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   100.8309    
+        DISLOCATION             (METER) :   4.218054    
+      PARAMETERS FOR FAULT SEGMENT      :          80
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.20415      -33.11667    
+        FOCAL DEPTH         (KILOMETER) :   43.24517    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   2.040548    
+        DIP ANGLE       (DELTA, DEGREE) :   24.22016    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   101.8772    
+        DISLOCATION             (METER) :   3.361578    
+      PARAMETERS FOR FAULT SEGMENT      :          81
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.69955      -33.35000    
+        FOCAL DEPTH         (KILOMETER) :   7.564727    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   9.812744    
+        DIP ANGLE       (DELTA, DEGREE) :   5.204719    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   99.17677    
+        DISLOCATION             (METER) :   4.442938    
+      PARAMETERS FOR FAULT SEGMENT      :          82
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.33952      -33.35000    
+        FOCAL DEPTH         (KILOMETER) :   11.48285    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   7.996882    
+        DIP ANGLE       (DELTA, DEGREE) :   9.143813    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   100.1271    
+        DISLOCATION             (METER) :   4.281651    
+      PARAMETERS FOR FAULT SEGMENT      :          83
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.97948      -33.35000    
+        FOCAL DEPTH         (KILOMETER) :   18.27032    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   6.374119    
+        DIP ANGLE       (DELTA, DEGREE) :   14.03613    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   101.1735    
+        DISLOCATION             (METER) :   4.212381    
+      PARAMETERS FOR FAULT SEGMENT      :          84
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.61945      -33.35000    
+        FOCAL DEPTH         (KILOMETER) :   28.24485    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   5.082102    
+        DIP ANGLE       (DELTA, DEGREE) :   19.31832    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   102.2198    
+        DISLOCATION             (METER) :   3.990420    
+      PARAMETERS FOR FAULT SEGMENT      :          85
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.25941      -33.35000    
+        FOCAL DEPTH         (KILOMETER) :   41.57654    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   4.324119    
+        DIP ANGLE       (DELTA, DEGREE) :   23.86390    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   103.2662    
+        DISLOCATION             (METER) :   3.594929    
+      PARAMETERS FOR FAULT SEGMENT      :          86
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.75480      -33.58333    
+        FOCAL DEPTH         (KILOMETER) :   7.748915    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   13.54613    
+        DIP ANGLE       (DELTA, DEGREE) :   5.328659    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   100.7403    
+        DISLOCATION             (METER) :   4.095978    
+      PARAMETERS FOR FAULT SEGMENT      :          87
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.39477      -33.58333    
+        FOCAL DEPTH         (KILOMETER) :   11.38533    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   11.87462    
+        DIP ANGLE       (DELTA, DEGREE) :   8.953888    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   101.5161    
+        DISLOCATION             (METER) :   3.896674    
+      PARAMETERS FOR FAULT SEGMENT      :          88
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.03473      -33.58333    
+        FOCAL DEPTH         (KILOMETER) :   17.92681    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   10.04466    
+        DIP ANGLE       (DELTA, DEGREE) :   13.68663    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   102.5624    
+        DISLOCATION             (METER) :   3.678720    
+      PARAMETERS FOR FAULT SEGMENT      :          89
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.67469      -33.58333    
+        FOCAL DEPTH         (KILOMETER) :   27.54035    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   8.586989    
+        DIP ANGLE       (DELTA, DEGREE) :   18.88521    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   103.6088    
+        DISLOCATION             (METER) :   3.445682    
+      PARAMETERS FOR FAULT SEGMENT      :          90
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.31466      -33.58333    
+        FOCAL DEPTH         (KILOMETER) :   40.49785    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   7.577953    
+        DIP ANGLE       (DELTA, DEGREE) :   23.61790    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   104.6552    
+        DISLOCATION             (METER) :   3.410075    
+      PARAMETERS FOR FAULT SEGMENT      :          91
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.81005      -33.81667    
+        FOCAL DEPTH         (KILOMETER) :   7.943591    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   17.43617    
+        DIP ANGLE       (DELTA, DEGREE) :   5.461604    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   102.3038    
+        DISLOCATION             (METER) :   4.482552    
+      PARAMETERS FOR FAULT SEGMENT      :          92
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.45001      -33.81667    
+        FOCAL DEPTH         (KILOMETER) :   11.58311    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   15.85374    
+        DIP ANGLE       (DELTA, DEGREE) :   9.030244    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   102.9051    
+        DISLOCATION             (METER) :   4.161439    
+      PARAMETERS FOR FAULT SEGMENT      :          93
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.08998      -33.81667    
+        FOCAL DEPTH         (KILOMETER) :   18.01881    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   13.92010    
+        DIP ANGLE       (DELTA, DEGREE) :   13.65953    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   103.9514    
+        DISLOCATION             (METER) :   3.699743    
+      PARAMETERS FOR FAULT SEGMENT      :          94
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.72994      -33.81667    
+        FOCAL DEPTH         (KILOMETER) :   27.43863    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   12.42436    
+        DIP ANGLE       (DELTA, DEGREE) :   18.77889    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   104.9978    
+        DISLOCATION             (METER) :   3.327149    
+      PARAMETERS FOR FAULT SEGMENT      :          95
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.36990      -33.81667    
+        FOCAL DEPTH         (KILOMETER) :   40.13991    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   11.25377    
+        DIP ANGLE       (DELTA, DEGREE) :   23.55493    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   106.0441    
+        DISLOCATION             (METER) :   3.195775    
+      PARAMETERS FOR FAULT SEGMENT      :          96
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.90784      -34.05000    
+        FOCAL DEPTH         (KILOMETER) :   7.986556    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   21.15239    
+        DIP ANGLE       (DELTA, DEGREE) :   5.408019    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   103.8037    
+        DISLOCATION             (METER) :   4.746662    
+      PARAMETERS FOR FAULT SEGMENT      :          97
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.54780      -34.05000    
+        FOCAL DEPTH         (KILOMETER) :   11.48014    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   19.57761    
+        DIP ANGLE       (DELTA, DEGREE) :   8.837682    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   104.3420    
+        DISLOCATION             (METER) :   4.791217    
+      PARAMETERS FOR FAULT SEGMENT      :          98
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.18776      -34.05000    
+        FOCAL DEPTH         (KILOMETER) :   17.62787    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   17.45595    
+        DIP ANGLE       (DELTA, DEGREE) :   13.33187    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   105.2168    
+        DISLOCATION             (METER) :   4.258770    
+      PARAMETERS FOR FAULT SEGMENT      :          99
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.82773      -34.05000    
+        FOCAL DEPTH         (KILOMETER) :   26.63830    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   15.85487    
+        DIP ANGLE       (DELTA, DEGREE) :   18.35436    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   106.2631    
+        DISLOCATION             (METER) :   3.786105    
+      PARAMETERS FOR FAULT SEGMENT      :         100
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.46769      -34.05000    
+        FOCAL DEPTH         (KILOMETER) :   38.86205    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   14.62235    
+        DIP ANGLE       (DELTA, DEGREE) :   23.20870    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   107.3095    
+        DISLOCATION             (METER) :   3.403857    
+      PARAMETERS FOR FAULT SEGMENT      :         101
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -73.06343      -34.28333    
+        FOCAL DEPTH         (KILOMETER) :   7.825841    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   23.34199    
+        DIP ANGLE       (DELTA, DEGREE) :   5.129965    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   105.2172    
+        DISLOCATION             (METER) :   4.023930    
+      PARAMETERS FOR FAULT SEGMENT      :         102
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.70340      -34.28333    
+        FOCAL DEPTH         (KILOMETER) :   10.88634    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   22.82607    
+        DIP ANGLE       (DELTA, DEGREE) :   8.182581    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   105.7555    
+        DISLOCATION             (METER) :   4.446542    
+      PARAMETERS FOR FAULT SEGMENT      :         103
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.34336      -34.28333    
+        FOCAL DEPTH         (KILOMETER) :   16.46623    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   20.53152    
+        DIP ANGLE       (DELTA, DEGREE) :   12.44147    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   106.3141    
+        DISLOCATION             (METER) :   4.482444    
+      PARAMETERS FOR FAULT SEGMENT      :         104
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.98332      -34.28333    
+        FOCAL DEPTH         (KILOMETER) :   24.72479    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   18.71126    
+        DIP ANGLE       (DELTA, DEGREE) :   17.29757    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   107.3604    
+        DISLOCATION             (METER) :   4.263254    
+      PARAMETERS FOR FAULT SEGMENT      :         105
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.62329      -34.28333    
+        FOCAL DEPTH         (KILOMETER) :   36.09240    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   17.34592    
+        DIP ANGLE       (DELTA, DEGREE) :   22.27895    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   108.4068    
+        DISLOCATION             (METER) :   3.830547    
+      PARAMETERS FOR FAULT SEGMENT      :         106
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -73.16664      -34.51667    
+        FOCAL DEPTH         (KILOMETER) :   7.838095    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   26.25303    
+        DIP ANGLE       (DELTA, DEGREE) :   5.060372    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   106.7091    
+        DISLOCATION             (METER) :   3.454456    
+      PARAMETERS FOR FAULT SEGMENT      :         107
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.80660      -34.51667    
+        FOCAL DEPTH         (KILOMETER) :   11.15152    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   24.82796    
+        DIP ANGLE       (DELTA, DEGREE) :   8.252755    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   107.2473    
+        DISLOCATION             (METER) :   3.475364    
+      PARAMETERS FOR FAULT SEGMENT      :         108
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.44656      -34.51667    
+        FOCAL DEPTH         (KILOMETER) :   16.62681    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   22.63883    
+        DIP ANGLE       (DELTA, DEGREE) :   12.36939    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   107.7856    
+        DISLOCATION             (METER) :   3.685415    
+      PARAMETERS FOR FAULT SEGMENT      :         109
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.08653      -34.51667    
+        FOCAL DEPTH         (KILOMETER) :   24.68275    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   20.77842    
+        DIP ANGLE       (DELTA, DEGREE) :   17.11885    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   108.6100    
+        DISLOCATION             (METER) :   3.823802    
+      PARAMETERS FOR FAULT SEGMENT      :         110
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.72649      -34.51667    
+        FOCAL DEPTH         (KILOMETER) :   35.75552    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   19.31381    
+        DIP ANGLE       (DELTA, DEGREE) :   22.07174    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   109.6564    
+        DISLOCATION             (METER) :   3.752649    
+      PARAMETERS FOR FAULT SEGMENT      :         111
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -73.26201      -34.75000    
+        FOCAL DEPTH         (KILOMETER) :   8.124682    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   27.68765    
+        DIP ANGLE       (DELTA, DEGREE) :   5.296139    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   108.2126    
+        DISLOCATION             (METER) :   3.776608    
+      PARAMETERS FOR FAULT SEGMENT      :         112
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.90197      -34.75000    
+        FOCAL DEPTH         (KILOMETER) :   11.63951    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   26.30686    
+        DIP ANGLE       (DELTA, DEGREE) :   8.524473    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   108.7509    
+        DISLOCATION             (METER) :   3.254069    
+      PARAMETERS FOR FAULT SEGMENT      :         113
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.54193      -34.75000    
+        FOCAL DEPTH         (KILOMETER) :   17.14821    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   24.37665    
+        DIP ANGLE       (DELTA, DEGREE) :   12.52128    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   109.2891    
+        DISLOCATION             (METER) :   3.051547    
+      PARAMETERS FOR FAULT SEGMENT      :         114
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.18190      -34.75000    
+        FOCAL DEPTH         (KILOMETER) :   25.13671    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   22.52890    
+        DIP ANGLE       (DELTA, DEGREE) :   17.17546    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   109.8824    
+        DISLOCATION             (METER) :   3.044725    
+      PARAMETERS FOR FAULT SEGMENT      :         115
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.82186      -34.75000    
+        FOCAL DEPTH         (KILOMETER) :   36.05595    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   20.99131    
+        DIP ANGLE       (DELTA, DEGREE) :   22.04963    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   110.9287    
+        DISLOCATION             (METER) :   3.168044    
+      PARAMETERS FOR FAULT SEGMENT      :         116
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -73.35743      -34.98333    
+        FOCAL DEPTH         (KILOMETER) :   8.560365    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   28.31007    
+        DIP ANGLE       (DELTA, DEGREE) :   5.731964    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   109.7161    
+        DISLOCATION             (METER) :   4.995451    
+      PARAMETERS FOR FAULT SEGMENT      :         117
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.99740      -34.98333    
+        FOCAL DEPTH         (KILOMETER) :   12.26373    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   27.69103    
+        DIP ANGLE       (DELTA, DEGREE) :   8.944962    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   110.2543    
+        DISLOCATION             (METER) :   4.013980    
+      PARAMETERS FOR FAULT SEGMENT      :         118
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.63736      -34.98333    
+        FOCAL DEPTH         (KILOMETER) :   17.86270    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   26.16799    
+        DIP ANGLE       (DELTA, DEGREE) :   12.82237    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   110.7926    
+        DISLOCATION             (METER) :   3.254382    
+      PARAMETERS FOR FAULT SEGMENT      :         119
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.27732      -34.98333    
+        FOCAL DEPTH         (KILOMETER) :   25.84409    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   24.26901    
+        DIP ANGLE       (DELTA, DEGREE) :   17.35184    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   111.3308    
+        DISLOCATION             (METER) :   2.828111    
+      PARAMETERS FOR FAULT SEGMENT      :         120
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -71.91729      -34.98333    
+        FOCAL DEPTH         (KILOMETER) :   36.67664    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   22.53369    
+        DIP ANGLE       (DELTA, DEGREE) :   22.08916    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   112.2009    
+        DISLOCATION             (METER) :   2.746848    
+      PARAMETERS FOR FAULT SEGMENT      :         121
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -73.45302      -35.21667    
+        FOCAL DEPTH         (KILOMETER) :   9.051171    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   28.53141    
+        DIP ANGLE       (DELTA, DEGREE) :   6.253844    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   111.2193    
+        DISLOCATION             (METER) :   5.582940    
+      PARAMETERS FOR FAULT SEGMENT      :         122
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -73.09298      -35.21667    
+        FOCAL DEPTH         (KILOMETER) :   13.00733    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   28.71484    
+        DIP ANGLE       (DELTA, DEGREE) :   9.515378    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   111.7575    
+        DISLOCATION             (METER) :   5.037612    
+      PARAMETERS FOR FAULT SEGMENT      :         123
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.73295      -35.21667    
+        FOCAL DEPTH         (KILOMETER) :   18.79399    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   27.85557    
+        DIP ANGLE       (DELTA, DEGREE) :   13.27955    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   112.2958    
+        DISLOCATION             (METER) :   4.179473    
+      PARAMETERS FOR FAULT SEGMENT      :         124
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.37291      -35.21667    
+        FOCAL DEPTH         (KILOMETER) :   26.83256    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   26.00602    
+        DIP ANGLE       (DELTA, DEGREE) :   17.60268    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   112.8341    
+        DISLOCATION             (METER) :   3.337696    
+      PARAMETERS FOR FAULT SEGMENT      :         125
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.01288      -35.21667    
+        FOCAL DEPTH         (KILOMETER) :   37.58593    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   23.92274    
+        DIP ANGLE       (DELTA, DEGREE) :   22.12403    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   113.4727    
+        DISLOCATION             (METER) :   2.874567    
+      PARAMETERS FOR FAULT SEGMENT      :         126
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -73.54861      -35.45000    
+        FOCAL DEPTH         (KILOMETER) :   9.578603    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   27.72503    
+        DIP ANGLE       (DELTA, DEGREE) :   6.802777    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   112.7225    
+        DISLOCATION             (METER) :   5.130822    
+      PARAMETERS FOR FAULT SEGMENT      :         127
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -73.18857      -35.45000    
+        FOCAL DEPTH         (KILOMETER) :   13.85448    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   28.63504    
+        DIP ANGLE       (DELTA, DEGREE) :   10.16046    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   113.2608    
+        DISLOCATION             (METER) :   5.149943    
+      PARAMETERS FOR FAULT SEGMENT      :         128
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.82853      -35.45000    
+        FOCAL DEPTH         (KILOMETER) :   19.92328    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   28.62445    
+        DIP ANGLE       (DELTA, DEGREE) :   13.81701    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   113.7990    
+        DISLOCATION             (METER) :   4.872156    
+      PARAMETERS FOR FAULT SEGMENT      :         129
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.46850      -35.45000    
+        FOCAL DEPTH         (KILOMETER) :   28.08039    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   27.20140    
+        DIP ANGLE       (DELTA, DEGREE) :   17.83981    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   114.3373    
+        DISLOCATION             (METER) :   4.183177    
+      PARAMETERS FOR FAULT SEGMENT      :         130
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.10846      -35.45000    
+        FOCAL DEPTH         (KILOMETER) :   38.74338    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   24.93001    
+        DIP ANGLE       (DELTA, DEGREE) :   22.05206    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   114.8755    
+        DISLOCATION             (METER) :   3.418180    
+      PARAMETERS FOR FAULT SEGMENT      :         131
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -73.64620      -35.68333    
+        FOCAL DEPTH         (KILOMETER) :   10.05575    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   25.62630    
+        DIP ANGLE       (DELTA, DEGREE) :   7.262126    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   114.2227    
+        DISLOCATION             (METER) :   4.227381    
+      PARAMETERS FOR FAULT SEGMENT      :         132
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -73.28617      -35.68333    
+        FOCAL DEPTH         (KILOMETER) :   14.66162    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   26.95426    
+        DIP ANGLE       (DELTA, DEGREE) :   10.71680    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   114.7610    
+        DISLOCATION             (METER) :   4.472290    
+      PARAMETERS FOR FAULT SEGMENT      :         133
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.92613      -35.68333    
+        FOCAL DEPTH         (KILOMETER) :   21.05662    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   27.69712    
+        DIP ANGLE       (DELTA, DEGREE) :   14.26218    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   115.2992    
+        DISLOCATION             (METER) :   4.598095    
+      PARAMETERS FOR FAULT SEGMENT      :         134
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.56609      -35.68333    
+        FOCAL DEPTH         (KILOMETER) :   29.38401    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   27.03921    
+        DIP ANGLE       (DELTA, DEGREE) :   17.93307    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   115.8375    
+        DISLOCATION             (METER) :   4.461230    
+      PARAMETERS FOR FAULT SEGMENT      :         135
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.20606      -35.68333    
+        FOCAL DEPTH         (KILOMETER) :   39.95712    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   25.05940    
+        DIP ANGLE       (DELTA, DEGREE) :   21.77430    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   116.3757    
+        DISLOCATION             (METER) :   3.891527    
+      PARAMETERS FOR FAULT SEGMENT      :         136
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -73.78861      -35.91667    
+        FOCAL DEPTH         (KILOMETER) :   9.910166    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   22.62867    
+        DIP ANGLE       (DELTA, DEGREE) :   7.132594    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   116.2951    
+        DISLOCATION             (METER) :   3.510575    
+      PARAMETERS FOR FAULT SEGMENT      :         137
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -73.42857      -35.91667    
+        FOCAL DEPTH         (KILOMETER) :   14.56938    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   23.74063    
+        DIP ANGLE       (DELTA, DEGREE) :   10.64475    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   116.1942    
+        DISLOCATION             (METER) :   3.692179    
+      PARAMETERS FOR FAULT SEGMENT      :         138
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -73.06853      -35.91667    
+        FOCAL DEPTH         (KILOMETER) :   21.06685    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   24.85176    
+        DIP ANGLE       (DELTA, DEGREE) :   14.10133    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   116.7325    
+        DISLOCATION             (METER) :   3.850798    
+      PARAMETERS FOR FAULT SEGMENT      :         139
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.70850      -35.91667    
+        FOCAL DEPTH         (KILOMETER) :   29.37100    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   25.09653    
+        DIP ANGLE       (DELTA, DEGREE) :   17.42506    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   117.2707    
+        DISLOCATION             (METER) :   3.975118    
+      PARAMETERS FOR FAULT SEGMENT      :         140
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.34846      -35.91667    
+        FOCAL DEPTH         (KILOMETER) :   39.62258    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   23.97139    
+        DIP ANGLE       (DELTA, DEGREE) :   20.89768    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   117.8090    
+        DISLOCATION             (METER) :   3.875643    
+      PARAMETERS FOR FAULT SEGMENT      :         141
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -73.93102      -36.15000    
+        FOCAL DEPTH         (KILOMETER) :   9.602746    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   20.09003    
+        DIP ANGLE       (DELTA, DEGREE) :   6.805624    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   115.5385    
+        DISLOCATION             (METER) :   3.063165    
+      PARAMETERS FOR FAULT SEGMENT      :         142
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -73.57098      -36.15000    
+        FOCAL DEPTH         (KILOMETER) :   14.16217    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   20.23780    
+        DIP ANGLE       (DELTA, DEGREE) :   10.31263    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   117.3207    
+        DISLOCATION             (METER) :   3.167161    
+      PARAMETERS FOR FAULT SEGMENT      :         143
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -73.21094      -36.15000    
+        FOCAL DEPTH         (KILOMETER) :   20.64164    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   20.78958    
+        DIP ANGLE       (DELTA, DEGREE) :   13.73801    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   117.8589    
+        DISLOCATION             (METER) :   3.229658    
+      PARAMETERS FOR FAULT SEGMENT      :         144
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.85091      -36.15000    
+        FOCAL DEPTH         (KILOMETER) :   28.90746    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   21.31154    
+        DIP ANGLE       (DELTA, DEGREE) :   16.84334    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   118.3972    
+        DISLOCATION             (METER) :   3.316142    
+      PARAMETERS FOR FAULT SEGMENT      :         145
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.49087      -36.15000    
+        FOCAL DEPTH         (KILOMETER) :   38.94094    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   21.10345    
+        DIP ANGLE       (DELTA, DEGREE) :   19.98967    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   118.9354    
+        DISLOCATION             (METER) :   3.439095    
+      PARAMETERS FOR FAULT SEGMENT      :         146
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -74.03241      -36.38333    
+        FOCAL DEPTH         (KILOMETER) :   9.595863    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   18.45116    
+        DIP ANGLE       (DELTA, DEGREE) :   6.714792    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   114.0307    
+        DISLOCATION             (METER) :   2.782880    
+      PARAMETERS FOR FAULT SEGMENT      :         147
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -73.67238      -36.38333    
+        FOCAL DEPTH         (KILOMETER) :   14.11932    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   17.58285    
+        DIP ANGLE       (DELTA, DEGREE) :   10.11018    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   116.6680    
+        DISLOCATION             (METER) :   2.847364    
+      PARAMETERS FOR FAULT SEGMENT      :         148
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -73.31234      -36.38333    
+        FOCAL DEPTH         (KILOMETER) :   20.57652    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   16.82863    
+        DIP ANGLE       (DELTA, DEGREE) :   13.47524    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   117.2063    
+        DISLOCATION             (METER) :   2.865755    
+      PARAMETERS FOR FAULT SEGMENT      :         149
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.95230      -36.38333    
+        FOCAL DEPTH         (KILOMETER) :   28.87136    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   16.68979    
+        DIP ANGLE       (DELTA, DEGREE) :   16.49959    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   117.7445    
+        DISLOCATION             (METER) :   2.875318    
+      PARAMETERS FOR FAULT SEGMENT      :         150
+        FAULT RUPTURE TIME     (SECOND) :  0.0000000E+00
+        EPICENTER (LON, LAT)   (DEGREE) :  -72.59227      -36.38333    
+        FOCAL DEPTH         (KILOMETER) :   38.89705    
+        FAULT LENGTH        (KILOMETER) :   25.92333    
+        FAULT WIDTH         (KILOMETER) :   40.00000    
+        STRIKE ANGLE    (THETA, DEGREE) :   16.88898    
+        DIP ANGLE       (DELTA, DEGREE) :   19.50718    
+        SLIP ANGLE     (LAMBDA, DEGREE) :   118.2828    
+        DISLOCATION             (METER) :   2.932455    
+  
+ --------------- 1ST-LEVEL GRID INFORMATION -----------------
+     #  GRID IDENTIFICATION NUMBER      :           1
+        USE SPHERICAL COORDINATE SYSTEM
+        USE LINEAR SHALLOW WATER EQUATIONS
+        BOTTOM FRICTION                 : DISABLED
+        VOLUME FLUX OUTPUT              : DISABLED
+        SURFACE DISPLACEMENT OUTPUT     : ENABLED
+        GRID LAYER POSITIONS            :
+            X_START            (DEGREE) :  -76.00781    
+            X_END              (DEGREE) :  -68.64114    
+            Y_START            (DEGREE) :  -38.23128    
+            Y_END              (DEGREE) :  -27.01461    
+        GRID DIMENSION          (NX*NY) :         443 *         674
+        GRID SIZE           (DX,MINUTE) :   1.000000    
+        GRID SIZE           (DY,MINUTE) :   1.000000    
+        TIME STEP SIZE     (DT, SECOND) :   1.000000    
+        NUMBER OF CHILD GRID LAYERS     :           0
+        BATHYMETRY DATA FILE NAME       :
+  centralchile.xyz                                                              
+                                          
+ --------------- SUB-LEVEL GRID INFORMATION -----------------
+  

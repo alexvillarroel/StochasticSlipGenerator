@@ -43,6 +43,7 @@ def main(args):
     os.chdir('../Output_data/')
     os.mkdir(dir)
     os.chdir(dir)
+    os.mkdir('img')
     print('Do you wanna make multifault.ctl file?')
     #answer=input('[yes/no]')
     answer="no"
@@ -78,11 +79,11 @@ def main(args):
               'slip':Slip,'strike':strike,'dip':dip,'rake':rake
               ,'lat':Y_grid,'lon':X_grid,'time':np.zeros((1,nx*ny))}
         savemat(archivo_salida+'.mat',mdic) # se guarda los arrays de la falla
-
-        if answer=='yes':
-            print('ok')
+        filename='./img/'+archivo_salida+'.png'
+        # if answer=='yes':
+        #     print('ok')
             # multifault.make_multifault(archivo_salida+'.mat',file_multifault,float(lat_griddomain),float(lon_griddomain))
-        slgen.plot_slip(X_grid,Y_grid,lons_fosa,lats_fosa,Slip)
+        slgen.plot_slip(X_grid,Y_grid,lons_fosa,lats_fosa,Slip,filename)
         #slgen.plot_slip_gmt(region,X_grid,Y_grid,lons_fosa,lats_fosa,Slip,archivo_salida,dx,dy)
 
     return

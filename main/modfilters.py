@@ -3,6 +3,22 @@ import scipy.spatial.distance
 import numpy as np
 import random
 import main as slgen
+def obtain_border(matrix):
+    border = []
+    
+    # Obtener la primera fila
+    border.extend(matrix[0])
+
+    # Obtener la última columna (sin incluir la primera fila y la última fila)
+    border.extend(fila[-1] for fila in matrix[1:-1])
+
+    # Obtener la última fila en orden inverso
+    border.extend(reversed(matrix[-1]))
+
+    # Obtener la primera columna (sin incluir la primera y la última fila)
+    border.extend(fila[0] for fila in reversed(matrix[1:-1]))
+
+    return border
 def corr2_coeff(A, B):
     # Rowwise mean of input arrays & subtract from input arrays themeselves
     A_mA = A - A.mean(1)[:, None]
@@ -14,9 +30,19 @@ def corr2_coeff(A, B):
 
     # Finally get corr coeff
     return np.dot(A_mA, B_mB.T) / np.sqrt(np.dot(ssA[:, None],ssB[None]))
+
 def depthfilter(X_grid,Y_grid,Slip,depth):
-    
-    return Slip
+    flag=True
+    q=np.percentile(Slip.flat,10)
+    # print(q)
+    idx=np.argwhere(depth<=-55)
+    if len(idx)>0:
+        for i,j in idx:
+            if Slip[i,j]>=3:
+                # print(f'{Slip[i,j]} and q: {q}\n')
+                flag=False
+    return flag
+
 def couplingfilter(X_grid,Y_grid,Slip,couplingfilename,lonfosa,latfosa):
     coupling=np.genfromtxt('../auxiliar/'+couplingfilename,delimiter='\t')
     # erasing nans for interpolation
@@ -30,3 +56,11 @@ def couplingfilter(X_grid,Y_grid,Slip,couplingfilename,lonfosa,latfosa):
     print(dist)
     #slgen.plot_slip(X_grid,Y_grid,lonfosa,latfosa,corr2D,cmap="hot_r")
     return Slip
+
+def physical_filter(Slip):
+    flag=True
+    q=np.percentile(Slip.flat,80)
+    for value in obtain_border(Slip):
+        if value>=q:
+            flag=False
+    return flag

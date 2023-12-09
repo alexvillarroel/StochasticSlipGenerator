@@ -1,10 +1,13 @@
 import numpy as np
 import argparse
+import os
 import scipy.io
 import sys
 sys.path.append('../') 
 import main as slgen
 from main import modfilters
+import json
+import shutil
 
 def main(args):
     """What is executed upon running the program. 
@@ -15,17 +18,35 @@ def main(args):
     couplingfilename=args.couplingfile
     simulationfolder=args.simulationfolder
     # names of files
-    file='sim_1.mat'
+    files=os.listdir('../Output_data/'+simulationfolder)
     route_trench = "../Slab/trench-chile.txt"
     # load trench
     lons_fosa, lats_fosa  = slgen.load_trench(route_trench)
     # load files
-    fmat=scipy.io.loadmat('../Output_data/'+simulationfolder+'/'+file)
-    X_grid=fmat['lon']
-    Y_grid=fmat['lat']
-    Slip=fmat['slip']
-    modfilters.couplingfilter(X_grid,Y_grid,Slip,couplingfilename,lons_fosa,lats_fosa)
-    return
+    dicc={}
+    for filename in files:
+        if filename.endswith('.mat'):
+            fmat=scipy.io.loadmat('../Output_data/'+simulationfolder+'/'+filename)
+            X_grid=fmat['lon']
+            Y_grid=fmat['lat']
+            Slip=fmat['slip']
+            depth=fmat['depth']
+            Slip_filter_flag=modfilters.depthfilter(X_grid,Y_grid,Slip,depth)
+            dicc.update({filename:Slip_filter_flag})
+    with open('../Output_data/'+simulationfolder+'/Slip_filters.json', 'w') as archivo:
+        json.dump(dicc, archivo)
+    filtered_true=list(dict(filter(lambda item: item[1], dicc.items())).keys())
+    # Now this list we filt by physical limitations
+    dicc_physics={}
+    for element in filtered_true:
+        fmat=scipy.io.loadmat('../Output_data/'+simulationfolder+'/'+element)
+        Slip=fmat['slip']
+        Slip_filter_physic_flag=modfilters.physical_filter(Slip)
+        dicc_physics.update({element:Slip_filter_physic_flag})
+    # we made a list with items that meet the conditions of depth and physical conditions
+    filtered_by_depth_and_physics=list(dict(filter(lambda item: item[1], dicc_physics.items())).keys())
+    print(len(filtered_by_depth_and_physics))
+    print(filtered_by_depth_and_physics)
 
 if __name__ == "__main__":
     desc = """

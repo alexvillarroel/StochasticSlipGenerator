@@ -1026,7 +1026,7 @@ def plot_grid(region,data_trench,lons,lats):
     fig.savefig('grid.png')
     fig.show()
     return
-def plot_slip(X_grid,Y_grid,lonfosa,latfosa,Slip,cmap='rainbow'):
+def plot_slip(X_grid,Y_grid,lonfosa,latfosa,Slip,filename,cmap='rainbow'):
         fig = plt.figure()
         # iniciliazar mapa
         m = Basemap(projection='merc', lat_0=35, lon_0=210,
@@ -1047,9 +1047,10 @@ def plot_slip(X_grid,Y_grid,lonfosa,latfosa,Slip,cmap='rainbow'):
         m.drawcountries(linewidth=0.25)
         m.drawmeridians(np.arange(-180,180,2),labels=[1,1,0,1])
         m.drawparallels(np.arange(-50,-30,2),labels=[1,1,0,1])
-        plt.show()
+        plt.savefig(filename)
+        plt.close()
         return
-def plot_slip_gmt(region,X_grid,Y_grid,lonfosa,latfsa,Slip,archivo_salida,dx,dy):
+def plot_slip_gmt(region,X_grid,Y_grid,lonfosa,latfsa,Slip,dx,dy,archivo_salida):
     # define parameters for plotting
     latmax=np.max(Y_grid.flat)
     latmin=np.min(Y_grid.flat)
@@ -1067,13 +1068,7 @@ def plot_slip_gmt(region,X_grid,Y_grid,lonfosa,latfsa,Slip,archivo_salida,dx,dy)
     grid=pygmt.xyz2grd(x=X_grid.flatten(),y=Y_grid.flatten(),z=Slip.flatten(),region = reg2,spacing=spacing)
     fig.basemap(region=region, projection="M12c", frame=True)
     fig.coast(land="darkgray", transparency=40)
-    fig.grdimage(grid, 
-             cmap = True, 
-             region = region, 
-             projection = 'M12c',
-             interpolation="c",
-             nan_transparent=True
-             )
+    fig.plot(x=X_grid.flatten(),y=Y_grid.flatten(),cmap=False,pen=0.1,close=True)
     fig.colorbar(frame="x+lSlip[m]")
     fig.savefig(archivo_salida+'.png')
     return
