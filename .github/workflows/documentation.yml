@@ -9,18 +9,86 @@ jobs:
   docs:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v3
-      - name: Install dependencies
+      # Checkout current git repository
+      - name: Checkout
+        uses: actions/checkout@v4.1.1
+        with:
+          # fetch all history so that setuptools-scm works
+          fetch-depth: 0
+
+      # Install Micromamba with conda-forge dependencies
+      - name: Setup Micromamba
+        uses: mamba-org/setup-micromamba@v1.7.3
+        with:
+          environment-name: pygmt
+          condarc: |
+            channels:
+              - conda-forge
+              - nodefaults
+          cache-downloads: true
+          cache-environment: true
+          create-args: >-
+            python=3.12
+            gmt=6.4.0
+            ghostscript=9.54.0
+            numpy
+            pandas
+            xarray
+            netCDF4
+            packaging
+            contextily
+            geopandas
+            ipython
+            rioxarray
+            build
+            make
+            pip
+            myst-parser
+            panel
+            sphinx
+            sphinx-autodoc-typehints
+            sphinx-copybutton
+            sphinx-design
+            sphinx-gallery
+            sphinx_rtd_theme
+
+      # Download cached remote files (artifacts) from GitHub
+      - name: Download remote data from GitHub
+        uses: dawidd6/action-download-artifact@v3.0.0
+        with:
+          workflow: cache_data.yaml
+          workflow_conclusion: success
+          name: gmt-cache
+          path: .gmt
+
+      # Move downloaded files to ~/.gmt directory and list them
+      - name: Move and list downloaded remote files
         run: |
-          apt-get install gmt
-          conda create --name pygmt python=3.12 numpy pandas xarray netcdf4 packaging gmt
-          conda activate pygmt
-          conda install pygmt
-          conda install sphinx sphinx_rtd_theme myst_parser sphinx-gallery
-      - name: Sphinx build
+          mkdir -p ~/.gmt
+          mv .gmt/* ~/.gmt
+          # Change modification times of the two files, so GMT won't refresh it
+          touch ~/.gmt/server/gmt_data_server.txt ~/.gmt/server/gmt_hash_server.txt
+          ls -lhR ~/.gmt
+
+      # Install the package that we want to test
+      - name: Install the package
         run: |
-          sphinx-build docs _build
+          python -m build --sdist
+          python -m pip install dist/*
+
+      # Build the documentation
+      - name: Build the documentation
+        run: make -C doc clean all
+
+      - name: Checkout the gh-pages branch
+        uses: actions/checkout@v4.1.1
+        with:
+          ref: gh-pages
+          # Checkout to this folder instead of the current one
+          path: deploy
+          # Download the entire history
+          fetch-depth: 0
+        if: (github.event_name == 'release' || github.event_name == 'push') && (matrix.os == 'ubuntu-latest')
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
