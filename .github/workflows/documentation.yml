@@ -13,10 +13,10 @@ jobs:
       - uses: actions/setup-python@v3
       - name: Install dependencies
         run: |
-          conda create --name pygmt-env gmt
-          conda activate pygmt-env
-          pip install pygmt
-          pip install sphinx sphinx_rtd_theme myst_parser sphinx-gallery
+          mamba create --name pygmt python=3.12 numpy pandas xarray netcdf4 packaging gmt
+          mamba activate pygmt
+          mamba install pygmt
+          mamba install sphinx sphinx_rtd_theme myst_parser sphinx-gallery
       - name: Sphinx build
         run: |
           sphinx-build docs _build
