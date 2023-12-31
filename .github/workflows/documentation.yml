@@ -13,7 +13,8 @@ jobs:
       - uses: actions/setup-python@v3
       - name: Install dependencies
         run: |
-          pip install sphinx sphinx_rtd_theme myst_parser sphinx-gallery gmt pygmt
+          pip install sphinx sphinx_rtd_theme myst_parser sphinx-gallery gmt
+          pip install --pre --extra-index-url https://test.pypi.org/simple/ pygmt
       - name: Sphinx build
         run: |
           sphinx-build docs _build
