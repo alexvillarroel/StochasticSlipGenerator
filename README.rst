@@ -1,5 +1,5 @@
-# Stochpy: A tool to create,filter and make plots of stochastic slip grids applied in Chile 🔧📚🌏🇨🇱
-
+Stochpy: A tool to create,filter and make plots of stochastic slip grids applied in Chile 🔧📚🌏🇨🇱
+=================================================
 Overview
 =================================================
 Stochpy is a project that was built with the need for
@@ -10,20 +10,9 @@ Pre-processing of data for tsunami softwares as a comcot
 
 How does work?
 -------------------------------------------------------
-Actually, the Stochastic Slip generation its based on Karhunen-Loéve expansion
+Actually, the Stochastic Slip generation its based on Karhunen-Loéve expansion,
+that explain a stochastic process can be represented as an infinite linear combination of orthogonal functions.
 
-.. math::
-
-    X_t=\sum_{k=1}^\infty Z_ke_k(t) 
-
-For the stochastic generation of slips:
-
-.. math:: 
-
-    Slip=\mu+\sum_{k=1}^Nz_k\sqrt{\lambda_k}v_k
-
-That a stochastic process can be represented as an infinite linear combination of orthogonal functions.
-==================================================================================================
 Installing
 ==================================================================================================
 For install this tool, it's so simple, you need mamba or conda package manager, which takes care of setting up a virtual environment.
@@ -36,22 +25,17 @@ First you need to clone the repository
 
 Once downloaded, get into folder and write:
 
-.. tab-set::
+.. _repo:
 
-    .. tab-item:: mamba
-        :sync: mamba
+    mamba env create -f environment.yml
 
-        ::
+or
 
-            mamba env create -f environment.yml
+.. _repo:
 
-    .. tab-item:: conda
-        :sync: conda
+    conda env create -f environment.yml
 
-        ::
 
-            conda env create -f environment.yml
-
-Now you can make a test using an example of :ref:`gallery-section`
+For more information, you can visit the documentation in :ref:` Stochpy Documentation <>`
 
 
