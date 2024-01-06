@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3D Slip Figure &mdash; Stochpy Documentation 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=ccdb6887"></script>
+        <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Coupling figure - 2D Fault" href="plot_Coupling.html" />
+    <link rel="prev" title="Stochastic process Gallery 😄" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Stochpy Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Slip_generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Stochastic process Gallery 😄</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3D Slip Figure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_Coupling.html">Coupling figure - 2D Fault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_Introduction-Karhunen-Loeve.html">Stochastic Slip generation - 1D Fault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_Case2D-Karhunen-Loeve.html">Stochastic Slip generation - 2D Fault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_tukey.html">Tukey Filter - 2D Fault</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../team.html">Team Gallery</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Stochpy Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Stochastic process Gallery 😄</a></li>
+      <li class="breadcrumb-item active">3D Slip Figure</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/auto_examples/plot_3D-plot.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#sphx-glr-download-auto-examples-plot-3d-plot-py"><span class="std std-ref">Go to the end</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="d-slip-figure">
+<span id="sphx-glr-auto-examples-plot-3d-plot-py"></span><h1>3D Slip Figure<a class="headerlink" href="#d-slip-figure" title="Link to this heading"></a></h1>
+<blockquote>
+<div><p>This example makes an 3d plot of Slip distribution
+:param X_array: Longitude grid
+:param Y_array: Latitude grid
+:param depth: Depth grid
+:param Slip: Slip grid
+:param filename: Optional, filename if you wanna save fig
+:return: 3D Figure of Slip distribution</p>
+</div></blockquote>
+<img src="../_images/sphx_glr_plot_3D-plot_001.png" srcset="../_images/sphx_glr_plot_3D-plot_001.png" alt="Slip_0004_Simulation" class = "sphx-glr-single-img"/><div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.io</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
+<span class="kn">from</span> <span class="nn">matplotlib.ticker</span> <span class="kn">import</span> <span class="n">LinearLocator</span>
+<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">ListedColormap</span><span class="p">,</span> <span class="n">Normalize</span>
+
+<span class="k">def</span> <span class="nf">plot_3d</span><span class="p">(</span><span class="n">X_array</span><span class="p">,</span><span class="n">Y_array</span><span class="p">,</span><span class="n">depth</span><span class="p">,</span><span class="n">Slip</span><span class="p">,</span><span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+    <span class="c1"># Plot the surface with face colors taken from the array we made.</span>
+    <span class="n">surf</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X_array</span><span class="p">,</span><span class="n">Y_array</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">facecolors</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">rainbow</span><span class="p">(</span><span class="n">Slip</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">Slip</span><span class="o">.</span><span class="n">flatten</span><span class="p">())),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="c1"># Customize the z axis.</span>
+    <span class="c1"># Agregar barra de colores con el rango correcto</span>
+    <span class="n">norm</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">Slip</span><span class="o">.</span><span class="n">flat</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">Slip</span><span class="o">.</span><span class="n">flat</span><span class="p">))</span>
+    <span class="n">sm</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">ScalarMappable</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">rainbow</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">)</span>
+    <span class="n">sm</span><span class="o">.</span><span class="n">set_array</span><span class="p">([])</span>  <span class="c1"># este paso es necesario para que la barra de colores refleje correctamente los valores</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Slip_0004_Simulation&#39;</span><span class="p">)</span>
+    <span class="c1"># Configurar etiquetas</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Longitude&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Latitude&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">&#39;Depth&#39;</span><span class="p">)</span>
+    <span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">sm</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;Slip[m]&#39;</span><span class="p">)</span>
+    <span class="c1"># Configurar posición de la barra de colores</span>
+    <span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_label_position</span><span class="p">(</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>  <span class="c1"># Puedes ajustar la posición según tus necesidades</span>
+    <span class="k">if</span> <span class="n">filename</span><span class="o">!=</span><span class="kc">None</span><span class="p">:</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="c1"># In[ ]:</span>
+<span class="n">file</span><span class="o">=</span><span class="s1">&#39;../Output_data/Simulation_9.0/sim_0004.mat&#39;</span>
+<span class="n">filemat</span><span class="o">=</span><span class="n">scipy</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+<span class="n">Slip</span><span class="o">=</span><span class="n">filemat</span><span class="p">[</span><span class="s1">&#39;slip&#39;</span><span class="p">]</span>
+<span class="n">X_array</span><span class="o">=</span><span class="n">filemat</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">]</span>
+<span class="n">Y_array</span><span class="o">=</span><span class="n">filemat</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">]</span>
+<span class="n">depth</span><span class="o">=</span><span class="n">filemat</span><span class="p">[</span><span class="s1">&#39;depth&#39;</span><span class="p">]</span><span class="o">/-</span><span class="mi">1000</span>
+<span class="n">region</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">76</span><span class="p">,</span><span class="o">-</span><span class="mi">70</span><span class="p">,</span><span class="o">-</span><span class="mi">36</span><span class="p">,</span><span class="o">-</span><span class="mi">28</span><span class="p">]</span>
+
+<span class="n">plot_3d</span><span class="p">(</span><span class="n">X_array</span><span class="p">,</span><span class="n">Y_array</span><span class="p">,</span><span class="n">depth</span><span class="p">,</span><span class="n">Slip</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.170 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-3d-plot-py">
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/20d738798b235f7dd72a3c6a993e84f0/plot_3D-plot.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_3D-plot.ipynb</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/d32fa355589804fb31e592ae08f80fb4/plot_3D-plot.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_3D-plot.py</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Stochastic process Gallery 😄" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_Coupling.html" class="btn btn-neutral float-right" title="Coupling figure - 2D Fault" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Alex Villarroel.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
