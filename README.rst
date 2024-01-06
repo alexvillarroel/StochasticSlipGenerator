@@ -49,6 +49,6 @@ And write
 
 And now you can use the package!
 
-For more information, you can visit the documentation in :ref:` Stochpy Documentation <>`
+For more information, you can visit the documentation in :ref:` Stochpy Documentation <https://alexvillarroel.github.io/StochasticSlipGenerator>`
 
 
