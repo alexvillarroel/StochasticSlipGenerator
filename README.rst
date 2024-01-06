@@ -35,6 +35,19 @@ or
 
     conda env create -f environment.yml
 
+Once you had created the environment, you need to activate it.
+
+.. _repo:
+
+    conda activate stochpy
+
+And write 
+
+.. _repo:
+
+    python setup.py install
+
+And now you can use the package!
 
 For more information, you can visit the documentation in :ref:` Stochpy Documentation <>`
 
