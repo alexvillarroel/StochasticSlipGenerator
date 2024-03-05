@@ -15,7 +15,7 @@ Below is a gallery of examples
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="3D Slip Figure of an Stochastic generation">
+    <div class="sphx-glr-thumbcontainer" tooltip="3D Slip Figure of a Stochastic generation">
 
 .. only:: html
 
@@ -26,7 +26,7 @@ Below is a gallery of examples
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">3D Slip Figure of an Stochastic generation</div>
+      <div class="sphx-glr-thumbnail-title">3D Slip Figure of a Stochastic generation</div>
     </div>
 
 
@@ -61,6 +61,23 @@ Below is a gallery of examples
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Seismicity Chile 2011-2024</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Slip and deformation figure of a Stochastic generation">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_slips_and_def_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_plot_slips_and_def.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Slip and deformation figure of a Stochastic generation</div>
     </div>
 
 
@@ -126,6 +143,7 @@ Below is a gallery of examples
    /auto_examples/plot_3D-plot
    /auto_examples/plot_Coupling
    /auto_examples/plot_events
+   /auto_examples/plot_slips_and_def
    /auto_examples/plot_Introduction-Karhunen-Loeve
    /auto_examples/plot_Case2D-Karhunen-Loeve
    /auto_examples/plot_tukey

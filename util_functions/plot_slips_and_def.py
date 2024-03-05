@@ -1,3 +1,9 @@
+"""
+Slip and deformation figure of a Stochastic generation
+============================================================================================================
+    This example makes a plot of Slip distribution and of deformation in meters.
+
+"""
 import scipy.io
 import geostochpy
 import matplotlib.pyplot as plt

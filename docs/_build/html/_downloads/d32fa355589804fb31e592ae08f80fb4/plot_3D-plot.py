@@ -1,6 +1,6 @@
 
 """
-3D Slip Figure of an Stochastic generation
+3D Slip Figure of a Stochastic generation
 ============================================================================================================
     This example makes an 3d plot of Slip distribution
     :param X_array: Longitude grid
@@ -77,8 +77,7 @@ lons,lons_ep,lats,lats_ep=geostochpy.make_fault_alongtrench(lons_fosa,lats_fosa,
 # ##### Se crea la matriz de slips medios con geostochpy.matriz_media(mean,dep)
 
 # In[15]:
-
-
+#
 ## Creation slip models
 # mean matrix
 #

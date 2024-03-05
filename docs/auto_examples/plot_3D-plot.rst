@@ -18,7 +18,7 @@
 .. _sphx_glr_auto_examples_plot_3D-plot.py:
 
 
-3D Slip Figure of an Stochastic generation
+3D Slip Figure of a Stochastic generation
 ============================================================================================================
     This example makes an 3d plot of Slip distribution
     :param X_array: Longitude grid
@@ -137,7 +137,7 @@
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 5.510 seconds)
+   **Total running time of the script:** (0 minutes 13.056 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_3D-plot.py:

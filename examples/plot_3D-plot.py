@@ -1,6 +1,6 @@
 
 """
-3D Slip Figure of an Stochastic generation
+3D Slip Figure of a Stochastic generation
 ============================================================================================================
     This example makes an 3d plot of Slip distribution
     :param X_array: Longitude grid
