@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.017** total execution time for 5 files **from auto_examples**:
+**00:06.002** total execution time for 6 files **from auto_examples**:
 
 .. container::
 
@@ -32,11 +32,8 @@ Computation times
    * - Example
      - Time
      - Mem (MB)
-   * - :ref:`sphx_glr_auto_examples_plot_tukey.py` (``plot_tukey.py``)
-     - 00:00.017
-     - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_3D-plot.py` (``plot_3D-plot.py``)
-     - 00:00.000
+     - 00:06.002
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_Case2D-Karhunen-Loeve.py` (``plot_Case2D-Karhunen-Loeve.py``)
      - 00:00.000
@@ -45,5 +42,11 @@ Computation times
      - 00:00.000
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_Introduction-Karhunen-Loeve.py` (``plot_Introduction-Karhunen-Loeve.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plot_events.py` (``plot_events.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plot_tukey.py` (``plot_tukey.py``)
      - 00:00.000
      - 0.0

@@ -15,7 +15,7 @@ Below is a gallery of examples
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="3D Slip Figure">
+    <div class="sphx-glr-thumbcontainer" tooltip="3D Slip Figure of an Stochastic generation">
 
 .. only:: html
 
@@ -26,7 +26,7 @@ Below is a gallery of examples
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">3D Slip Figure</div>
+      <div class="sphx-glr-thumbnail-title">3D Slip Figure of an Stochastic generation</div>
     </div>
 
 
@@ -44,6 +44,23 @@ Below is a gallery of examples
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Coupling figure - 2D Fault</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Seismicity Chile 2011-2024">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_events_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_plot_events.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Seismicity Chile 2011-2024</div>
     </div>
 
 
@@ -108,6 +125,7 @@ Below is a gallery of examples
 
    /auto_examples/plot_3D-plot
    /auto_examples/plot_Coupling
+   /auto_examples/plot_events
    /auto_examples/plot_Introduction-Karhunen-Loeve
    /auto_examples/plot_Case2D-Karhunen-Loeve
    /auto_examples/plot_tukey

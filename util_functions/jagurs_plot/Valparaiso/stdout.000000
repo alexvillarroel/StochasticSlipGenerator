@@ -1,0 +1,101 @@
+============================================================
+=== Check configurations! [Begin] ==========================
+============================================================
+[Make-time configurations]
+- Coordination: Polar (Default)
+- Difference scheme for advection: 1st order upwind (Default)
+- Precision: Double precision except file I/O (-DREAL_DBLE)
+- MPI parallelization: ON (-DMPI)
+   - Undecomposed input/output files: ON (-DONEFILE)
+   - Inter-domain communication: MPI_Alltoallv (-DUSE_ALLTOALLV)
+- OpenMP parallelization: ON
+- Built-in timer: DETAIL (-DTIMER -DTIMER_DETAIL)
+- Convergence check on dispersive: ON (-DCONV_CHECK)
+- Snapshot output: Orignal GMT output
+
+[Run-time configurations]
+(Model parameters)
+- Time step[s] (dt):    0.100000E+01
+- End time[s] (tend):    0.360000E+03
+- Snapshot interval[steps] (itmap):       360
+   - From [step] (itmap_start):         0
+   - To [step] (itmap_end):      99999999
+- Time step between ruptures[s] (tau):    0.100000E+01
+- Non-dimensional coeff. (positive val.) or Manning's roughtness coeff. (negative val)
+   - For sea (cf):     -0.250000E-01
+   - For land (cfl):   -0.250000E-01
+- Max. Froude number (froude_lim):    0.200000E+01
+- Coriolis force (coriolis=1:ON/0:OFF):   0
+- Deformation bathymetry (def_bathy=1:ON/0:OFF):   1
+- Smooth edges (smooth_edges=1:ON/0:OFF):   0
+- All grids are copiedy to coarse (c2p_all=1:ON/0:OFF):   1
+- Only p2c interpolation is performed. (nest_1way=1:ON/0:OFF):   0
+- Multiple ruptures (multrupt=1:ON/0:OFF):   0
+- Initial disp. with interpolation (init_disp_interpolation=1:ON/0:OFF):   1
+   - 3rd order spline interpolation is utilized.
+- Initial disp. with Gaussian (init_disp_gaussian=1:ON/0:OFF):   0
+- Initial disp. with sin wave (init_disp_sinwave=1:ON/0:OFF):   0
+- Initial disp. with fault calc. (init_disp_fault=1:ON/0:OFF):   1
+   - Fault parameter file (fault_param_file): faults.txt
+   - Adopt horizontal disp. effect (hzdisp_effect=1:ON/0:OFF):   1
+      - Lower limit of depth to apply it[m] (min_depth_hde):    0.500000E+02
+- Apply Kajiura filter. (apply_kj_filter=1:ON/0:OFF):   1
+- Elastic loading (with_elastic_loading=1:ON/0:OFF):   0
+- Density (with_density=1:ON/0:OFF):   0
+- Check arrival time (check_arrival_time=1:ON/0:OFF):   1
+   - Threshold height[m] (check_arrival_height):    0.100000E-01
+
+(Domains)
+- Grid file: gridfile.dat
+- Number of domains:      3
+
+   ID  Name     Parent  Linear  disp_file wod_file bcf_file
+     1 SD01     SD01         1          0        0        0
+     2 SD02     SD01         0          0        0        0
+     3 SD03     SD02         0          0        0        0
+
+(Dispersive)
+- Dispersive (with_disp=0:OFF/1:ON/2:Except root dom.):   0
+
+(Absorbing boundary condition)
+- Absorbing boundary condition (with_abc=1:ON/0:OFF):   0
+
+(Restart)
+- Restart step [step] (restart=0:OFF):         0
+- Restart file interval [steps] (restartinterval=0:OFF):         0
+
+(MPI parallelization)
+- Number of processes:       6
+   - East-West direction (procx):         2
+   - North-South direction (procy):       3
+
+(OpenMP parallelization)
+- Number of threads:       6
+============================================================
+=== Check configurations! [End] ============================
+============================================================
+../src/jagurs: Reading grid data...
+
+  *** grid 1
+
+        read_bathymetry_gmt_grdhdr(newsub.o): file name=VALPO01.grd
+        nx=251 ny=341
+        dx=.036000 dy=.036000
+        zmin=-2765.383 zmax=6288.480
+        west=280.000 east=289.000 south=-43.240 north=-31.000
+        mlon0=16800.000 mlat0=7260.000 dxdy=.036000
+        read_bathymetry_gmt_grd(newsubs.o):
+        min=-2765.383 max=6288.480
+        NO_FRICTION_FILE_GIVEN
+        NO_WETORDRY_FILE_GIVEN
+
+  *** grid 2
+
+        read_bathymetry_gmt_grdhdr(newsub.o): file name=VALPO02.grd
+        nx=69 ny=69
+        dx=.009000 dy=.009000
+        zmin=-580.548 zmax=2693.179
+        west=287.992 east=288.604 south=-33.304 north=-32.692
+        mlon0=17279.520 mlat0=7361.520 dxdy=.009000
+        read_bathymetry_gmt_grd(newsubs.o):
+        min=-580.548 max=2693.179

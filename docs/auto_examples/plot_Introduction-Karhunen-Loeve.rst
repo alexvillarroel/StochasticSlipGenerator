@@ -19,14 +19,14 @@
 
 
 Stochastic Slip generation - 1D Fault 
-====================================
+============================================================================================================
     Function to plot the 2D cross - product of the two - sided LaTeX .
 
     :return: [description]
     :rtype: [type]
     
 
-.. GENERATED FROM PYTHON SOURCE LINES 9-137
+.. GENERATED FROM PYTHON SOURCE LINES 9-136
 
 
 
@@ -48,18 +48,8 @@ Stochastic Slip generation - 1D Fault
          :class: sphx-glr-multi-img
 
 
-.. rst-class:: sphx-glr-script-out
-
- .. code-block:: none
 
 
-    (-1.1, 1.1)
-
-
-
-
-
-|
 
 .. code-block:: Python
 
@@ -84,8 +74,7 @@ Stochastic Slip generation - 1D Fault
 
 
     import sys
-    sys.path.append('../')
-    import main as stochpy
+    import geostochpy
     import numpy as np
     import matplotlib.pyplot as plt
 
@@ -119,7 +108,7 @@ Stochastic Slip generation - 1D Fault
     # In[294]:
 
 
-    taper=stochpy.taper_LeVeque(profundidades)
+    taper=geostochpy.taper_LeVeque(profundidades,22000)
     plt.plot(profundidades,taper)
     plt.xlabel('Profundidad a lo largo del dip')
     plt.ylabel('Taper')
@@ -183,7 +172,7 @@ Stochastic Slip generation - 1D Fault
     axes[1].set_title('Eigenmodes')
     axes[1].set_ylim((-1.1,1.1))
 
-
+    fig.show()
     # Se puede ver La alta similitud del eigenvector cuando k=0 con el taper
 
     # In[ ]:
@@ -195,7 +184,7 @@ Stochastic Slip generation - 1D Fault
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.404 seconds)
+   **Total running time of the script:** (0 minutes 0.467 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_Introduction-Karhunen-Loeve.py:

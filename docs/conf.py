@@ -13,7 +13,7 @@ import pygmt
 from pygmt import __commit__, __version__
 from pygmt.sphinx_gallery import PyGMTScraper
 sys.path.insert(0,os.path.abspath('..'))
-project = 'Stochpy Documentation'
+project = 'geostochpy Documentation'
 copyright = '2023, Alex Villarroel'
 author = 'Alex Villarroel'
 release = '1.0.0'
@@ -40,6 +40,7 @@ extensions = [
     "sphinxemoji.sphinxemoji",
     "sphinx.ext.todo",
     "sphinxcontrib.bibtex",
+    "sphinx_rtd_dark_mode"
 ]
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
@@ -65,20 +66,7 @@ napoleon_use_ivar = True
 typehints_defaults = "comma"
 
 # Gallery conf
-sphinx_gallery_conf = {
-     'examples_dirs': '../examples',   # path to your example scripts
-     'gallery_dirs': 'auto_examples',  # path to where to save gallery generated output
-     "doc_module": "pygmt",
-     # Insert links to documentation of objects in the examples
-     "reference_url": {"pygmt": None},
-    "image_scrapers": (PyGMTScraper(),),
-    # Removes configuration comments from scripts
-    "remove_config_comments": True,
-    # Disable "nested_sections" (default is True), to
-    # generate only a single index file for the whole gallery.
-    # This is a new feature up on Sphinx-Gallery 0.11.0.
-    "nested_sections": False,
-}
+
 sphinx_gallery_conf = {
     # path to your examples scripts
      'examples_dirs': '../examples',   # path to your example scripts
@@ -97,7 +85,7 @@ sphinx_gallery_conf = {
     "doc_module": "pygmt",
     # Insert links to documentation of objects in the examples
     "reference_url": {"pygmt": None},
-    "image_scrapers": (PyGMTScraper(),),
+    "image_scrapers": ('matplotlib',PyGMTScraper(),),
     # Removes configuration comments from scripts
     "remove_config_comments": True,
     # Disable "nested_sections" (default is True), to
@@ -116,6 +104,5 @@ copybutton_remove_prompts = True
 #
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
-
+default_dark_mode = False
 html_theme = 'sphinx_rtd_theme'
-html_static_path = ['_static']

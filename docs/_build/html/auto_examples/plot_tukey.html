@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tukey Filter - 2D Fault &mdash; Stochpy Documentation 1.0.0 documentation</title>
+  <title>Tukey Filter - 2D Fault &mdash; geostochpy Documentation 1.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -13,6 +13,8 @@
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
       <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+      <link rel="stylesheet" type="text/css" href="../_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="../_static/dark_mode_css/dark.css?v=70edf1c7" />
 
   
   <!--[if lt IE 9]>
@@ -27,6 +29,8 @@
         <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../_static/copybutton.js?v=ccdb6887"></script>
         <script src="../_static/design-tabs.js?v=36754332"></script>
+        <script src="../_static/dark_mode_js/default_light.js?v=c2e647ce"></script>
+        <script src="../_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -43,7 +47,7 @@
           
           
           <a href="../index.html" class="icon icon-home">
-            Stochpy Documentation
+            geostochpy Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -63,8 +67,9 @@
 <p class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Stochastic process Gallery 😄</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="plot_3D-plot.html">3D Slip Figure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_3D-plot.html">3D Slip Figure of an Stochastic generation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_Coupling.html">Coupling figure - 2D Fault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_events.html">Seismicity Chile 2011-2024</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_Introduction-Karhunen-Loeve.html">Stochastic Slip generation - 1D Fault</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_Case2D-Karhunen-Loeve.html">Stochastic Slip generation - 2D Fault</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Tukey Filter - 2D Fault</a></li>
@@ -82,7 +87,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Stochpy Documentation</a>
+          <a href="../index.html">geostochpy Documentation</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -119,7 +124,7 @@ to download the full example code</p>
 </dd>
 </dl>
 </div></blockquote>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<img src="../_images/sphx_glr_plot_tukey_001.png" srcset="../_images/sphx_glr_plot_tukey_001.png" alt="Tukey Window (alpha=0.4)" class = "sphx-glr-single-img"/><div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="k">def</span> <span class="nf">tukey_window</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
@@ -167,7 +172,7 @@ to download the full example code</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.017 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.064 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-tukey-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/314f027c5ef768b107360112a4dec89d/plot_tukey.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_tukey.ipynb</span></code></a></p>

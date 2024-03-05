@@ -1,16 +1,8 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# # Visualización del archivo de coupling 
-# 
 """
 Coupling figure - 2D Fault 
-====================================
+========================================================================
     Draw a GmtrFigure for the given lock model .
     """
-# In[77]:
-
-
 import pygmt
 import numpy as np
 #

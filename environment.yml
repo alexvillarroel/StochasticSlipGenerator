@@ -1,4 +1,4 @@
-name: stochpy
+name: geostochpy
 channels:
   - conda-forge
   - nodefaults
@@ -22,11 +22,24 @@ dependencies:
   - pip
   - cartopy
   - geopy
-  - pip:
-    - clawpack
+  - obspy
+  - openpyxl
   # Development dependencies (general)
+  - myst-parser
+  - panel
+  - sphinx
+  - sphinx-autodoc-typehints
+  - sphinx-copybutton
+  - sphinx-design
+  - sphinx-gallery
+  - sphinx_rtd_theme
   - build
   - dvc
   - jupyter
   - make
   - pip
+  - pip:
+    - clawpack
+    - sphinxcontrib-bibtex
+    - sphinxemoji
+    - sphinx-rtd-dark-mode

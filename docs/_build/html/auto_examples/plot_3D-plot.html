@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>3D Slip Figure &mdash; Stochpy Documentation 1.0.0 documentation</title>
+  <title>3D Slip Figure of an Stochastic generation &mdash; geostochpy Documentation 1.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -13,6 +13,8 @@
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
       <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+      <link rel="stylesheet" type="text/css" href="../_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="../_static/dark_mode_css/dark.css?v=70edf1c7" />
 
   
   <!--[if lt IE 9]>
@@ -27,6 +29,8 @@
         <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../_static/copybutton.js?v=ccdb6887"></script>
         <script src="../_static/design-tabs.js?v=36754332"></script>
+        <script src="../_static/dark_mode_js/default_light.js?v=c2e647ce"></script>
+        <script src="../_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -43,7 +47,7 @@
           
           
           <a href="../index.html" class="icon icon-home">
-            Stochpy Documentation
+            geostochpy Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -63,8 +67,9 @@
 <p class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Stochastic process Gallery 😄</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">3D Slip Figure</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3D Slip Figure of an Stochastic generation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_Coupling.html">Coupling figure - 2D Fault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_events.html">Seismicity Chile 2011-2024</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_Introduction-Karhunen-Loeve.html">Stochastic Slip generation - 1D Fault</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_Case2D-Karhunen-Loeve.html">Stochastic Slip generation - 2D Fault</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_tukey.html">Tukey Filter - 2D Fault</a></li>
@@ -82,7 +87,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Stochpy Documentation</a>
+          <a href="../index.html">geostochpy Documentation</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -91,7 +96,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="index.html">Stochastic process Gallery 😄</a></li>
-      <li class="breadcrumb-item active">3D Slip Figure</li>
+      <li class="breadcrumb-item active">3D Slip Figure of an Stochastic generation</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/auto_examples/plot_3D-plot.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -106,8 +111,8 @@
 <p><a class="reference internal" href="#sphx-glr-download-auto-examples-plot-3d-plot-py"><span class="std std-ref">Go to the end</span></a>
 to download the full example code</p>
 </div>
-<section class="sphx-glr-example-title" id="d-slip-figure">
-<span id="sphx-glr-auto-examples-plot-3d-plot-py"></span><h1>3D Slip Figure<a class="headerlink" href="#d-slip-figure" title="Link to this heading"></a></h1>
+<section class="sphx-glr-example-title" id="d-slip-figure-of-an-stochastic-generation">
+<span id="sphx-glr-auto-examples-plot-3d-plot-py"></span><h1>3D Slip Figure of an Stochastic generation<a class="headerlink" href="#d-slip-figure-of-an-stochastic-generation" title="Link to this heading"></a></h1>
 <blockquote>
 <div><p>This example makes an 3d plot of Slip distribution
 :param X_array: Longitude grid
@@ -123,7 +128,7 @@ to download the full example code</p>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
 <span class="kn">from</span> <span class="nn">matplotlib.ticker</span> <span class="kn">import</span> <span class="n">LinearLocator</span>
 <span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">ListedColormap</span><span class="p">,</span> <span class="n">Normalize</span>
-
+<span class="kn">import</span> <span class="nn">geostochpy</span>
 <span class="k">def</span> <span class="nf">plot_3d</span><span class="p">(</span><span class="n">X_array</span><span class="p">,</span><span class="n">Y_array</span><span class="p">,</span><span class="n">depth</span><span class="p">,</span><span class="n">Slip</span><span class="p">,</span><span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 
     <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
@@ -149,19 +154,66 @@ to download the full example code</p>
     <span class="k">return</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 
-<span class="c1"># In[ ]:</span>
-<span class="n">file</span><span class="o">=</span><span class="s1">&#39;../Output_data/Simulation_9.0/sim_0004.mat&#39;</span>
-<span class="n">filemat</span><span class="o">=</span><span class="n">scipy</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
-<span class="n">Slip</span><span class="o">=</span><span class="n">filemat</span><span class="p">[</span><span class="s1">&#39;slip&#39;</span><span class="p">]</span>
-<span class="n">X_array</span><span class="o">=</span><span class="n">filemat</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">]</span>
-<span class="n">Y_array</span><span class="o">=</span><span class="n">filemat</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">]</span>
-<span class="n">depth</span><span class="o">=</span><span class="n">filemat</span><span class="p">[</span><span class="s1">&#39;depth&#39;</span><span class="p">]</span><span class="o">/-</span><span class="mi">1000</span>
-<span class="n">region</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">76</span><span class="p">,</span><span class="o">-</span><span class="mi">70</span><span class="p">,</span><span class="o">-</span><span class="mi">36</span><span class="p">,</span><span class="o">-</span><span class="mi">28</span><span class="p">]</span>
+<span class="n">nx</span><span class="o">=</span><span class="mi">18</span>
+<span class="n">ny</span><span class="o">=</span><span class="mi">50</span>
+<span class="n">width</span><span class="o">=</span><span class="mi">180</span>
+<span class="n">length</span><span class="o">=</span><span class="mi">500</span>
+<span class="n">dx</span><span class="o">=</span><span class="n">width</span><span class="o">/</span><span class="n">nx</span>
+<span class="n">dy</span><span class="o">=</span><span class="n">length</span><span class="o">/</span><span class="n">ny</span>
 
-<span class="n">plot_3d</span><span class="p">(</span><span class="n">X_array</span><span class="p">,</span><span class="n">Y_array</span><span class="p">,</span><span class="n">depth</span><span class="p">,</span><span class="n">Slip</span><span class="p">)</span>
+<span class="c1"># Primero, se cargarán lo datos del trench de Chile, para realizar una geometría paralela a ella</span>
+<span class="c1">#</span>
+<span class="c1"># También, se cargarán los archivos de Slab2, que contienen los parámetros geométricos de la zona de subducción de Sudamérica</span>
+
+<span class="c1"># In[3]:</span>
+
+
+<span class="n">route_trench</span> <span class="o">=</span> <span class="n">geostochpy</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s1">&#39;trench-chile.txt&#39;</span><span class="p">)</span> <span class="c1"># route to trench file</span>
+<span class="n">lons_fosa</span><span class="p">,</span> <span class="n">lats_fosa</span>  <span class="o">=</span> <span class="n">geostochpy</span><span class="o">.</span><span class="n">load_trench</span><span class="p">(</span><span class="n">route_trench</span><span class="p">)</span>
+<span class="c1"># load slab files</span>
+<span class="n">slabdep</span><span class="p">,</span><span class="n">slabdip</span><span class="p">,</span><span class="n">slabstrike</span><span class="p">,</span><span class="n">slabrake</span><span class="o">=</span><span class="n">geostochpy</span><span class="o">.</span><span class="n">load_files_slab2</span><span class="p">(</span><span class="n">zone</span><span class="o">=</span><span class="s1">&#39;south_america&#39;</span><span class="p">,</span><span class="n">rake</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+
+<span class="c1"># Se realiza la falla a lo largo del trench, y se le da el valor más al norte de la falla.</span>
+<span class="c1">#</span>
+<span class="c1"># Luego, se deben tener las profundidades en cada subfalla, para ello se interpolan los datos de Slab2 con geostochpy.interp_slabtofault</span>
+
+<span class="c1"># In[4]:</span>
+
+
+<span class="n">north</span><span class="o">=-</span><span class="mf">29.5</span>
+<span class="n">lons</span><span class="p">,</span><span class="n">lons_ep</span><span class="p">,</span><span class="n">lats</span><span class="p">,</span><span class="n">lats_ep</span><span class="o">=</span><span class="n">geostochpy</span><span class="o">.</span><span class="n">make_fault_alongtrench</span><span class="p">(</span><span class="n">lons_fosa</span><span class="p">,</span><span class="n">lats_fosa</span><span class="p">,</span><span class="n">north</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span><span class="n">ny</span><span class="p">,</span><span class="n">width</span><span class="p">,</span><span class="n">length</span><span class="p">)</span>
+<span class="p">[</span><span class="n">X_grid</span><span class="p">,</span><span class="n">Y_grid</span><span class="p">,</span><span class="n">dep</span><span class="p">,</span><span class="n">dip</span><span class="p">,</span><span class="n">strike</span><span class="p">,</span><span class="n">rake</span><span class="p">]</span><span class="o">=</span><span class="n">geostochpy</span><span class="o">.</span><span class="n">interp_slabtofault</span><span class="p">(</span><span class="n">lons</span><span class="p">,</span><span class="n">lats</span><span class="p">,</span><span class="n">nx</span><span class="p">,</span><span class="n">ny</span><span class="p">,</span><span class="n">slabdep</span><span class="p">,</span><span class="n">slabdip</span><span class="p">,</span><span class="n">slabstrike</span><span class="p">,</span><span class="n">slabrake</span><span class="p">)</span>
+
+
+<span class="c1"># ##### Se crea la matriz de slips medios con geostochpy.matriz_media(mean,dep)</span>
+
+<span class="c1"># In[15]:</span>
+
+
+<span class="c1">## Creation slip models</span>
+<span class="c1"># mean matrix</span>
+<span class="c1">#</span>
+<span class="n">Mw</span><span class="o">=</span><span class="mf">9.0</span>
+<span class="n">media</span><span class="p">,</span><span class="n">rigidez</span><span class="o">=</span><span class="n">geostochpy</span><span class="o">.</span><span class="n">media_slip</span><span class="p">(</span><span class="n">Mw</span><span class="p">,</span><span class="n">dx</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span><span class="n">dy</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span><span class="n">dep</span><span class="p">)</span>
+<span class="n">leveque_taper</span><span class="o">=</span><span class="n">geostochpy</span><span class="o">.</span><span class="n">taper_LeVeque</span><span class="p">(</span><span class="n">dep</span><span class="p">,</span><span class="mi">55000</span><span class="p">)</span>
+<span class="c1"># leveque_taper=leveque_taper/np.max(leveque_taper)</span>
+<span class="n">villarroel_taper</span><span class="o">=</span><span class="n">geostochpy</span><span class="o">.</span><span class="n">taper_except_trench_tukey</span><span class="p">(</span><span class="n">dep</span><span class="p">,</span><span class="n">alpha_dip</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span><span class="n">alpha_strike</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">taper</span><span class="o">=</span><span class="n">leveque_taper</span><span class="o">*</span><span class="n">villarroel_taper</span>
+<span class="c1"># taper=geostochpy.taper_except_trench_tukey(dep,alpha_dip=0.6,alpha_strike=0.4,dip_taperfunc=geostochpy.taper_LeVeque,strike_taperfunc=geostochpy.tukey_window_equal)</span>
+
+<span class="n">mu</span> <span class="o">=</span> <span class="n">geostochpy</span><span class="o">.</span><span class="n">matriz_medias_villarroel</span><span class="p">(</span><span class="n">media</span><span class="p">,</span><span class="n">taper</span><span class="p">)</span>
+<span class="c1"># matriz de covarianza</span>
+<span class="n">C</span>    <span class="o">=</span> <span class="n">geostochpy</span><span class="o">.</span><span class="n">matriz_covarianza_optimized</span><span class="p">(</span><span class="n">dip</span><span class="p">,</span> <span class="n">dep</span><span class="p">,</span> <span class="n">X_grid</span><span class="p">,</span> <span class="n">Y_grid</span><span class="p">,</span><span class="n">length</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span><span class="n">width</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span>
+<span class="c1"># for comcot simulation</span>
+<span class="n">Slip</span><span class="o">=</span><span class="n">geostochpy</span><span class="o">.</span><span class="n">distribucion_slip</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">Slip</span><span class="p">,</span><span class="n">rigidez</span><span class="p">,</span><span class="n">Mo_original</span><span class="p">,</span><span class="n">Mo_deseado</span><span class="o">=</span><span class="n">geostochpy</span><span class="o">.</span><span class="n">escalar_magnitud_momento</span><span class="p">(</span><span class="n">Mw</span><span class="p">,</span> <span class="n">Slip</span><span class="p">,</span> <span class="n">dep</span><span class="p">,</span> <span class="n">dy</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span> <span class="n">dx</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span><span class="n">prem</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># se escala el Slip a la magnitud deseada &lt;--------- Slip final</span>
+<span class="c1"># Hypocenter=geostochpy.hypocenter(X_grid,Y_grid,dep,length,width) se tiene en cuenta la rigidez con el modelo PREM incluido @fetched with Rockhound</span>
+
+<span class="n">plot_3d</span><span class="p">(</span><span class="n">X_grid</span><span class="p">,</span><span class="n">Y_grid</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">dep</span><span class="p">,</span><span class="n">Slip</span><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.170 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 6.002 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-3d-plot-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/20d738798b235f7dd72a3c6a993e84f0/plot_3D-plot.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_3D-plot.ipynb</span></code></a></p>

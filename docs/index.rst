@@ -1,9 +1,9 @@
-.. Stochpy Documentation documentation master file, created by
+.. geostochpy Documentation documentation master file, created by
    sphinx-quickstart on Thu Dec 28 22:05:43 2023.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Stochpy Documentation's documentation!
+Welcome to geostochpy Documentation's documentation!
 =================================================
 .. toctree::
    :maxdepth: 4

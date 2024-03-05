@@ -1,6 +1,6 @@
 """
 Stochastic Slip generation - 1D Fault 
-====================================
+============================================================================================================
     Function to plot the 2D cross - product of the two - sided LaTeX .
 
     :return: [description]
@@ -27,8 +27,7 @@ Stochastic Slip generation - 1D Fault
 
 
 import sys
-sys.path.append('../')
-import stochpy
+import geostochpy
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -62,7 +61,7 @@ profundidades= np.linspace(5000,22500,200)
 # In[294]:
 
 
-taper=stochpy.taper_LeVeque(profundidades)
+taper=geostochpy.taper_LeVeque(profundidades,22000)
 plt.plot(profundidades,taper)
 plt.xlabel('Profundidad a lo largo del dip')
 plt.ylabel('Taper')
@@ -126,7 +125,7 @@ axes[1].set_xlabel('km down-dip')
 axes[1].set_title('Eigenmodes')
 axes[1].set_ylim((-1.1,1.1))
 
-
+fig.show()
 # Se puede ver La alta similitud del eigenvector cuando k=0 con el taper
 
 # In[ ]:

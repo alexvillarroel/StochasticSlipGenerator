@@ -1,0 +1,32 @@
+&params
+gridfile="gridfile.dat"
+maxgrdfn="zmax.grd"
+vmaxgrdfn="vmax.grd"
+tgstafn="station_list.txt"
+dt=1
+tend=360      !60 min. for TEST
+itmap=360     ! save output each (itmap*dt) seconds
+tau=0.0
+fault_param_file="faults.txt"
+cf=-0.025
+cfl=-0.025
+coriolis=0
+smooth_edges=0
+c2p_all=1
+def_bathy=1
+plotgrd=1
+velgrd=1
+init_disp_interpolation=1
+!use_linear=1
+multrupt=0
+init_disp_fault=1
+hzdisp_effect=1
+apply_kj_filter=1
+with_disp=0
+with_abc=0
+with_elastic_loading=0
+with_density=0
+check_arrival_time=1
+procx=2      !for Parallel version
+procy=3      !for Parallel version
+/

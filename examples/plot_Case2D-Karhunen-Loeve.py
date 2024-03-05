@@ -1,8 +1,6 @@
-#!/usr/bin/env python
-# coding: utf-8
 """
 Stochastic Slip generation - 2D Fault 
-====================================  
+============================================================================================================
 Example of Karhunen Loeve expansion for stochastic generation of Slip distribution    
     """
 # ## Caso 2D: Falla a lo largo de Chile Central
@@ -21,13 +19,7 @@ Example of Karhunen Loeve expansion for stochastic generation of Slip distributi
 # ## Datos de la falla:
 # Largo = 500 km
 # Ancho = 200 km
-
-# In[1]:
-
-
-import sys
-sys.path.append('../')
-import stochpy
+import geostochpy
 import numpy as np
 import matplotlib.pyplot as plt
 import pygmt
@@ -38,11 +30,12 @@ import pygmt
 # In[2]:
 
 
-nx=20
+nx=18
 ny=50
-width=200
+width=180
 length=500
-
+dx=width/nx
+dy=length/ny
 
 # Primero, se cargarán lo datos del trench de Chile, para realizar una geometría paralela a ella
 # 
@@ -51,25 +44,25 @@ length=500
 # In[3]:
 
 
-route_trench = "../auxiliar/trench-chile.txt"
-lons_fosa, lats_fosa  = stochpy.load_trench(route_trench)
+route_trench = geostochpy.get_data('trench-chile.txt') # route to trench file
+lons_fosa, lats_fosa  = geostochpy.load_trench(route_trench)
 # load slab files
-slabdep,slabdip,slabstrike,slabrake=stochpy.load_files_slab2(zone='south_america',rake=True)
+slabdep,slabdip,slabstrike,slabrake=geostochpy.load_files_slab2(zone='south_america',rake=True)
 
 
 # Se realiza la falla a lo largo del trench, y se le da el valor más al norte de la falla. 
 # 
-# Luego, se deben tener las profundidades en cada subfalla, para ello se interpolan los datos de Slab2 con stochpy.interp_slabtofault
+# Luego, se deben tener las profundidades en cada subfalla, para ello se interpolan los datos de Slab2 con geostochpy.interp_slabtofault
 
 # In[4]:
 
 
 north=-29.5
-lons,lons_ep,lats,lats_ep=stochpy.make_fault_alongtrench(lons_fosa,lats_fosa,north, nx,ny,width,length)
-[X_grid,Y_grid,dep,dip,strike,rake]=stochpy.interp_slabtofault(lons,lats,nx,ny,slabdep,slabdip,slabstrike,slabrake)
+lons,lons_ep,lats,lats_ep=geostochpy.make_fault_alongtrench(lons_fosa,lats_fosa,north, nx,ny,width,length)
+[X_grid,Y_grid,dep,dip,strike,rake]=geostochpy.interp_slabtofault(lons,lats,nx,ny,slabdep,slabdip,slabstrike,slabrake)
 
 
-# ##### Se crea la matriz de slips medios con stochpy.matriz_media(mean,dep)
+# ##### Se crea la matriz de slips medios con geostochpy.matriz_media(mean,dep)
 
 # In[15]:
 
@@ -78,21 +71,24 @@ lons,lons_ep,lats,lats_ep=stochpy.make_fault_alongtrench(lons_fosa,lats_fosa,nor
 # mean matrix
 #
 Mw=9.0
-media=stochpy.media_slip(Mw,length*1000,width*1000,dep)
-mu=stochpy.matriz_medias(media,dep)
-#
-C    = stochpy.matriz_covarianza_optimized(dip, dep, X_grid, Y_grid,length*1000,width*1000,alpha=0.5)
-# C    = slgen.matriz_covarianza(dip, dep, X_grid, Y_grid)
+media,rigidez=geostochpy.media_slip(Mw,dx*1000,dy*1000,dep)
+leveque_taper=geostochpy.taper_LeVeque(dep,55000)
+# leveque_taper=leveque_taper/np.max(leveque_taper)
+villarroel_taper=geostochpy.taper_except_trench_tukey(dep,alpha_dip=0.3,alpha_strike=0.3)
+taper=leveque_taper*villarroel_taper
+# taper=geostochpy.taper_except_trench_tukey(dep,alpha_dip=0.6,alpha_strike=0.4,dip_taperfunc=geostochpy.taper_LeVeque,strike_taperfunc=geostochpy.tukey_window_equal)
+
+mu = geostochpy.matriz_medias_villarroel(media,taper)
+# matriz de covarianza
+C    = geostochpy.matriz_covarianza_optimized(dip, dep, X_grid, Y_grid,length*1000,width*1000)
 # for comcot simulation
-Slip=stochpy.distribucion_slip(C, mu, 10)
-# ventana = slgen.ventana_taper_slip_fosa(Slip, X_grid,Y_grid,2) # ventana de taper
-# Slip    = slgen.taper_slip_fosa(Slip,ventana)
-Slip,taper_2d    = stochpy.taper_except_trench_tukey(Slip,alpha_dip=0.35,alpha_strike=0.2)
-Slip    = stochpy.escalar_magnitud_momento(Mw, Slip, dep, X_grid, Y_grid,prem=True)
-Slip[Slip<0]=0
-#
+Slip=geostochpy.distribucion_slip(C, mu, 20)
+Slip,rigidez,Mo_original,Mo_deseado=geostochpy.escalar_magnitud_momento(Mw, Slip, dep, dy*1000, dx*1000,prem=True) # se escala el Slip a la magnitud deseada <--------- Slip final
+# Hypocenter=geostochpy.hypocenter(X_grid,Y_grid,dep,length,width) se tiene en cuenta la rigidez con el modelo PREM incluido @fetched with Rockhound
+
 # PLOT result
-stochpy.plot_slip(X_grid,Y_grid,lons_fosa,lats_fosa,Slip,None,show=True)
+geostochpy.plot_slip_gmt([-78,-68,-38,-28],X_grid,Y_grid,lons_fosa,lats_fosa,Slip,10,10)
+# geostochpy.plot_slip(X_grid,Y_grid,lons_fosa,lats_fosa,Slip,None,show=True)
 # plt.imshow(taper_2d)
 # plt.colorbar()
 # fig.subplots_adjust(left=1, right=1.1, top=1.1, bottom=1)

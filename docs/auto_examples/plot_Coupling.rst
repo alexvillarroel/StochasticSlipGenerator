@@ -19,11 +19,11 @@
 
 
 Coupling figure - 2D Fault 
-====================================
+========================================================================
     Draw a GmtrFigure for the given lock model .
     
 
-.. GENERATED FROM PYTHON SOURCE LINES 11-54
+.. GENERATED FROM PYTHON SOURCE LINES 6-46
 
 
 
@@ -37,9 +37,6 @@ Coupling figure - 2D Fault
 
 
 .. code-block:: Python
-
-    # In[77]:
-
 
     import pygmt
     import numpy as np
@@ -85,7 +82,7 @@ Coupling figure - 2D Fault
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 10.223 seconds)
+   **Total running time of the script:** (0 minutes 4.981 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_Coupling.py:

@@ -3,7 +3,7 @@ Main package
 Module contents
 ---------------
 
-.. automodule:: main
+.. automodule:: geostochpy
    :members:
    :undoc-members:
    :show-inheritance:
@@ -11,26 +11,26 @@ Module contents
 Submodules
 ----------
 
-main.modcomcot module
+geostochpy.modcomcot module
 ---------------------
 
-.. automodule:: main.modcomcot
+.. automodule:: geostochpy.modcomcot
    :members:
    :undoc-members:
    :show-inheritance:
 
-main.modfilters module
+geostochpy.modfilters module
 ----------------------
 
-.. automodule:: main.modfilters
+.. automodule:: geostochpy.modfilters
    :members:
    :undoc-members:
    :show-inheritance:
 
-main.modokada module
+geostochpy.modokada module
 --------------------
 
-.. automodule:: main.modokada
+.. automodule:: geostochpy.modokada
    :members:
    :undoc-members:
    :show-inheritance:

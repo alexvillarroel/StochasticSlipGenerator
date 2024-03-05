@@ -19,7 +19,7 @@
 
 
 Tukey Filter - 2D Fault 
-====================================
+============================================================================================================
     Generate a Tukey window
 
     :return: [description]
@@ -29,6 +29,11 @@ Tukey Filter - 2D Fault
 .. GENERATED FROM PYTHON SOURCE LINES 9-55
 
 
+
+.. image-sg:: /auto_examples/images/sphx_glr_plot_tukey_001.png
+   :alt: Tukey Window (alpha=0.4)
+   :srcset: /auto_examples/images/sphx_glr_plot_tukey_001.png
+   :class: sphx-glr-single-img
 
 
 
@@ -86,7 +91,7 @@ Tukey Filter - 2D Fault
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.017 seconds)
+   **Total running time of the script:** (0 minutes 0.064 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_tukey.py:

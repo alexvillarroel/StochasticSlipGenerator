@@ -1,6 +1,6 @@
 Overview
 =================================================
-Stochpy is a project that was built with the need for
+geostochpy is a project that was built with the need for
 Being able to generate stochastic scenarios of earthquakes based on geometry in subduction areas
 along the trench.There has been an approach in the Chilean subduction zone.The project includes functions
 To generate grids, to generate SLIP distributions with different TAPERS, to obtain deformations, and for the

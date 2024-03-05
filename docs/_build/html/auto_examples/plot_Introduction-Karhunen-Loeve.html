@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stochastic Slip generation - 1D Fault &mdash; Stochpy Documentation 1.0.0 documentation</title>
+  <title>Stochastic Slip generation - 1D Fault &mdash; geostochpy Documentation 1.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -13,6 +13,8 @@
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
       <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+      <link rel="stylesheet" type="text/css" href="../_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="../_static/dark_mode_css/dark.css?v=70edf1c7" />
 
   
   <!--[if lt IE 9]>
@@ -27,11 +29,13 @@
         <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../_static/copybutton.js?v=ccdb6887"></script>
         <script src="../_static/design-tabs.js?v=36754332"></script>
+        <script src="../_static/dark_mode_js/default_light.js?v=c2e647ce"></script>
+        <script src="../_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Stochastic Slip generation - 2D Fault" href="plot_Case2D-Karhunen-Loeve.html" />
-    <link rel="prev" title="Coupling figure - 2D Fault" href="plot_Coupling.html" /> 
+    <link rel="prev" title="Seismicity Chile 2011-2024" href="plot_events.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,7 +47,7 @@
           
           
           <a href="../index.html" class="icon icon-home">
-            Stochpy Documentation
+            geostochpy Documentation
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -63,8 +67,9 @@
 <p class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Stochastic process Gallery 😄</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="plot_3D-plot.html">3D Slip Figure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_3D-plot.html">3D Slip Figure of an Stochastic generation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_Coupling.html">Coupling figure - 2D Fault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_events.html">Seismicity Chile 2011-2024</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Stochastic Slip generation - 1D Fault</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_Case2D-Karhunen-Loeve.html">Stochastic Slip generation - 2D Fault</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_tukey.html">Tukey Filter - 2D Fault</a></li>
@@ -82,7 +87,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Stochpy Documentation</a>
+          <a href="../index.html">geostochpy Documentation</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -123,12 +128,6 @@ to download the full example code</p>
 <li><img src="../_images/sphx_glr_plot_Introduction-Karhunen-Loeve_001.png" srcset="../_images/sphx_glr_plot_Introduction-Karhunen-Loeve_001.png" alt="plot Introduction Karhunen Loeve" class = "sphx-glr-multi-img"/></li>
 <li><img src="../_images/sphx_glr_plot_Introduction-Karhunen-Loeve_002.png" srcset="../_images/sphx_glr_plot_Introduction-Karhunen-Loeve_002.png" alt="First 20 eigenvalues of Covariance matrix, Eigenmodes" class = "sphx-glr-multi-img"/></li>
 </ul>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>(-1.1, 1.1)
-</pre></div>
-</div>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># # Cuaderno 1: Explicación del proceso estocástico con transformada de Karhunen-Loéve</span>
 <span class="c1"># ### Caso 1D: Falla con variaciones de slip a lo largo del dip (along down-dip)</span>
 <span class="c1"># Ejemplo de referencia: R. J LeVeque et al. 2016</span>
@@ -150,8 +149,7 @@ to download the full example code</p>
 
 
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;../&#39;</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">main</span> <span class="k">as</span> <span class="nn">stochpy</span>
+<span class="kn">import</span> <span class="nn">geostochpy</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
@@ -185,7 +183,7 @@ to download the full example code</p>
 <span class="c1"># In[294]:</span>
 
 
-<span class="n">taper</span><span class="o">=</span><span class="n">stochpy</span><span class="o">.</span><span class="n">taper_LeVeque</span><span class="p">(</span><span class="n">profundidades</span><span class="p">)</span>
+<span class="n">taper</span><span class="o">=</span><span class="n">geostochpy</span><span class="o">.</span><span class="n">taper_LeVeque</span><span class="p">(</span><span class="n">profundidades</span><span class="p">,</span><span class="mi">22000</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">profundidades</span><span class="p">,</span><span class="n">taper</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Profundidad a lo largo del dip&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Taper&#39;</span><span class="p">)</span>
@@ -249,13 +247,13 @@ to download the full example code</p>
 <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Eigenmodes&#39;</span><span class="p">)</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">((</span><span class="o">-</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">1.1</span><span class="p">))</span>
 
-
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="c1"># Se puede ver La alta similitud del eigenvector cuando k=0 con el taper</span>
 
 <span class="c1"># In[ ]:</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.404 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.467 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-introduction-karhunen-loeve-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/8fe43fdad3d159ce85d0e8d802b08820/plot_Introduction-Karhunen-Loeve.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_Introduction-Karhunen-Loeve.ipynb</span></code></a></p>
@@ -271,7 +269,7 @@ to download the full example code</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="plot_Coupling.html" class="btn btn-neutral float-left" title="Coupling figure - 2D Fault" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_events.html" class="btn btn-neutral float-left" title="Seismicity Chile 2011-2024" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="plot_Case2D-Karhunen-Loeve.html" class="btn btn-neutral float-right" title="Stochastic Slip generation - 2D Fault" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

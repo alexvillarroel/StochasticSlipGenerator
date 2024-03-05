@@ -7,11 +7,13 @@ import matplotlib.cm as cm
 import matplotlib as mpl
 import random
 import matplotlib.pyplot as plt
+from scipy.signal.windows import general_hamming
 from scipy.io import savemat 
-import stochpy
+import geostochpy
 import os
 import time
 from tqdm import trange
+from clawpack.geoclaw import dtopotools, topotools
 # main
 def main(args):
     """What is executed upon running the program. 
@@ -35,16 +37,16 @@ def main(args):
     timestr = time.strftime("%Y%m%d-%H%M%S")
     # 
     print('Starting Grid generation')
-    route_trench = "../Slab/trench-chile.txt"
-    lons_fosa, lats_fosa  = stochpy.load_trench(route_trench)
+    route_trench = geostochpy.get_data('trench-chile.txt')
+    lons_fosa, lats_fosa  = geostochpy.load_trench(route_trench)
     # load slab files
-    slabdep,slabdip,slabstrike,slabrake=stochpy.load_files_slab2(zone='south_america',rake=True)
+    slabdep,slabdip,slabstrike,slabrake=geostochpy.load_files_slab2(zone='south_america',rake=True)
     dir='Simulation_'+timestr
     os.chdir('../Output_data/')
     os.mkdir(dir)
     os.chdir(dir)
     os.mkdir('img')
-    print('Do you wanna make multifault.ctl file?')
+    #print('Do you wanna make multifault.ctl file?')
     #answer=input('[yes/no]')
     answer="no"
     if answer=='yes':
@@ -53,42 +55,60 @@ def main(args):
     #
     # make grid
     for i in trange(1,n_slip+1,desc=f'Generation process: '):
-        random_north = northlat - random.random() * (np.abs(northlat-southlat)-stochpy.km2deg(length))
-        lons,lons_ep,lats,lats_ep=stochpy.make_fault_alongtrench_optimized(lons_fosa,lats_fosa,random_north, nx,ny,width,length)
+        random_north = northlat - random.random() * (np.abs(northlat-southlat)-geostochpy.km2deg(length))
+        lons,lons_ep,lats,lats_ep=geostochpy.make_fault_alongtrench_optimized(lons_fosa,lats_fosa,random_north, nx,ny,width,length)
         # Interpolate Slab data to the new gridded fault
-        [X_grid,Y_grid,dep,dip,strike,rake]=stochpy.interp_slabtofault(lons_ep,lats_ep,nx,ny,slabdep,slabdip,slabstrike,slabrake)
+        [X_grid,Y_grid,dep,dip,strike,rake]=geostochpy.interp_slabtofault(lons_ep,lats_ep,nx,ny,slabdep,slabdip,slabstrike,slabrake)
         ## Creation slip models
         # mean matrix
-        media=stochpy.media_slip(Mw,length*1000,width*1000,dep)
-        mu   = stochpy.matriz_medias(media, dep)
+        media,rigidez=geostochpy.media_slip(Mw,dx*1000,dy*1000,dep)
+        leveque_taper=geostochpy.taper_LeVeque(dep,55000)
+        # leveque_taper=leveque_taper/np.max(leveque_taper)
+        villarroel_taper=geostochpy.taper_except_trench_tukey(dep,alpha_dip=0.3,alpha_strike=0.3)
+        taper=leveque_taper*villarroel_taper
+        # taper=geostochpy.taper_except_trench_tukey(dep,alpha_dip=0.6,alpha_strike=0.4,dip_taperfunc=geostochpy.taper_LeVeque,strike_taperfunc=geostochpy.tukey_window_equal)
+
+        mu = geostochpy.matriz_medias_villarroel(media,taper)
         # matriz de covarianza
-        C    = stochpy.matriz_covarianza_optimized(dip, dep, X_grid, Y_grid,length*1000,width*1000)
-        # C    = stochpy.matriz_covarianza(dip, dep, X_grid, Y_grid)
+        C    = geostochpy.matriz_covarianza_optimized(dip, dep, X_grid, Y_grid,length*1000,width*1000)
         # for comcot simulation
-        Slip=stochpy.distribucion_slip(C, mu, 10)
-        # ventana = stochpy.ventana_taper_slip_fosa(Slip, X_grid,Y_grid,2) # ventana de taper
-        # Slip    = stochpy.taper_slip_fosa(Slip,ventana)
-        Slip,taper_2d    = stochpy.taper_except_trench_tukey(Slip,alpha_dip=0.4,alpha_strike=0.3)
-        Slip    = stochpy.escalar_magnitud_momento(Mw, Slip, dep, X_grid, Y_grid,prem=True) # se escala el Slip a la magnitud deseada <--------- Slip final
-        # Hypocenter=stochpy.hypocenter(X_grid,Y_grid,dep,length,width) se tiene en cuenta la rigidez con el modelo PREM incluido @fetched with Rockhound
-        slip=Slip.flat
+        Slip=geostochpy.distribucion_slip(C, mu, 20)
+        Slip,rigidez,Mo_original,Mo_deseado=geostochpy.escalar_magnitud_momento(Mw, Slip, dep, dy*1000, dx*1000,prem=True) # se escala el Slip a la magnitud deseada <--------- Slip final
+        # Hypocenter=geostochpy.hypocenter(X_grid,Y_grid,dep,length,width) se tiene en cuenta la rigidez con el modelo PREM incluido @fetched with Rockhound
         archivo_salida='sim_'+str(i).zfill(len(str(n_slip)))
-        file_multifault='fault_multi_'+str(i).zfill(len(str(n_slip)))+'.ctl'
+        # file_multifault='fault_multi_'+str(i).zfill(len(str(n_slip)))+'.ctl'
         mdic_multifault={'depth':dep.flat,'length':dy*np.ones((1,nx*ny)),'width':dx*np.ones((1,nx*ny)),
-              'slip':slip,'strike':strike.flat,'dip':dip.flat,'rake':rake.flat
+              'slip':Slip.flat,'strike':strike.flat,'dip':dip.flat,'rake':rake.flat
               ,'lat':lats_ep,'lon':lons_ep,'time':np.zeros((1,nx*ny))}
-        mdic={'depth':dep,'length':dy*np.ones((1,nx*ny)),'width':dx*np.ones((1,nx*ny)),
-              'slip':Slip,'strike':strike,'dip':dip,'rake':rake
-              ,'lat':Y_grid,'lon':X_grid,'time':np.zeros((1,nx*ny))}
-        savemat(archivo_salida+'.mat',mdic) # se guarda los arrays de la falla
-        filename='./img/'+archivo_salida+'.png'
+        # mdic={'depth':dep,'length':dy*np.ones((1,nx*ny)),'width':dx*np.ones((1,nx*ny)),
+        #       'slip':Slip,'strike':strike,'dip':dip,'rake':rake
+        #       ,'lat':Y_grid,'lon':X_grid,'time':np.zeros((1,nx*ny))}
+        savemat(archivo_salida+'.mat',mdic_multifault) # se guarda los arrays de la falla
+        # for make deformation file
+        # header='Longitude,Latitude,Depth(km),Length,Width,Strike,Dip,Rake,Slip,UnitSrc'
+        # array = np.column_stack((lons_ep.flat, lats_ep.flat, dep.flat, (dy*np.ones((1,nx*ny))).flat, (dx*np.ones((1,nx*ny))).flat, strike.flat, dip.flat, rake.flat, slip, np.ones((1,nx*ny)).flat))
+        # np.savetxt(archivo_salida+'.csv', array, delimiter=",", header=header, comments='')
+        # subfault_fname = archivo_salida + '.csv'
+        # input_units = {"length":"km", "width":"km", "depth":"m", "slip":"m"}
+        # fault = dtopotools.CSVFault()
+        # fault.read(subfault_fname, input_units=input_units, coordinate_specification="noaa sift")
+        # resolucion=1/30.
+        # tamano_buffer=2.
+        # x, y = fault.create_dtopo_xy(dx=resolucion, buffer_size=tamano_buffer)
+        # dtopo = fault.create_dtopography(x, y, times=[1.], verbose=True)
+        # dtopofile=archivo_salida+'.tt3'
+        # dtopo.write(dtopofile, dtopo_type=3)
+        #
+
+        # filename='./img/'+archivo_salida+'.png'
         # if answer=='yes':
         #     print('ok')
             # multifault.make_multifault(archivo_salida+'.mat',file_multifault,float(lat_griddomain),float(lon_griddomain))
-        stochpy.plot_slip(X_grid,Y_grid,lons_fosa,lats_fosa,Slip,filename)
-        # stochpy.plot_slip_css(region,lons,lats,lons_fosa,lats_fosa,Slip)
-        #stochpy.plot_slip_gmt(region,X_grid,Y_grid,lons_fosa,lats_fosa,Slip,dx,dy,filename)
+        # geostochpy.plot_slip_gmt([-78,-68,-38,-28],X_grid,Y_grid,lons_fosa,lats_fosa,Slip,10,10,filename)
 
+        #geostochpy.plot_slip(X_grid,Y_grid,lons_fosa,lats_fosa,Slip,filename)
+        # geostochpy.plot_slip_css(region,lons,lats,lons_fosa,lats_fosa,Slip)
+        #geostochpy.plot_slip_gmt(region,X_grid,Y_grid,lons_fosa,lats_fosa,Slip,dx,dy,filename)
     return
 
 if __name__ == "__main__":
@@ -101,7 +121,7 @@ if __name__ == "__main__":
                  LON from -180 to 180
 
         Example 1 input:
-            python Slip_generator.py -r -77 -69 -37 -29 -nlat -29.5 -slat -37.5 -nx 12 -ny 48 -w 150 -l 450 -n 5 -m 9.0
+            python Slip_generator.py -r -77 -69 -37 -29 -nlat -28 -slat -36 -nx 15 -ny 45 -w 150 -l 450 -n 10 -m 9.0
 
         """
     parser = argparse.ArgumentParser(
