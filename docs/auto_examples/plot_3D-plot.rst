@@ -29,7 +29,7 @@
     :return: 3D Figure of Slip distribution
     
 
-.. GENERATED FROM PYTHON SOURCE LINES 13-103
+.. GENERATED FROM PYTHON SOURCE LINES 13-102
 
 
 
@@ -111,8 +111,7 @@
     # ##### Se crea la matriz de slips medios con geostochpy.matriz_media(mean,dep)
 
     # In[15]:
-
-
+    #
     ## Creation slip models
     # mean matrix
     #
@@ -138,7 +137,7 @@
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 6.002 seconds)
+   **Total running time of the script:** (0 minutes 5.510 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_3D-plot.py:
