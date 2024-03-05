@@ -1,4 +1,4 @@
-Stochpy: A tool to create,filter and make plots of stochastic slip grids applied in Chile 🔧📚🌏🇨🇱
+Geostochpy: A tool to create,filter and make plots of stochastic slip grids applied in Chile 🔧📚🌏🇨🇱
 =================================================
 Overview
 =================================================
