@@ -15,7 +15,7 @@ import numpy as np
 from numpy import linalg as la
 import matplotlib.pyplot as plt 
 from mpl_toolkits.basemap import Basemap, cm
-import cartopy.crs as ccrs
+import cartopy.crs as ccr
 import cartopy.feature as cf
 import collections as col
 from geopy import distance
@@ -1166,7 +1166,7 @@ def plot_grid(region,data_trench,lons,lats):
     fig.grdimage(grid=grid, cmap="oleron")
     fig.plot(
         data=data_trench,
-        regionn=region,
+        region=region,
         pen="0.2p",
         fill="white",
         style="f0.5i/0.1i+r+t+o1",
@@ -1258,10 +1258,116 @@ def plot_slip_gmt(region,X_grid,Y_grid,lonfosa,latfosa,Slip,dx,dy,filename=False
               background='i',
               continuous=True)
     grid=pygmt.xyz2grd(x=X_grid.flatten(),y=Y_grid.flatten(),z=Slip.flatten(),region = reg2,spacing=spacing)
+    grid=pygmt.grdsample(grid,spacing=0.001,region=reg2,verbose='q')
+    cmap=pygmt.grd2cpt(grid=grid,cmap='rainbow',nlevels=True,continuous=True)
+    fig.basemap(region=region, projection="Q12c", frame='ag')
+    fig.coast(land="darkgray",projection='Q12c',frame=True,water="lightblue",borders=["1/0.5p,black", "2/0.5p,gray", "3/0.5p,blue"])
+    fig.grdimage(grid, 
+            cmap=cmap,
+            projection='Q12c',
+            nan_transparent=True,
+            interpolation='l+a+t1.0'
+            )
+    # fig.grdcontour(grid=grid,projection='Q12c')
+    # fig.grdcontour(grid=grid,interval=3,annotation=0)
+    fig.plot(x=lonfosa,y=latfosa,
+        projection='Q12c',
+        region=region,
+        pen="1p",
+        fill="white",
+        style="f0.5i/0.1i+r+t+o1")
+    fig.colorbar(frame=['a+3',"x+lSlip[m]"],cmap=cmap,projection='Q12c')
+    with fig.inset(position="jTL+w3.5c+o0.2c", margin=0, box="+p1.5p,gold"):
+        # Create a figure in the inset using coast. This example uses the azimuthal
+        # orthogonal projection centered at 47E, 20S. The land color is set to
+        # "gray" and Madagascar is highlighted in "red3".
+        fig.coast(
+            region="g",
+            projection="G-70/-33/?",
+            land="gray",
+            water="royalblue",
+            dcw="CL+gred3",
+        )
+    fig.shift_origin(yshift="0c",xshift="13c")
+    #
+    data_lat=np.ones((np.unique(Y_grid.flatten()).size,2))
+    data_lat[:,1]=np.unique(Y_grid.flatten())[::-1]
+    data_lat[:,0]=np.mean(Slip,axis=1)
+    fig.plot(
+        projection="X2c/12c",
+        # Note that the y-axis annotation "Counts" is shown in x-axis direction
+        # due to the rotation caused by horizontal=True
+        frame=["ag", "WSne","xaf+lSlip mean[m]"],
+        region=[0,np.max(np.mean(Slip,axis=1))+1,region[2],region[3]],
+        x=data_lat[:,0],
+        y=data_lat[:,1],
+        pen="2p,black",
+        )
+    fig.shift_origin(yshift='13c',xshift='-13c')
+    fig.plot(
+    projection="X12c/3c",
+    # Note that the y-axis annotation "Counts" is shown in x-axis direction
+    # due to the rotation caused by horizontal=True
+    frame=["ag", "WSne","yaf+lSlip mean[m]"],
+    region=[region[0],region[1],0,np.max(np.mean(Slip,axis=0))+1],
+    x=np.mean(X_grid,axis=0),
+    y=np.mean(Slip,axis=0),
+    pen="2p,black",
+    )
+    np.mean(X_grid,axis=0),np.mean(Slip,axis=0)
+    # Shift the plot origin and add right margin histogram
+    if filename != False:
+        fig.savefig(filename) 
+    else:
+        fig.show()
+    return
+
+def plot_slip_gmt_relief(region,X_grid,Y_grid,lonfosa,latfosa,Slip,dx,dy,filename=False):
+    """
+    Plot a Slip grid of data on a grid
+
+    :param region: [description]
+    :type region: [type]
+    :param X_grid: [description]
+    :type X_grid: [type]
+    :param Y_grid: [description]
+    :type Y_grid: [type]
+    :param lonfosa: [description]
+    :type lonfosa: [type]
+    :param latfosa: [description]
+    :type latfosa: [type]
+    :param Slip: [description]
+    :type Slip: [type]
+    :param dx: [description]
+    :type dx: [type]
+    :param dy: [description]
+    :type dy: [type]
+    :param archivo_salida: [description]
+    :type archivo_salida: [type]
+    """
+    import numpy as np
+    # define parameters for plotting
+    latmax=np.max(Y_grid.flat)
+    latmin=np.min(Y_grid.flat)
+    lonmax=np.max(X_grid.flat)
+    lonmin=np.min(X_grid.flat)
+    reg2=(lonmin,lonmax,latmin,latmax)
+    #
+    fig=pygmt.Figure()
+    spacing=f"{dx}k/{dy}k"
+    cmap2use = 'rainbow'
+    relief=pygmt.datasets.load_earth_relief(resolution='05m')
+    cmap=pygmt.makecpt(cmap = 
+              cmap2use, 
+              series = [np.min(Slip.flatten())-1, np.max(Slip.flatten())+3,5], 
+              background='i',
+              continuous=True)
+    grid=pygmt.xyz2grd(x=X_grid.flatten(),y=Y_grid.flatten(),z=Slip.flatten(),region = reg2,spacing=spacing)
     # grid=pygmt.grdsample(grid,spacing=spacing2,region=reg2,verbose='q')
     cmap=pygmt.grd2cpt(grid=grid,cmap='rainbow',nlevels=True,continuous=True)
     fig.basemap(region=region, projection="Q12c", frame='ag')
     fig.coast(land="darkgray",projection='Q12c',frame=True,water="lightblue",borders=["1/0.5p,black", "2/0.5p,gray", "3/0.5p,blue"])
+    fig.grdimage(relief,projection='Q12c')
     fig.grdimage(grid, 
             cmap=cmap,
             projection='Q12c',
@@ -1321,7 +1427,6 @@ def plot_slip_gmt(region,X_grid,Y_grid,lonfosa,latfosa,Slip,dx,dy,filename=False
     else:
         fig.show()
     return
-
 def plot_slip_css(region,lons, lats, lonfosa, latfosa, Slip, cmap='rainbow'):
     """
     Plots the CSS projection of a SlipLine
@@ -1429,6 +1534,87 @@ def plot_3d(X_array,Y_array,depth,Slip,filename=None):
     if filename!=None:
         fig.savefig(filename)
     return plt.show()
+def plot_deformation_gmt(region,X_grid,Y_grid,dx,dy,lonfosa,latfosa,Deformation,filename):
+    """
+    Plot a Slip grid of data on a grid
+
+    :param region: [description]
+    :type region: [type]
+    :param X_grid: [description]
+    :type X_grid: [type]
+    :param Y_grid: [description]
+    :type Y_grid: [type]
+    :param lonfosa: [description]
+    :type lonfosa: [type]
+    :param latfosa: [description]
+    :type latfosa: [type]
+    :param Slip: [description]
+    :type Slip: [type]
+    :param dx: [description]
+    :type dx: [type]
+    :param dy: [description]
+    :type dy: [type]
+    :param archivo_salida: [description]
+    :type archivo_salida: [type]
+    """
+    import numpy as np
+    # define parameters for plotting
+    latmax=np.max(Y_grid.flat)
+    latmin=np.min(Y_grid.flat)
+    lonmax=np.max(X_grid.flat)
+    lonmin=np.min(X_grid.flat)
+    reg2=(lonmin,lonmax,latmin,latmax)
+    #
+    fig=pygmt.Figure()
+    spacing=f"{dx}k/{dy}k"
+    cmap2use = 'polar'
+    cmap=pygmt.makecpt(cmap = 
+              cmap2use, 
+              series = [-np.max(Deformation.flatten()), np.max(Deformation.flatten()),2], 
+              background=False,
+              continuous=True)
+    grid=pygmt.xyz2grd(x=X_grid.flatten(),y=Y_grid.flatten(),z=Deformation.flatten(),region = reg2,spacing=spacing)
+    grid=pygmt.grdsample(grid,spacing=0.001,region=reg2,verbose='q')
+    cmap=pygmt.grd2cpt(grid=grid,cmap='polar',nlevels=True,continuous=True)
+    fig.basemap(region=region, projection="Q12c", frame='ag')
+    fig.coast(land="darkgray",projection='Q12c',frame=True,water="lightblue",borders=["1/0.5p,black", "2/0.5p,gray", "3/0.5p,blue"])
+    fig.grdimage(grid, 
+            cmap=cmap,
+            projection='Q12c',
+            nan_transparent='+z0',
+            interpolation='l+a+t1.0'
+            )
+    # fig.grdcontour(grid=grid,projection='Q12c')
+    # fig.grdcontour(grid=grid,interval=3,annotation=0)
+    fig.plot(x=lonfosa,y=latfosa,
+        projection='Q12c',
+        region=region,
+        pen="1p",
+        fill="white",
+        style="f0.5i/0.1i+r+t+o1")
+    fig.colorbar(frame=['a+3',"x+lVertical Displacement[m]"],cmap=cmap,projection='Q12c')
+    #cities
+    #valparaiso
+    fig.text(x=-71.3,y= -33.03,text='Valparaíso',fill='white',justify='ML',pen="1p,black")
+    fig.plot(x=-71.63,y=-33.03,style='c0.2c',fill='white',pen="1p,black")
+    # la serena
+    fig.text(x=-71.2,y= -30.03,text='La Serena',fill='white',justify='ML',pen="1p,black")
+    fig.plot(x=-71.4,y=-30.03,style='c0.2c',fill='white',pen="1p,black")
+    #santiago
+    fig.text(x=-70.4,y= -33.45,text='Santiago',fill='white',justify='ML',pen="1p,black")
+    fig.plot(x=-70.6,y=-33.45,style='c0.2c',fill='white',pen="1p,black")
+    # talca
+    fig.text(x=-71.6,y= -35.43,text='Talca',fill='white',justify='ML',pen="1p,black")
+    fig.plot(x=-71.8,y=-35.43,style='c0.2c',fill='white',pen="1p,black")
+    # concepcion
+    fig.text(x=-72.8,y= -36.812,text='Concepción',fill='white',justify='ML',pen="1p,black")
+    fig.plot(x=-73.039,y=-36.812,style='c0.2c',fill='white',pen="1p,black")
+        # Shift the plot origin and add right margin histogram
+    if filename != False:
+        fig.savefig(filename) 
+    else:
+        fig.show()
+    return
 def plot_deformation(X_grid,Y_grid,lonfosa,latfosa,Deformation,filename,show=False):
     import matplotlib.colors as colors
     from matplotlib import cm

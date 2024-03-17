@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:25.884** total execution time for 7 files **from all galleries**:
+**00:23.694** total execution time for 7 files **from all galleries**:
 
 .. container::
 
@@ -32,8 +32,8 @@ Computation times
    * - Example
      - Time
      - Mem (MB)
-   * - :ref:`sphx_glr_auto_examples_plot_slips_and_def.py` (``../examples/plot_slips_and_def.py``)
-     - 00:25.884
+   * - :ref:`sphx_glr_auto_examples_plot_Coupling.py` (``../examples/plot_Coupling.py``)
+     - 00:23.694
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_3D-plot.py` (``../examples/plot_3D-plot.py``)
      - 00:00.000
@@ -41,13 +41,13 @@ Computation times
    * - :ref:`sphx_glr_auto_examples_plot_Case2D-Karhunen-Loeve.py` (``../examples/plot_Case2D-Karhunen-Loeve.py``)
      - 00:00.000
      - 0.0
-   * - :ref:`sphx_glr_auto_examples_plot_Coupling.py` (``../examples/plot_Coupling.py``)
-     - 00:00.000
-     - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_Introduction-Karhunen-Loeve.py` (``../examples/plot_Introduction-Karhunen-Loeve.py``)
      - 00:00.000
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_events.py` (``../examples/plot_events.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plot_slips_and_def.py` (``../examples/plot_slips_and_def.py``)
      - 00:00.000
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_tukey.py` (``../examples/plot_tukey.py``)

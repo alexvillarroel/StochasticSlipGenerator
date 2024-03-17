@@ -94,10 +94,12 @@
 <li class="toctree-l4"><a class="reference internal" href="#geostochpy.nearest_value"><code class="docutils literal notranslate"><span class="pre">nearest_value()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#geostochpy.plot_3d"><code class="docutils literal notranslate"><span class="pre">plot_3d()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#geostochpy.plot_deformation"><code class="docutils literal notranslate"><span class="pre">plot_deformation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.plot_deformation_gmt"><code class="docutils literal notranslate"><span class="pre">plot_deformation_gmt()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#geostochpy.plot_grid"><code class="docutils literal notranslate"><span class="pre">plot_grid()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#geostochpy.plot_slip"><code class="docutils literal notranslate"><span class="pre">plot_slip()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#geostochpy.plot_slip_css"><code class="docutils literal notranslate"><span class="pre">plot_slip_css()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#geostochpy.plot_slip_gmt"><code class="docutils literal notranslate"><span class="pre">plot_slip_gmt()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.plot_slip_gmt_relief"><code class="docutils literal notranslate"><span class="pre">plot_slip_gmt_relief()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#geostochpy.sigmoid"><code class="docutils literal notranslate"><span class="pre">sigmoid()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#geostochpy.taper_LeVeque"><code class="docutils literal notranslate"><span class="pre">taper_LeVeque()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#geostochpy.taper_borders"><code class="docutils literal notranslate"><span class="pre">taper_borders()</span></code></a></li>
@@ -565,6 +567,27 @@ prof: matriz con profundidades de cada subfalla, necesaria para el taper</p>
 <dd></dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.plot_deformation_gmt">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">plot_deformation_gmt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_grid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y_grid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lonfosa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latfosa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Deformation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#plot_deformation_gmt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.plot_deformation_gmt" title="Link to this definition"></a></dt>
+<dd><p>Plot a Slip grid of data on a grid</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>region</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>X_grid</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>Y_grid</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>lonfosa</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>latfosa</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>Slip</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>dx</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>dy</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>archivo_salida</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="geostochpy.plot_grid">
 <span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">plot_grid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#plot_grid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.plot_grid" title="Link to this definition"></a></dt>
 <dd><p>Plot the grid of earthquake data .</p>
@@ -597,6 +620,27 @@ prof: matriz con profundidades de cada subfalla, necesaria para el taper</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="geostochpy.plot_slip_gmt">
 <span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">plot_slip_gmt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_grid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y_grid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lonfosa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latfosa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Slip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#plot_slip_gmt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.plot_slip_gmt" title="Link to this definition"></a></dt>
+<dd><p>Plot a Slip grid of data on a grid</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>region</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>X_grid</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>Y_grid</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>lonfosa</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>latfosa</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>Slip</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>dx</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>dy</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>archivo_salida</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.plot_slip_gmt_relief">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">plot_slip_gmt_relief</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_grid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y_grid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lonfosa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latfosa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Slip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#plot_slip_gmt_relief"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.plot_slip_gmt_relief" title="Link to this definition"></a></dt>
 <dd><p>Plot a Slip grid of data on a grid</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>

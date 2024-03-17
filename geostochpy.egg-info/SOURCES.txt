@@ -13,6 +13,8 @@ geostochpy/data/150_coupling.xyz
 geostochpy/data/comcot.ctl
 geostochpy/data/grid_to_xyz_comcotformat.py
 geostochpy/data/locking_model.grd
+geostochpy/data/median_lock_Herrera2023.txt
+geostochpy/data/mesh__Herrera2023.npy
 geostochpy/data/pacific_shorelines_east_4min.npy
 geostochpy/data/sam_rake.xyz
 geostochpy/data/subtle.cpt

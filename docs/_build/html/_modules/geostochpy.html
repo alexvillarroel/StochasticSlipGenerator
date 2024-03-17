@@ -112,7 +112,7 @@
 <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">linalg</span> <span class="k">as</span> <span class="n">la</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
 <span class="kn">from</span> <span class="nn">mpl_toolkits.basemap</span> <span class="kn">import</span> <span class="n">Basemap</span><span class="p">,</span> <span class="n">cm</span>
-<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccr</span>
 <span class="kn">import</span> <span class="nn">cartopy.feature</span> <span class="k">as</span> <span class="nn">cf</span>
 <span class="kn">import</span> <span class="nn">collections</span> <span class="k">as</span> <span class="nn">col</span>
 <span class="kn">from</span> <span class="nn">geopy</span> <span class="kn">import</span> <span class="n">distance</span>
@@ -1380,7 +1380,7 @@
     <span class="n">fig</span><span class="o">.</span><span class="n">grdimage</span><span class="p">(</span><span class="n">grid</span><span class="o">=</span><span class="n">grid</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;oleron&quot;</span><span class="p">)</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
         <span class="n">data</span><span class="o">=</span><span class="n">data_trench</span><span class="p">,</span>
-        <span class="n">regionn</span><span class="o">=</span><span class="n">region</span><span class="p">,</span>
+        <span class="n">region</span><span class="o">=</span><span class="n">region</span><span class="p">,</span>
         <span class="n">pen</span><span class="o">=</span><span class="s2">&quot;0.2p&quot;</span><span class="p">,</span>
         <span class="n">fill</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
         <span class="n">style</span><span class="o">=</span><span class="s2">&quot;f0.5i/0.1i+r+t+o1&quot;</span><span class="p">,</span>
@@ -1477,10 +1477,119 @@
               <span class="n">background</span><span class="o">=</span><span class="s1">&#39;i&#39;</span><span class="p">,</span>
               <span class="n">continuous</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">grid</span><span class="o">=</span><span class="n">pygmt</span><span class="o">.</span><span class="n">xyz2grd</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">X_grid</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span><span class="n">y</span><span class="o">=</span><span class="n">Y_grid</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span><span class="n">z</span><span class="o">=</span><span class="n">Slip</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span><span class="n">region</span> <span class="o">=</span> <span class="n">reg2</span><span class="p">,</span><span class="n">spacing</span><span class="o">=</span><span class="n">spacing</span><span class="p">)</span>
+    <span class="n">grid</span><span class="o">=</span><span class="n">pygmt</span><span class="o">.</span><span class="n">grdsample</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span><span class="n">spacing</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span><span class="n">region</span><span class="o">=</span><span class="n">reg2</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="s1">&#39;q&#39;</span><span class="p">)</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="n">pygmt</span><span class="o">.</span><span class="n">grd2cpt</span><span class="p">(</span><span class="n">grid</span><span class="o">=</span><span class="n">grid</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;rainbow&#39;</span><span class="p">,</span><span class="n">nlevels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">continuous</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">basemap</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="n">region</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s2">&quot;Q12c&quot;</span><span class="p">,</span> <span class="n">frame</span><span class="o">=</span><span class="s1">&#39;ag&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">coast</span><span class="p">(</span><span class="n">land</span><span class="o">=</span><span class="s2">&quot;darkgray&quot;</span><span class="p">,</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;Q12c&#39;</span><span class="p">,</span><span class="n">frame</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">water</span><span class="o">=</span><span class="s2">&quot;lightblue&quot;</span><span class="p">,</span><span class="n">borders</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;1/0.5p,black&quot;</span><span class="p">,</span> <span class="s2">&quot;2/0.5p,gray&quot;</span><span class="p">,</span> <span class="s2">&quot;3/0.5p,blue&quot;</span><span class="p">])</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">grdimage</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> 
+            <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span>
+            <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;Q12c&#39;</span><span class="p">,</span>
+            <span class="n">nan_transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;l+a+t1.0&#39;</span>
+            <span class="p">)</span>
+    <span class="c1"># fig.grdcontour(grid=grid,projection=&#39;Q12c&#39;)</span>
+    <span class="c1"># fig.grdcontour(grid=grid,interval=3,annotation=0)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">lonfosa</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">latfosa</span><span class="p">,</span>
+        <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;Q12c&#39;</span><span class="p">,</span>
+        <span class="n">region</span><span class="o">=</span><span class="n">region</span><span class="p">,</span>
+        <span class="n">pen</span><span class="o">=</span><span class="s2">&quot;1p&quot;</span><span class="p">,</span>
+        <span class="n">fill</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+        <span class="n">style</span><span class="o">=</span><span class="s2">&quot;f0.5i/0.1i+r+t+o1&quot;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">frame</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a+3&#39;</span><span class="p">,</span><span class="s2">&quot;x+lSlip[m]&quot;</span><span class="p">],</span><span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;Q12c&#39;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">fig</span><span class="o">.</span><span class="n">inset</span><span class="p">(</span><span class="n">position</span><span class="o">=</span><span class="s2">&quot;jTL+w3.5c+o0.2c&quot;</span><span class="p">,</span> <span class="n">margin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">box</span><span class="o">=</span><span class="s2">&quot;+p1.5p,gold&quot;</span><span class="p">):</span>
+        <span class="c1"># Create a figure in the inset using coast. This example uses the azimuthal</span>
+        <span class="c1"># orthogonal projection centered at 47E, 20S. The land color is set to</span>
+        <span class="c1"># &quot;gray&quot; and Madagascar is highlighted in &quot;red3&quot;.</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">coast</span><span class="p">(</span>
+            <span class="n">region</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">,</span>
+            <span class="n">projection</span><span class="o">=</span><span class="s2">&quot;G-70/-33/?&quot;</span><span class="p">,</span>
+            <span class="n">land</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span>
+            <span class="n">water</span><span class="o">=</span><span class="s2">&quot;royalblue&quot;</span><span class="p">,</span>
+            <span class="n">dcw</span><span class="o">=</span><span class="s2">&quot;CL+gred3&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">shift_origin</span><span class="p">(</span><span class="n">yshift</span><span class="o">=</span><span class="s2">&quot;0c&quot;</span><span class="p">,</span><span class="n">xshift</span><span class="o">=</span><span class="s2">&quot;13c&quot;</span><span class="p">)</span>
+    <span class="c1">#</span>
+    <span class="n">data_lat</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">Y_grid</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span><span class="o">.</span><span class="n">size</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">data_lat</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">Y_grid</span><span class="o">.</span><span class="n">flatten</span><span class="p">())[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">data_lat</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">Slip</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+        <span class="n">projection</span><span class="o">=</span><span class="s2">&quot;X2c/12c&quot;</span><span class="p">,</span>
+        <span class="c1"># Note that the y-axis annotation &quot;Counts&quot; is shown in x-axis direction</span>
+        <span class="c1"># due to the rotation caused by horizontal=True</span>
+        <span class="n">frame</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ag&quot;</span><span class="p">,</span> <span class="s2">&quot;WSne&quot;</span><span class="p">,</span><span class="s2">&quot;xaf+lSlip mean[m]&quot;</span><span class="p">],</span>
+        <span class="n">region</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">Slip</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">region</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">region</span><span class="p">[</span><span class="mi">3</span><span class="p">]],</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">data_lat</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">data_lat</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span>
+        <span class="n">pen</span><span class="o">=</span><span class="s2">&quot;2p,black&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">shift_origin</span><span class="p">(</span><span class="n">yshift</span><span class="o">=</span><span class="s1">&#39;13c&#39;</span><span class="p">,</span><span class="n">xshift</span><span class="o">=</span><span class="s1">&#39;-13c&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">projection</span><span class="o">=</span><span class="s2">&quot;X12c/3c&quot;</span><span class="p">,</span>
+    <span class="c1"># Note that the y-axis annotation &quot;Counts&quot; is shown in x-axis direction</span>
+    <span class="c1"># due to the rotation caused by horizontal=True</span>
+    <span class="n">frame</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ag&quot;</span><span class="p">,</span> <span class="s2">&quot;WSne&quot;</span><span class="p">,</span><span class="s2">&quot;yaf+lSlip mean[m]&quot;</span><span class="p">],</span>
+    <span class="n">region</span><span class="o">=</span><span class="p">[</span><span class="n">region</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">region</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">Slip</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X_grid</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">Slip</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+    <span class="n">pen</span><span class="o">=</span><span class="s2">&quot;2p,black&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X_grid</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">Slip</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="c1"># Shift the plot origin and add right margin histogram</span>
+    <span class="k">if</span> <span class="n">filename</span> <span class="o">!=</span> <span class="kc">False</span><span class="p">:</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> 
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="k">return</span></div>
+
+
+<div class="viewcode-block" id="plot_slip_gmt_relief">
+<a class="viewcode-back" href="../main.html#geostochpy.plot_slip_gmt_relief">[docs]</a>
+<span class="k">def</span> <span class="nf">plot_slip_gmt_relief</span><span class="p">(</span><span class="n">region</span><span class="p">,</span><span class="n">X_grid</span><span class="p">,</span><span class="n">Y_grid</span><span class="p">,</span><span class="n">lonfosa</span><span class="p">,</span><span class="n">latfosa</span><span class="p">,</span><span class="n">Slip</span><span class="p">,</span><span class="n">dx</span><span class="p">,</span><span class="n">dy</span><span class="p">,</span><span class="n">filename</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plot a Slip grid of data on a grid</span>
+
+<span class="sd">    :param region: [description]</span>
+<span class="sd">    :type region: [type]</span>
+<span class="sd">    :param X_grid: [description]</span>
+<span class="sd">    :type X_grid: [type]</span>
+<span class="sd">    :param Y_grid: [description]</span>
+<span class="sd">    :type Y_grid: [type]</span>
+<span class="sd">    :param lonfosa: [description]</span>
+<span class="sd">    :type lonfosa: [type]</span>
+<span class="sd">    :param latfosa: [description]</span>
+<span class="sd">    :type latfosa: [type]</span>
+<span class="sd">    :param Slip: [description]</span>
+<span class="sd">    :type Slip: [type]</span>
+<span class="sd">    :param dx: [description]</span>
+<span class="sd">    :type dx: [type]</span>
+<span class="sd">    :param dy: [description]</span>
+<span class="sd">    :type dy: [type]</span>
+<span class="sd">    :param archivo_salida: [description]</span>
+<span class="sd">    :type archivo_salida: [type]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+    <span class="c1"># define parameters for plotting</span>
+    <span class="n">latmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">Y_grid</span><span class="o">.</span><span class="n">flat</span><span class="p">)</span>
+    <span class="n">latmin</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">Y_grid</span><span class="o">.</span><span class="n">flat</span><span class="p">)</span>
+    <span class="n">lonmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">X_grid</span><span class="o">.</span><span class="n">flat</span><span class="p">)</span>
+    <span class="n">lonmin</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">X_grid</span><span class="o">.</span><span class="n">flat</span><span class="p">)</span>
+    <span class="n">reg2</span><span class="o">=</span><span class="p">(</span><span class="n">lonmin</span><span class="p">,</span><span class="n">lonmax</span><span class="p">,</span><span class="n">latmin</span><span class="p">,</span><span class="n">latmax</span><span class="p">)</span>
+    <span class="c1">#</span>
+    <span class="n">fig</span><span class="o">=</span><span class="n">pygmt</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+    <span class="n">spacing</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">dx</span><span class="si">}</span><span class="s2">k/</span><span class="si">{</span><span class="n">dy</span><span class="si">}</span><span class="s2">k&quot;</span>
+    <span class="n">cmap2use</span> <span class="o">=</span> <span class="s1">&#39;rainbow&#39;</span>
+    <span class="n">relief</span><span class="o">=</span><span class="n">pygmt</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">load_earth_relief</span><span class="p">(</span><span class="n">resolution</span><span class="o">=</span><span class="s1">&#39;05m&#39;</span><span class="p">)</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="n">pygmt</span><span class="o">.</span><span class="n">makecpt</span><span class="p">(</span><span class="n">cmap</span> <span class="o">=</span> 
+              <span class="n">cmap2use</span><span class="p">,</span> 
+              <span class="n">series</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">Slip</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">Slip</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span><span class="o">+</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> 
+              <span class="n">background</span><span class="o">=</span><span class="s1">&#39;i&#39;</span><span class="p">,</span>
+              <span class="n">continuous</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">grid</span><span class="o">=</span><span class="n">pygmt</span><span class="o">.</span><span class="n">xyz2grd</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">X_grid</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span><span class="n">y</span><span class="o">=</span><span class="n">Y_grid</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span><span class="n">z</span><span class="o">=</span><span class="n">Slip</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span><span class="n">region</span> <span class="o">=</span> <span class="n">reg2</span><span class="p">,</span><span class="n">spacing</span><span class="o">=</span><span class="n">spacing</span><span class="p">)</span>
     <span class="c1"># grid=pygmt.grdsample(grid,spacing=spacing2,region=reg2,verbose=&#39;q&#39;)</span>
     <span class="n">cmap</span><span class="o">=</span><span class="n">pygmt</span><span class="o">.</span><span class="n">grd2cpt</span><span class="p">(</span><span class="n">grid</span><span class="o">=</span><span class="n">grid</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;rainbow&#39;</span><span class="p">,</span><span class="n">nlevels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">continuous</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">basemap</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="n">region</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s2">&quot;Q12c&quot;</span><span class="p">,</span> <span class="n">frame</span><span class="o">=</span><span class="s1">&#39;ag&#39;</span><span class="p">)</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">coast</span><span class="p">(</span><span class="n">land</span><span class="o">=</span><span class="s2">&quot;darkgray&quot;</span><span class="p">,</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;Q12c&#39;</span><span class="p">,</span><span class="n">frame</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">water</span><span class="o">=</span><span class="s2">&quot;lightblue&quot;</span><span class="p">,</span><span class="n">borders</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;1/0.5p,black&quot;</span><span class="p">,</span> <span class="s2">&quot;2/0.5p,gray&quot;</span><span class="p">,</span> <span class="s2">&quot;3/0.5p,blue&quot;</span><span class="p">])</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">grdimage</span><span class="p">(</span><span class="n">relief</span><span class="p">,</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;Q12c&#39;</span><span class="p">)</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">grdimage</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> 
             <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span>
             <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;Q12c&#39;</span><span class="p">,</span>
@@ -1540,7 +1649,6 @@
     <span class="k">else</span><span class="p">:</span>
         <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
     <span class="k">return</span></div>
-
 
 <div class="viewcode-block" id="plot_slip_css">
 <a class="viewcode-back" href="../main.html#geostochpy.plot_slip_css">[docs]</a>
@@ -1657,6 +1765,90 @@
     <span class="k">if</span> <span class="n">filename</span><span class="o">!=</span><span class="kc">None</span><span class="p">:</span>
         <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="plot_deformation_gmt">
+<a class="viewcode-back" href="../main.html#geostochpy.plot_deformation_gmt">[docs]</a>
+<span class="k">def</span> <span class="nf">plot_deformation_gmt</span><span class="p">(</span><span class="n">region</span><span class="p">,</span><span class="n">X_grid</span><span class="p">,</span><span class="n">Y_grid</span><span class="p">,</span><span class="n">dx</span><span class="p">,</span><span class="n">dy</span><span class="p">,</span><span class="n">lonfosa</span><span class="p">,</span><span class="n">latfosa</span><span class="p">,</span><span class="n">Deformation</span><span class="p">,</span><span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plot a Slip grid of data on a grid</span>
+
+<span class="sd">    :param region: [description]</span>
+<span class="sd">    :type region: [type]</span>
+<span class="sd">    :param X_grid: [description]</span>
+<span class="sd">    :type X_grid: [type]</span>
+<span class="sd">    :param Y_grid: [description]</span>
+<span class="sd">    :type Y_grid: [type]</span>
+<span class="sd">    :param lonfosa: [description]</span>
+<span class="sd">    :type lonfosa: [type]</span>
+<span class="sd">    :param latfosa: [description]</span>
+<span class="sd">    :type latfosa: [type]</span>
+<span class="sd">    :param Slip: [description]</span>
+<span class="sd">    :type Slip: [type]</span>
+<span class="sd">    :param dx: [description]</span>
+<span class="sd">    :type dx: [type]</span>
+<span class="sd">    :param dy: [description]</span>
+<span class="sd">    :type dy: [type]</span>
+<span class="sd">    :param archivo_salida: [description]</span>
+<span class="sd">    :type archivo_salida: [type]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+    <span class="c1"># define parameters for plotting</span>
+    <span class="n">latmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">Y_grid</span><span class="o">.</span><span class="n">flat</span><span class="p">)</span>
+    <span class="n">latmin</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">Y_grid</span><span class="o">.</span><span class="n">flat</span><span class="p">)</span>
+    <span class="n">lonmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">X_grid</span><span class="o">.</span><span class="n">flat</span><span class="p">)</span>
+    <span class="n">lonmin</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">X_grid</span><span class="o">.</span><span class="n">flat</span><span class="p">)</span>
+    <span class="n">reg2</span><span class="o">=</span><span class="p">(</span><span class="n">lonmin</span><span class="p">,</span><span class="n">lonmax</span><span class="p">,</span><span class="n">latmin</span><span class="p">,</span><span class="n">latmax</span><span class="p">)</span>
+    <span class="c1">#</span>
+    <span class="n">fig</span><span class="o">=</span><span class="n">pygmt</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+    <span class="n">spacing</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">dx</span><span class="si">}</span><span class="s2">k/</span><span class="si">{</span><span class="n">dy</span><span class="si">}</span><span class="s2">k&quot;</span>
+    <span class="n">cmap2use</span> <span class="o">=</span> <span class="s1">&#39;polar&#39;</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="n">pygmt</span><span class="o">.</span><span class="n">makecpt</span><span class="p">(</span><span class="n">cmap</span> <span class="o">=</span> 
+              <span class="n">cmap2use</span><span class="p">,</span> 
+              <span class="n">series</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">Deformation</span><span class="o">.</span><span class="n">flatten</span><span class="p">()),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">Deformation</span><span class="o">.</span><span class="n">flatten</span><span class="p">()),</span><span class="mi">2</span><span class="p">],</span> 
+              <span class="n">background</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+              <span class="n">continuous</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">grid</span><span class="o">=</span><span class="n">pygmt</span><span class="o">.</span><span class="n">xyz2grd</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">X_grid</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span><span class="n">y</span><span class="o">=</span><span class="n">Y_grid</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span><span class="n">z</span><span class="o">=</span><span class="n">Deformation</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span><span class="n">region</span> <span class="o">=</span> <span class="n">reg2</span><span class="p">,</span><span class="n">spacing</span><span class="o">=</span><span class="n">spacing</span><span class="p">)</span>
+    <span class="n">grid</span><span class="o">=</span><span class="n">pygmt</span><span class="o">.</span><span class="n">grdsample</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span><span class="n">spacing</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span><span class="n">region</span><span class="o">=</span><span class="n">reg2</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="s1">&#39;q&#39;</span><span class="p">)</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="n">pygmt</span><span class="o">.</span><span class="n">grd2cpt</span><span class="p">(</span><span class="n">grid</span><span class="o">=</span><span class="n">grid</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;polar&#39;</span><span class="p">,</span><span class="n">nlevels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">continuous</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">basemap</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="n">region</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s2">&quot;Q12c&quot;</span><span class="p">,</span> <span class="n">frame</span><span class="o">=</span><span class="s1">&#39;ag&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">coast</span><span class="p">(</span><span class="n">land</span><span class="o">=</span><span class="s2">&quot;darkgray&quot;</span><span class="p">,</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;Q12c&#39;</span><span class="p">,</span><span class="n">frame</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">water</span><span class="o">=</span><span class="s2">&quot;lightblue&quot;</span><span class="p">,</span><span class="n">borders</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;1/0.5p,black&quot;</span><span class="p">,</span> <span class="s2">&quot;2/0.5p,gray&quot;</span><span class="p">,</span> <span class="s2">&quot;3/0.5p,blue&quot;</span><span class="p">])</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">grdimage</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> 
+            <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span>
+            <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;Q12c&#39;</span><span class="p">,</span>
+            <span class="n">nan_transparent</span><span class="o">=</span><span class="s1">&#39;+z0&#39;</span><span class="p">,</span>
+            <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;l+a+t1.0&#39;</span>
+            <span class="p">)</span>
+    <span class="c1"># fig.grdcontour(grid=grid,projection=&#39;Q12c&#39;)</span>
+    <span class="c1"># fig.grdcontour(grid=grid,interval=3,annotation=0)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">lonfosa</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">latfosa</span><span class="p">,</span>
+        <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;Q12c&#39;</span><span class="p">,</span>
+        <span class="n">region</span><span class="o">=</span><span class="n">region</span><span class="p">,</span>
+        <span class="n">pen</span><span class="o">=</span><span class="s2">&quot;1p&quot;</span><span class="p">,</span>
+        <span class="n">fill</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+        <span class="n">style</span><span class="o">=</span><span class="s2">&quot;f0.5i/0.1i+r+t+o1&quot;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">frame</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a+3&#39;</span><span class="p">,</span><span class="s2">&quot;x+lVertical Displacement[m]&quot;</span><span class="p">],</span><span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;Q12c&#39;</span><span class="p">)</span>
+    <span class="c1">#cities</span>
+    <span class="c1">#valparaiso</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="o">=-</span><span class="mf">71.3</span><span class="p">,</span><span class="n">y</span><span class="o">=</span> <span class="o">-</span><span class="mf">33.03</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Valparaíso&#39;</span><span class="p">,</span><span class="n">fill</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span><span class="n">justify</span><span class="o">=</span><span class="s1">&#39;ML&#39;</span><span class="p">,</span><span class="n">pen</span><span class="o">=</span><span class="s2">&quot;1p,black&quot;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=-</span><span class="mf">71.63</span><span class="p">,</span><span class="n">y</span><span class="o">=-</span><span class="mf">33.03</span><span class="p">,</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;c0.2c&#39;</span><span class="p">,</span><span class="n">fill</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span><span class="n">pen</span><span class="o">=</span><span class="s2">&quot;1p,black&quot;</span><span class="p">)</span>
+    <span class="c1"># la serena</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="o">=-</span><span class="mf">71.2</span><span class="p">,</span><span class="n">y</span><span class="o">=</span> <span class="o">-</span><span class="mf">30.03</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;La Serena&#39;</span><span class="p">,</span><span class="n">fill</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span><span class="n">justify</span><span class="o">=</span><span class="s1">&#39;ML&#39;</span><span class="p">,</span><span class="n">pen</span><span class="o">=</span><span class="s2">&quot;1p,black&quot;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=-</span><span class="mf">71.4</span><span class="p">,</span><span class="n">y</span><span class="o">=-</span><span class="mf">30.03</span><span class="p">,</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;c0.2c&#39;</span><span class="p">,</span><span class="n">fill</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span><span class="n">pen</span><span class="o">=</span><span class="s2">&quot;1p,black&quot;</span><span class="p">)</span>
+    <span class="c1">#santiago</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="o">=-</span><span class="mf">70.4</span><span class="p">,</span><span class="n">y</span><span class="o">=</span> <span class="o">-</span><span class="mf">33.45</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Santiago&#39;</span><span class="p">,</span><span class="n">fill</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span><span class="n">justify</span><span class="o">=</span><span class="s1">&#39;ML&#39;</span><span class="p">,</span><span class="n">pen</span><span class="o">=</span><span class="s2">&quot;1p,black&quot;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=-</span><span class="mf">70.6</span><span class="p">,</span><span class="n">y</span><span class="o">=-</span><span class="mf">33.45</span><span class="p">,</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;c0.2c&#39;</span><span class="p">,</span><span class="n">fill</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span><span class="n">pen</span><span class="o">=</span><span class="s2">&quot;1p,black&quot;</span><span class="p">)</span>
+    <span class="c1"># talca</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="o">=-</span><span class="mf">71.6</span><span class="p">,</span><span class="n">y</span><span class="o">=</span> <span class="o">-</span><span class="mf">35.43</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Talca&#39;</span><span class="p">,</span><span class="n">fill</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span><span class="n">justify</span><span class="o">=</span><span class="s1">&#39;ML&#39;</span><span class="p">,</span><span class="n">pen</span><span class="o">=</span><span class="s2">&quot;1p,black&quot;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=-</span><span class="mf">71.8</span><span class="p">,</span><span class="n">y</span><span class="o">=-</span><span class="mf">35.43</span><span class="p">,</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;c0.2c&#39;</span><span class="p">,</span><span class="n">fill</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span><span class="n">pen</span><span class="o">=</span><span class="s2">&quot;1p,black&quot;</span><span class="p">)</span>
+    <span class="c1"># concepcion</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="o">=-</span><span class="mf">72.8</span><span class="p">,</span><span class="n">y</span><span class="o">=</span> <span class="o">-</span><span class="mf">36.812</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Concepción&#39;</span><span class="p">,</span><span class="n">fill</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span><span class="n">justify</span><span class="o">=</span><span class="s1">&#39;ML&#39;</span><span class="p">,</span><span class="n">pen</span><span class="o">=</span><span class="s2">&quot;1p,black&quot;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=-</span><span class="mf">73.039</span><span class="p">,</span><span class="n">y</span><span class="o">=-</span><span class="mf">36.812</span><span class="p">,</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;c0.2c&#39;</span><span class="p">,</span><span class="n">fill</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span><span class="n">pen</span><span class="o">=</span><span class="s2">&quot;1p,black&quot;</span><span class="p">)</span>
+        <span class="c1"># Shift the plot origin and add right margin histogram</span>
+    <span class="k">if</span> <span class="n">filename</span> <span class="o">!=</span> <span class="kc">False</span><span class="p">:</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> 
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="k">return</span></div>
 
 <div class="viewcode-block" id="plot_deformation">
 <a class="viewcode-back" href="../main.html#geostochpy.plot_deformation">[docs]</a>

@@ -17,41 +17,65 @@ shore = np.load(shorelines_file)
 route_trench = geostochpy.get_data('trench-chile.txt')
 # load trench
 lonfosa, latfosa  = geostochpy.load_trench(route_trench)
-files=['sim_0293.mat', 'sim_2053.mat', 'sim_3036.mat', 'sim_3076.mat', 'sim_3384.mat', 'sim_3677.mat', 'sim_4115.mat', 'sim_4128.mat', 'sim_4445.mat']
-folder='../Output_data/Simulation_20240207-085309/'
-# folder='../Output_data/Simulation_9_150_450/'
-# files=['sim_0582.mat', 'sim_1595.mat', 'sim_1666.mat', 'sim_2004.mat', 'sim_2148.mat', 'sim_2877.mat', 'sim_2978.mat', 'sim_3528.mat', 'sim_3930.mat']
-region=[-78,-68,-38,-28]
+file='filter_trues.txt'
 
+folder=['/mnt/c/Users/axlph/OneDrive - Universidad de Concepción/magister/Proyecto de Tesis/Slips/Simulation_8.7/','/mnt/c/Users/axlph/OneDrive - Universidad de Concepción/magister/Proyecto de Tesis/Slips/Simulation_8.8/','/mnt/c/Users/axlph/OneDrive - Universidad de Concepción/magister/Proyecto de Tesis/Slips/Simulation_8.9/','/mnt/c/Users/axlph/OneDrive - Universidad de Concepción/magister/Proyecto de Tesis/Slips/Simulation_9.0/','/mnt/c/Users/axlph/OneDrive - Universidad de Concepción/magister/Proyecto de Tesis/Slips/Simulation_9.1/','/mnt/c/Users/axlph/OneDrive - Universidad de Concepción/magister/Proyecto de Tesis/Slips/Simulation_9.2/','/mnt/c/Users/axlph/OneDrive - Universidad de Concepción/magister/Proyecto de Tesis/Slips/Simulation_9.3/']
+folder=folder[6]
+region=[-78,-68,-38,-28]
 #
-for file in files:
-    filename=folder+'/img/'+file.replace(".mat", ".png")
-    filename_def=folder+'/img/'+file.replace(".mat", "def_.png")
-    filename_def2=folder+'/img/'+file.replace(".mat", "def_cp_.png")
-    fmat=scipy.io.loadmat(folder+file)
-    X_grid=fmat['lon']
-    Y_grid=fmat['lat']
-    Slip=fmat['slip']
-    Strike=fmat['strike']
-    Dip=fmat['dip']
-    Rake=fmat['rake']
-    depth=fmat['depth']
-    # plt.hist(Slip.flatten())
-    # plt.axvline(np.percentile(Slip,85))
-    # plt.show()
-    geostochpy.plot_slip(X_grid,Y_grid,lonfosa,latfosa,Slip,filename)
-    dtopo = mo.okada_solucion_optimized( X_grid, Y_grid, 550/180, Strike, Dip, depth, Rake, Slip, 550000, resolucion = 1/30., tamano_buffer = 1., verbose = False ) # calculo deformacion
-    deformation=dtopo.dZ_at_t(0)
-    X_deformation=dtopo.X
-    Y_deformation=dtopo.Y
-    geostochpy.plot_deformation(X_deformation,Y_deformation,lonfosa,latfosa,deformation.reshape(X_deformation.shape),filename_def)
-    dtopo.plot_dZ_colors(t=0,dZ_interval=1)
-    plt.plot(shore[:,0]-360, shore[:,1], 'g')
-    plt.plot(lonfosa,latfosa,'darkgreen')
-    plt.axis(region)
-    plt.grid(visible=True,axis='both')
-    plt.plot(-71.63, -33.03,'o',color='gold')
-    plt.text(-71.63, -33.03,'Valparaíso',ha='left')
-    plt.savefig(filename_def2,dpi=1200)
-    # dtopo.write(filename_def,dtopo_type=3)
-    # geostochpy.plot_slip_gmt(region,X_grid,Y_grid,lonfosa,latfosa,Slip,dx,dy,filename)
+
+razon_aspecto=[300/150,400/180,450/180,500/180,600/180,700/180,800/180]
+largo_falla=[300000,400000,450000,500000,600000,700000,800000]
+dx=[10,10,10,10,20,20,20]
+dy=[10,10,10,10,20,20,20]
+with open(folder+file, 'r') as files:
+    for file in files:
+        file = file.strip()
+        filename=folder+'/img/'+file.replace(".mat", ".png")
+        filename_def=folder+'/img/'+file.replace(".mat", "_def.tt3")
+        filename_def2=folder+'/img/'+file.replace(".mat", "_def.png")
+        fmat=scipy.io.loadmat(folder+file)
+        X_grid=fmat['lon']
+        Y_grid=fmat['lat'].reshape(X_grid.shape)
+        Slip=fmat['slip'].reshape(X_grid.shape)
+        Strike=fmat['strike'].reshape(X_grid.shape)
+        Dip=fmat['dip'].reshape(X_grid.shape)
+        Rake=fmat['rake'].reshape(X_grid.shape)
+        depth=fmat['depth'].reshape(X_grid.shape)
+        # plt.hist(Slip.flatten())
+        # plt.axvline(np.percentile(Slip,85))
+        # plt.show()
+        # geostochpy.plot_slip(X_grid,Y_grid,lonfosa,latfosa,Slip,filename)
+        geostochpy.plot_slip_gmt([-78,-68,-38,-28],X_grid,Y_grid,lonfosa,latfosa,Slip,dx[6],dy[6],filename)
+        #geostochpy.plot_slip(X_grid,Y_grid,lonfosa,latfosa,Slip,filename)
+        dtopo = mo.okada_solucion_optimized( X_grid, Y_grid,razon_aspecto[6], Strike, Dip, depth, Rake, Slip, largo_falla[6], resolucion = 1/30., tamano_buffer = 1., verbose = False ) # calculo deformacion
+        deformation=dtopo.dZ_at_t(0)
+        X_deformation=dtopo.X
+        Y_deformation=dtopo.Y
+        # geostochpy.plot_deformation(X_deformation,Y_deformation,lonfosa,latfosa,deformation.reshape(X_deformation.shape),filename_def)
+        dtopo.plot_dZ_colors(t=0,dZ_interval=1)
+        plt.plot(shore[:,0]-360, shore[:,1], 'g')
+        plt.plot(lonfosa,latfosa,'darkgreen')
+        plt.axis(region)
+        plt.grid(visible=True,axis='both')
+                # cities
+        # valparaiso
+        plt.text(x=-71.63, y=-33.03, s='Valparaíso', color='white', ha='left')
+        plt.plot([-71.63], [-33.03], 'co', markersize=4, markeredgecolor='black')
+        # la serena
+        plt.text(x=-71.4, y=-30.03, s='La Serena', color='white', ha='left')
+        plt.plot([-71.4], [-30.03], 'co', markersize=4, markeredgecolor='black')
+        # santiago
+        plt.text(x=-70.6, y=-33.45, s='Santiago', color='white', ha='left')
+        plt.plot([-70.6], [-33.45], 'co', markersize=4, markeredgecolor='black')
+        # talca
+        plt.text(x=-71.8, y=-35.43, s='Talca', color='white', ha='left')
+        plt.plot([-71.8], [-35.43], 'co', markersize=4, markeredgecolor='black')
+        # concepcion
+        plt.text(x=-73.039, y=-36.812, s='Concepción', color='white', ha='left')
+        plt.plot([-73.039], [-36.812], 'co', markersize=4, markeredgecolor='black')
+        plt.savefig(filename_def2,dpi=1200)
+        plt.close()
+
+        dtopo.write(filename_def,dtopo_type=3)
+        # geostochpy.plot_slip_gmt(region,X_grid,Y_grid,lonfosa,latfosa,Slip,dx,dy,filename)

@@ -4,7 +4,7 @@ import os
 import scipy.io
 import sys
 sys.path.append('../') 
-import geostochpy as slgen
+import geostochpy
 from geostochpy import modfilters
 import json
 from skimage.feature import peak_local_max
@@ -39,7 +39,7 @@ def main(args):
     files=os.listdir('../Output_data/'+simulationfolder)
     route_trench = "../Slab/trench-chile.txt"
     # load trench
-    lons_fosa, lats_fosa  = slgen.load_trench(route_trench)
+    lons_fosa, lats_fosa  = geostochpy.load_trench(route_trench)
     # load files
     dicc={}
     max_slips=[]
