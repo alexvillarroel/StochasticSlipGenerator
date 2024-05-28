@@ -38,8 +38,7 @@ def main(args):
     # 
     print('Starting Grid generation')
     route_trench = geostochpy.get_data('trench-chile.txt')
-    lons_fosa, lats_fosa  = geostochpy.load_trench(route_trench)
-    # load slab files
+    lonsfosa, latsfosa,strikefosa  = geostochpy.load_trench(route_trench)
     slabdep,slabdip,slabstrike,slabrake=geostochpy.load_files_slab2(zone='south_america',rake=True)
     dir='Simulation_'+timestr
     os.chdir('../Output_data/')
@@ -56,9 +55,8 @@ def main(args):
     # make grid
     for i in trange(1,n_slip+1,desc=f'Generation process: '):
         random_north = northlat - random.random() * (np.abs(northlat-southlat)-geostochpy.km2deg(length))
-        lons,lons_ep,lats,lats_ep=geostochpy.make_fault_alongtrench_optimized(lons_fosa,lats_fosa,random_north, nx,ny,width,length)
-        # Interpolate Slab data to the new gridded fault
-        [X_grid,Y_grid,dep,dip,strike,rake]=geostochpy.interp_slabtofault(lons_ep,lats_ep,nx,ny,slabdep,slabdip,slabstrike,slabrake)
+        lon,lat,lon_flat,lat_flat=geostochpy.make_fault_alongstriketrench(lonsfosa, latsfosa,strikefosa,random_north, nx, ny, width, length)
+        X_grid,Y_grid,dep,dip,strike,rake=geostochpy.interp_slabtofault(lon_flat,lat_flat,nx,ny,slabdep,slabdip,slabstrike,slabrake)
         ## Creation slip models
         # mean matrix
         media,rigidez=geostochpy.media_slip(Mw,dx*1000,dy*1000,dep)
@@ -77,9 +75,9 @@ def main(args):
         # Hypocenter=geostochpy.hypocenter(X_grid,Y_grid,dep,length,width) se tiene en cuenta la rigidez con el modelo PREM incluido @fetched with Rockhound
         archivo_salida='sim_'+str(i).zfill(len(str(n_slip)))
         # file_multifault='fault_multi_'+str(i).zfill(len(str(n_slip)))+'.ctl'
-        mdic_multifault={'depth':dep.flat,'length':dy*np.ones((1,nx*ny)),'width':dx*np.ones((1,nx*ny)),
-              'slip':Slip.flat,'strike':strike.flat,'dip':dip.flat,'rake':rake.flat
-              ,'lat':lats_ep,'lon':lons_ep,'time':np.zeros((1,nx*ny))}
+        mdic_multifault={'depth':dep,'length':dy*np.ones((1,nx*ny)),'width':dx*np.ones((1,nx*ny)),
+              'slip':Slip,'strike':strike,'dip':dip,'rake':rake
+              ,'lat':Y_grid,'lon':X_grid,'time':np.zeros((1,nx*ny))}
         # mdic={'depth':dep,'length':dy*np.ones((1,nx*ny)),'width':dx*np.ones((1,nx*ny)),
         #       'slip':Slip,'strike':strike,'dip':dip,'rake':rake
         #       ,'lat':Y_grid,'lon':X_grid,'time':np.zeros((1,nx*ny))}

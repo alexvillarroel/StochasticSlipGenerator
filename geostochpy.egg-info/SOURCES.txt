@@ -11,6 +11,7 @@ geostochpy.egg-info/dependency_links.txt
 geostochpy.egg-info/top_level.txt
 geostochpy/data/150_coupling.xyz
 geostochpy/data/comcot.ctl
+geostochpy/data/ghayes2.cpt.txt
 geostochpy/data/grid_to_xyz_comcotformat.py
 geostochpy/data/locking_model.grd
 geostochpy/data/median_lock_Herrera2023.txt

@@ -8,7 +8,8 @@ from scipy import stats
 import matplotlib.pyplot as plt
 import csv
 
-folders=['/mnt/c/Users/axlph/OneDrive - Universidad de Concepción/magister/Proyecto de Tesis/Slips/Simulation_8.8/','/mnt/c/Users/axlph/OneDrive - Universidad de Concepción/magister/Proyecto de Tesis/Slips/Simulation_8.9/','/mnt/c/Users/axlph/OneDrive - Universidad de Concepción/magister/Proyecto de Tesis/Slips/Simulation_9.0/','/mnt/c/Users/axlph/OneDrive - Universidad de Concepción/magister/Proyecto de Tesis/Slips/Simulation_9.1/','/mnt/c/Users/axlph/OneDrive - Universidad de Concepción/magister/Proyecto de Tesis/Slips/Simulation_9.2/','/mnt/c/Users/axlph/OneDrive - Universidad de Concepción/magister/Proyecto de Tesis/Slips/Simulation_9.3/']
+# folders=['/mnt/c/Users/axlph/OneDrive - Universidad de Concepción/magister/Proyecto de Tesis/Slips/Simulation_8.8/','/mnt/c/Users/axlph/OneDrive - Universidad de Concepción/magister/Proyecto de Tesis/Slips/Simulation_8.9/','/mnt/c/Users/axlph/OneDrive - Universidad de Concepción/magister/Proyecto de Tesis/Slips/Simulation_9.0/','/mnt/c/Users/axlph/OneDrive - Universidad de Concepción/magister/Proyecto de Tesis/Slips/Simulation_9.1/','/mnt/c/Users/axlph/OneDrive - Universidad de Concepción/magister/Proyecto de Tesis/Slips/Simulation_9.2/','/mnt/c/Users/axlph/OneDrive - Universidad de Concepción/magister/Proyecto de Tesis/Slips/Simulation_9.3/']
+folders=['/mnt/c/Users/axlph/OneDrive - Universidad de Concepción/magister/Proyecto de Tesis/Slip_generation/Output_data/Simulation_9.0/']
 # Get a list of all .mat files in the specified folder
 for folder in folders:
     mat_files = [f for f in os.listdir(folder) if f.endswith('.mat')]
@@ -34,8 +35,8 @@ for folder in folders:
     idx=0
     for data in mat_data:
         idx+=1
-        X_grid=data['lon'].flatten()
-        Y_grid=data['lat'].flatten()
+        X_grid=data['lat'].flatten()
+        Y_grid=data['lon'].flatten()
         Slip=data['slip'].flatten()
         depth=data['depth'].flatten()
         filt=modfilters.physical_filter(Slip,Y_grid,depth,10000,20000,-33.5,-31)

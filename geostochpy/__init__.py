@@ -21,7 +21,7 @@ import collections as col
 from geopy import distance
 import geographiclib as geo 
 from geographiclib.geodesic import Geodesic
-from scipy.interpolate import LinearNDInterpolator, interp1d,RegularGridInterpolator
+from scipy.interpolate import LinearNDInterpolator, interp1d,RegularGridInterpolator,NearestNDInterpolator
 from scipy import signal
 from scipy.signal import lfilter,windows
 import scipy.ndimage.filters as filters
@@ -116,8 +116,8 @@ def load_trench( trench_file ):
     trench = np.genfromtxt( trench_file, delimiter = " " )
     lons = trench[:,0]
     lats = trench[:,1]
-
-    return lons, lats
+    strike = trench[:,2]
+    return lons, lats,strike
 
 # carga datos del modelo PREM
 
@@ -317,6 +317,35 @@ def make_fault_alongtrench(lons_trench,lats_trench,northlat, nx,ny,width,length)
             lons_ep.append(lon)
     return lons,lons_ep,lats,lats_ep
 # LATS SUBFALLAS
+def make_fault_alongstriketrench(lons_trench, lats_trench, strike_trench, northlat, nx, ny, width, length):
+    dy = length / ny
+    j = np.arange(ny)
+    lat_trench = northlat - km2deg(dy * j)
+    lon_trench = np.interp(lat_trench, lats_trench, lons_trench)
+
+    # Interpolar los datos
+    strike = np.interp(lat_trench, lats_trench, strike_trench)
+
+    # Crear matrices de índices
+    I, J = np.meshgrid(np.arange(nx), j)
+
+    # Repetir el array strike en las columnas nx veces
+    strike_repeated = np.tile(strike[:, np.newaxis], (1, nx))
+
+    # Calcular latitud y longitud sin usar bucles
+    dx = width / nx
+    lat_offset = km2deg(np.sin(np.deg2rad(strike_repeated)) * (dx * (I + 1) - 1 / 2))
+    lon_offset = km2deg(np.cos(np.deg2rad(strike_repeated)) * (dx * (I + 1) - 1 / 2))
+
+    lat = lat_trench[J] - lat_offset
+    lon = lon_trench[J] + lon_offset
+
+    # Aplanar los resultados si es necesario
+    lat_flat = lat.flatten()
+    lon_flat = lon.flatten()
+
+    return lon,lat,lon_flat,lat_flat
+
 def make_fault_alongtrench_optimized(lons_trench, lats_trench, northlat, nx, ny, width, length):
     dx = width / nx
     dy = length / ny
@@ -371,7 +400,42 @@ def interp_slabtofault(lons,lats,nx,ny,slabdep,slabdip,slabstrike,slabrake):
     return X_grid,Y_grid,dep,dip,strike,rake
 
 # Estima el tiempo de ruptura (tau) de la falla
+def interp_slab(lons,lats,slabdep,slabdip,slabstrike,slabrake):
+        # # limits stochastic grid
+    lonwest=np.min(lons)
+    lonest=np.max(lons)
+    latnorth=np.max(lats)
+    latsouth=np.min(lats)
 
+    ind_sup_lons=np.argwhere(slabdep[:,0]<lonwest) # +-1 for best interpolation
+    ind_inf_lons=np.argwhere(slabdep[:,0]>lonest)
+    index_lons=np.concatenate((ind_sup_lons,ind_inf_lons))
+    # delete 
+    slabdep=np.delete(slabdep,index_lons,0)
+    slabdip=np.delete(slabdip,index_lons,0)
+    slabstrike=np.delete(slabstrike,index_lons,0)
+    #
+    ind_sup_lats=np.argwhere(slabdep[:,1]<(latsouth)) # +-1 for best interpolation
+    ind_inf_lats=np.argwhere(slabdep[:,1]>(latnorth))
+    index_lats=np.concatenate((ind_sup_lats,ind_inf_lats))
+    # delete
+    slabdep=np.delete(slabdep,index_lats,0)
+    slabdip=np.delete(slabdip,index_lats,0)
+    slabstrike=np.delete(slabstrike,index_lats,0)
+    #
+    mask = np.isnan(slabdep).any(axis=1)
+    slabdep=slabdep[~mask]
+    slabdip=slabdip[~mask]
+    slabstrike=slabstrike[~mask]
+    interp_dep=LinearNDInterpolator(list(zip(slabdep[:,0],slabdep[:,1])),slabdep[:,2])
+    interp_dip=LinearNDInterpolator(list(zip(slabdip[:,0],slabdip[:,1])),slabdip[:,2])
+    interp_strike=LinearNDInterpolator(list(zip(slabdip[:,0],slabstrike[:,1])),slabstrike[:,2])
+    interp_rake=LinearNDInterpolator(list(zip(slabrake[:,0],slabrake[:,1])),slabrake[:,2])
+    dep=interp_dep(lons,lats)
+    dip=interp_dip(lons,lats)
+    strike=interp_strike(lons,lats)
+    rake=interp_rake(lons,lats)
+    return dep,dip,strike,rake
 def tau_ruptura_BilekModel( largo_subfalla, beta = 3500,prem=False,profs=None):
 
     """ 
@@ -1143,7 +1207,7 @@ def taper_except_trench_tukey(depth,dip_taperfunc=tukey_window,strike_taperfunc=
 
     return taper_2d #Slip_taper, taper_2d
 ################ PLOT FUNCTIONS
-def plot_grid(region,data_trench,lons,lats):
+def plot_grid(region,lons_trench,lats_trench,lons,lats):
     """
     Plot a grid of regions in a region of land .
 
@@ -1165,7 +1229,8 @@ def plot_grid(region,data_trench,lons,lats):
     fig.basemap(region=region, projection="M0/0/12c", frame=True)
     fig.grdimage(grid=grid, cmap="oleron")
     fig.plot(
-        data=data_trench,
+        x=lons_trench,
+        y=lats_trench,
         region=region,
         pen="0.2p",
         fill="white",
@@ -1472,30 +1537,7 @@ def plot_slip_css(region,lons, lats, lonfosa, latfosa, Slip, cmap='rainbow'):
     plt.show()
     plt.close()
     return
-def plot_grid():
-    """
-    Plot the grid of earthquake data .
-    """
-    fig = pygmt.Figure()
-    # Chilean trench
-    data_trench=np.loadtxt("trench-chile.txt")
-    # Load sample grid (3 arc-minutes global relief) in target area
-    grid = pygmt.datasets.load_earth_relief(resolution="30s", region=region)
-    data_grid=np.loadtxt('./Output_data/'+timestr+'_'+str(corner[0])+str(corner[1])+'.xyz')
-    # Plot original grid
-    fig.basemap(region=region, projection="M0/0/12c", frame=True)
-    fig.grdimage(grid=grid, cmap="oleron")
-    fig.plot(
-        data=data_trench,
-        region=region,
-        pen="0.2p",
-        fill="white",
-        style="f0.5i/0.1i+r+t+o1",
-    )
-    fig.plot(data=data_grid, style="p0.2c", pen="2p,red",fill="red")
-    fig.savefig('./Output_images/'+timestr+'_'+str(corner[0])+str(corner[1])+'.png')
-    fig.show()
-    return
+
 def plot_3d(X_array,Y_array,depth,Slip,filename=None):
     """
     Plot a 3D plot of a 3D Slip grid with a depth of the surface .

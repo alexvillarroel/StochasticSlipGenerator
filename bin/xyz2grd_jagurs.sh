@@ -1,4 +1,4 @@
-#!/bin/bash
+z#!/bin/bash
 # This script converts an XYZ file to a GRD file using GMT, and convert to cf format
 # How to use the script: 
     #./xyz2grd_jagurs.sh input_xyz output_grd

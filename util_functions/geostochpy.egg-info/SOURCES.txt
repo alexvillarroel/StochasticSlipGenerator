@@ -1,0 +1,4 @@
+geostochpy.egg-info/PKG-INFO
+geostochpy.egg-info/SOURCES.txt
+geostochpy.egg-info/dependency_links.txt
+geostochpy.egg-info/top_level.txt
