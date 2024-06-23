@@ -8,6 +8,13 @@ from scipy import stats
 import matplotlib.pyplot as plt
 import csv
 
+# El filtrado se basa en la física de la subducción,
+# la profundidad de los deslizamientos y los límites geográficos.
+# Se comienza filtrando los datos por estadística, con valores máximos de slip entre 
+# 2 y 3 std
+
+#
+#
 # folders=['/mnt/c/Users/axlph/OneDrive - Universidad de Concepción/magister/Proyecto de Tesis/Slips/Simulation_8.8/','/mnt/c/Users/axlph/OneDrive - Universidad de Concepción/magister/Proyecto de Tesis/Slips/Simulation_8.9/','/mnt/c/Users/axlph/OneDrive - Universidad de Concepción/magister/Proyecto de Tesis/Slips/Simulation_9.0/','/mnt/c/Users/axlph/OneDrive - Universidad de Concepción/magister/Proyecto de Tesis/Slips/Simulation_9.1/','/mnt/c/Users/axlph/OneDrive - Universidad de Concepción/magister/Proyecto de Tesis/Slips/Simulation_9.2/','/mnt/c/Users/axlph/OneDrive - Universidad de Concepción/magister/Proyecto de Tesis/Slips/Simulation_9.3/']
 folders=['/mnt/c/Users/axlph/OneDrive - Universidad de Concepción/magister/Proyecto de Tesis/Slip_generation/Output_data/Simulation_9.0/']
 # Get a list of all .mat files in the specified folder

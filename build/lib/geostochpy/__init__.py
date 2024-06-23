@@ -11,7 +11,8 @@ Module with functions necessary for the creation of faults and the calculation o
 
 """
 
-import numpy as np 
+import numpy as np
+
 from numpy import linalg as la
 import matplotlib.pyplot as plt 
 from mpl_toolkits.basemap import Basemap, cm
@@ -24,6 +25,7 @@ from geographiclib.geodesic import Geodesic
 from scipy.interpolate import LinearNDInterpolator, interp1d,RegularGridInterpolator,NearestNDInterpolator
 from scipy import signal
 from scipy.signal import lfilter,windows
+from scipy.special import kv
 import scipy.ndimage.filters as filters
 from clawpack.geoclaw import dtopotools, topotools
 from multiprocessing import Pool, Process, cpu_count
@@ -637,7 +639,7 @@ def matriz_medias( media, prof ):
     media: valor promedio alrededor del que se desea que se centre el slip
     prof: matriz con profundidades de cada subfalla, necesaria para el taper
     """
-    tau = taper_LeVeque( prof,50000) # taper
+    tau = taper_LeVeque( prof,55000) # taper
     alpha = 0.5 # valor sugerido por LeVeque et al, 2016
     mu = np.log( media*tau ) - 1/2 * np.log( alpha**2+1 )
     return mu
@@ -647,78 +649,6 @@ def matriz_medias_villarroel(media,taper,alpha=0.5):
     mu = np.log( media*taper) - 1/2 * np.log( alpha**2+1 )
     return mu
 # calculo matriz de covarianza
-
-def matriz_covarianza( dip, prof, lons, lats ):
-
-    """
-    calcula la matriz de correlacion:
-    Cij = exp(-(dstrike(i,j)/rstrike)-(ddip(i,j)/rdip)
-    donde:
-    dstrike y ddip son estimados de las distancias entre las subfallas i & j
-    ddip = dprof/sin(dip)
-    d es la distancia euclidiana entre dos puntos aproximada segun sus lats y lons
-    rstrike y rdip son los largos de correlacion en cada direccion 
-    Entradas: 
-    dip: matriz con los dips de cada punto
-    prof: matriz con las profundidades de cada punto
-    lons: matriz con longitud de cada subfalla, necesaria para el calculo de las distancias entre estas
-    lats: matriz con latitud de cada subfalla, necesaria para el calculo de las distancias entre estas
-    Observacion: en esta primera instancia se considera la aproximacion  1 grado approx 111.12 km (generalizar para fallas mas grandes)
-    Observacion 2: aproximacion para calculo de distancia corregida con calculo geodesico de distancia (aumenta el costo computacional bastante)
-    """
-
-    maxlat = np.max(lats) # latitud maxima
-    lon_maxlat = lons[np.where( lats == maxlat )[0][0], np.where( lats == maxlat )[1][0]] # longitud correspondiente a la latitud maxima
-    minlat = np.min(lats) # latitud minima
-    lon_minlat = lons[np.where( lats == minlat )[0][0], np.where( lats == minlat )[1][0]] # longitud correspondiente a la latitud minima
-    maxlon = np.max(lons) # longitud maxima
-    lat_maxlon = lats[np.where( lons == maxlon )[0][0], np.where( lons == maxlon )[1][0]] # latitud correspondiente a la longitud maxima
-    minlon = np.min(lons) # longitud minima
-    lat_minlon = lats[np.where( lons == minlon )[0][0], np.where( lons == minlon )[1][0]]
-    maxprof = np.max(prof) # profundidad maxima
-    minprof = np.min(prof) # profundidad minima
-    
-    largo_falla = dist_sf( lon_minlat, lon_maxlat, minlat, maxlat ) # largo de la falla en metros
-    #ancho_falla = np.sqrt((np.max(prof)-np.min(prof))**2+(abs(np.max(lons)-np.min(lons))*111000.12)**2)
-    ancho_falla = np.sqrt( ( np.max( prof ) - np.min( prof ) )**2 + dist_sf( maxlon, minlon, lat_maxlon, lat_minlon )**2 )
-    rdip = 0.4*ancho_falla # largo de correlacion en direccion de dip
-    rstrike = 0.4*largo_falla # largo de correlacion en direccion de strike
-    n_filas = np.shape( prof )[0] # dimension 0
-    n_columnas = np.shape( prof )[1] # dimension 1
-    vector_dip = np.reshape( dip, ( n_filas * n_columnas, 1 ) )
-    vector_prof = np.reshape( prof, ( n_filas * n_columnas, 1 ) )
-    vector_lon = np.reshape( lons, ( n_filas * n_columnas, 1 ) )
-    vector_lat = np.reshape( lats, ( n_filas * n_columnas, 1 ) )
-    alpha = 0.5 # LeVeque et al 2016
-
-    # calculo de ddip
-    ddip = np.ones( ( len( vector_dip ), len( vector_dip ) ) ) # iniciacion matriz de distancia a lo largo de dip
-    for i in range( len( vector_dip ) ):
-        for j in range( len( vector_dip ) ):
-            if np.sin( np.deg2rad( ( vector_dip[i] + vector_dip[j] )/2 ) ) != 0:
-                ddip[i][j] = ( vector_prof[i] - vector_prof[j] )/np.sin( np.deg2rad( ( vector_dip[i] + vector_dip[j] )/2 ) )
-            else:
-                ddip[i][j] = 0
-    # calculo de dstrike
-    dstrike = np.ones( ( len( vector_prof ), len( vector_prof ) ) ) # iniciacion matriz de distancia a lo largo de strike
-    d = np.ones( ( len( vector_prof ), len( vector_prof ) ) ) # iniciacion matriz de distancia entre fallas
-    for k in range( len( vector_prof ) ):
-        for l in range( len( vector_prof ) ):
-            #d[k][l] = dist_sf(vector_lat[k],vector_lat[l],vector_lon[k],vector_lon[l])
-            d[k][l] = dist_sf_alt( vector_lon[k], vector_lon[l], vector_lat[k], vector_lat[l] )
-            #d[k][l] = np.sqrt((abs(vector_lon[k]-vector_lon[l])*111000.12)**2+(abs(vector_lat[k]-vector_lat[l])*111000.12)**2)
-            dstrike[k][l] = np.sqrt( abs(d[k][l]**2 - ( ddip[k][l] )**2 ) )
-    
-    # calculo de Cij
-    C = np.ones( ( len( vector_dip ), len( vector_dip ) ) ) # matriz de correlacion
-    for m in range( len( vector_prof ) ):
-        for n in range( len( vector_prof ) ):
-            C[m][n] = np.exp( -( ( dstrike[m][n] )/rstrike )-( ( ddip[m][n] )/rdip ) )
-
-
-    mat_cova = np.log( alpha**2*C+1 ) # matriz de covarianza
-
-    return mat_cova
 
 # Matriz de covarianza_optimized
 def matriz_covarianza_optimized( dip, prof, lons, lats,largo_falla,ancho_falla,alpha=0.5 ):
@@ -764,6 +694,38 @@ def matriz_covarianza_optimized( dip, prof, lons, lats,largo_falla,ancho_falla,a
     return mat_cova
 
 # distribucion de slip
+# Función de correlación von Karman
+def von_karman_correlation(r, H):
+    return (r ** H) * kv(H, r)
+
+# Calculo matriz de covarianza usando VK-ACF
+def matriz_covarianza_von_karman(dip, prof, lons, lats,length_fault,width_fault, H=0.7):
+    """
+    Calcula la matriz de correlación utilizando la función von Karman.
+    length_fault and width_fault en km, prof in meters
+    """
+    # Vectorizar cálculos
+    vector_dip, vector_prof, vector_lon, vector_lat = dip.flatten(), prof.flatten(), lons.flatten(), lats.flatten()
+    
+    # Calculo de ddip
+    ddip = (vector_prof[:, np.newaxis] - vector_prof) / np.sin(np.deg2rad((vector_dip[:, np.newaxis] + vector_dip) / 2))
+    ddip = np.abs(np.nan_to_num(ddip, nan=0.0, posinf=0.0, neginf=0.0))
+    
+    # Calculo de d
+    d = dist_haversine(vector_lon, vector_lon[:, np.newaxis], vector_lat, vector_lat[:, np.newaxis])
+    dstrike = np.sqrt(np.abs(d**2 - ddip**2))
+    # Calculo de correlation length . 
+    a_s=17.7+0.35*length_fault
+    a_d=6.7+0.41*width_fault
+    # Calculo de r_ij
+
+    r_ij = np.sqrt((dstrike / a_s) ** 2 + (ddip / a_d) ** 2)/1000 # en km
+    # Calculo de Cij usando la función von Karman
+    C = np.where(r_ij!=0,von_karman_correlation(r_ij, H) / von_karman_correlation(1e-10,H),1)
+    # Matriz de covarianza
+    mat_cova = np.log(C + 1)
+    mat_cova[np.isnan(mat_cova)]=0
+    return mat_cova
 
 def distribucion_slip( C, mu, N ):
     """
