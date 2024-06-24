@@ -758,6 +758,34 @@ def distribucion_slip( C, mu, N ):
 
 
 
+def distribucion_slip_optimizado(C, mu, N):
+    n_cols_cova = C.shape[0]  # Dimensión de la matriz de covarianza
+
+    # Asegurarse que mu es un vector columna
+    mu = mu.reshape((n_cols_cova, 1))
+
+    # Calcular eigenvalues y eigenvectors de C (utilizando eigh para matrices simétricas/hermitianas)
+    eig_val, eig_vecs = la.eigh(C)
+    eig_val = eig_val.real  # Valores propios (lambda_k)
+    eig_vecs = eig_vecs.real  # Vectores propios (v_k)
+
+    # Ordenar eigenvalores en orden descendente y seleccionar los siguientes N valores
+    idx = np.argsort(-eig_val)[1:N+1]
+    eig_val = eig_val[idx]
+    eig_vecs = eig_vecs[:, idx]
+
+    # Generar muestras aleatorias de distribución gaussiana
+    z = np.random.normal(0, 1, (n_cols_cova, N))
+
+    # Calcular S vectorizado
+    sqrt_eig_val = np.sqrt(np.abs(eig_val))  # Raíz cuadrada de los eigenvalores seleccionados
+    S = z * sqrt_eig_val * eig_vecs.T  # Transponer eig_vecs para que las dimensiones coincidan
+
+    # Calcular la distribución de slip
+    S_sum = np.sum(S, axis=1)
+    S = np.exp(mu) * np.exp(S_sum)
+
+    return S.reshape(mu.shape)
 # calculo de magnitud
 
 def magnitud_momento(slip, prof, largo_subfalla,ancho_subfalla,prem=False):
