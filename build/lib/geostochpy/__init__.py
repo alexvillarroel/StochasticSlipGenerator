@@ -742,7 +742,7 @@ def distribucion_slip( C, mu, N ):
     dim_mu = np.shape( mu ) # dimensiones de mu, para volver a rearmar matriz de slip
     mu = np.reshape( mu, ( n_cols_cova, ) )
     # se calculan los valores y vectores propios de la matriz de covarianza
-    eig_val, eig_vecs = la.eig( C )
+    eig_val, eig_vecs = la.eigh( C )
     eig_val = eig_val.real # valores propios (lambda_k)
     eig_vecs = eig_vecs.real # vectores propios (v_k) (columnas de eig_vecs)
 
@@ -758,6 +758,35 @@ def distribucion_slip( C, mu, N ):
 
 
 
+def distribucion_slip_optimizada(C, mu, N):
+    from scipy import linalg as la
+    """
+    Calcula la distribucion de slip con la expansion de karhunen-loeve log-normal
+    exp(mu)exp(sum(zk*sqrt(lambdak)*vk))
+    Entradas: 
+    C: matriz de covarianza, se le calculan los eigenvalues y vectors
+    mu: matriz con medias
+    N: numero de modos a contar para la sumatoria
+    """
+
+    n_cols_cova = np.shape(C)[0]  # C es una matriz cuadrada de dim x dim 
+    dim_mu = np.shape(mu)  # dimensiones de mu, para volver a rearmar matriz de slip
+    mu = np.reshape(mu, (n_cols_cova,))  # reshaping mu
+
+    # se calculan los valores y vectores propios de la matriz de covarianza
+    eig_val, eig_vecs = la.eigh(C)
+    eig_val = eig_val.real  # valores propios (lambda_k)
+    eig_vecs = eig_vecs.real  # vectores propios (v_k) (columnas de eig_vecs)
+
+    z = np.random.normal(0, 1, n_cols_cova)  # distribucion gaussiana aleatoria z~N(0,1)
+
+    # Cálculo vectorizado del array de slip
+    sqrt_eig_val = np.sqrt(np.abs(eig_val[:N]))
+    S = np.exp(mu) * np.exp(np.sum(z[:N] * sqrt_eig_val * eig_vecs[:, :N], axis=1))
+
+    # Reshape final para volver a la dimensión original de mu
+    S = np.reshape(S, dim_mu)
+    return S
 # calculo de magnitud
 
 def magnitud_momento(slip, prof, largo_subfalla,ancho_subfalla,prem=False):

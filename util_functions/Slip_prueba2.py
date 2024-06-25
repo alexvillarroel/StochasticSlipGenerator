@@ -10,13 +10,15 @@ from tqdm import trange
 from joblib import Parallel, delayed  # Para paralelizar
 
 
-def generate_grid(i, n_slip, northlat, southlat, dx, dy, Mw, lonsfosa, latsfosa, strikefosa, slabdep, slabdip, slabstrike, slabrake, scenarios):
+
+def generate_grid(i, n_slip,n_subfaults, northlat, southlat, Mw, lonsfosa, latsfosa, strikefosa, slabdep, slabdip, slabstrike, slabrake, scenarios):
     # Seleccionar aleatoriamente un escenario (L, W) de la lista de escenarios
     length, width = random.choice(scenarios)
-    length=np.round(length / dy) * dy
-    width=np.round(width / dx) * dx
-    nx=int(width/dx)
-    ny=int(length/dy)
+    length = int(np.round(length))
+    width = int(np.round(width))
+
+    # Encontrar los mejores valores de nx, dx, ny y dy
+    nx, ny,dx,dy = find_best_factors(length, width,n_subfaults)
     # Calcular dx y dy basados en length y width
 
     # Estimar el norte aleatoriamente dentro del rango permitido
@@ -31,7 +33,7 @@ def generate_grid(i, n_slip, northlat, southlat, dx, dy, Mw, lonsfosa, latsfosa,
     taper = leveque_taper * villarroel_taper
     mu = geostochpy.matriz_medias_villarroel(media, taper)
     C = geostochpy.matriz_covarianza_von_karman(dip, dep, X_grid, Y_grid, length, width)
-    Slip = geostochpy.distribucion_slip(C, mu, nx * ny - 1)
+    Slip = geostochpy.distribucion_slip_optimizada(C, mu, nx*ny-1)
     Slip, rigidez, Mo_original, Mo_deseado = geostochpy.escalar_magnitud_momento(Mw, Slip, dep, dy * 1000, dx * 1000, prem=True)
     
     return {
@@ -53,9 +55,8 @@ def main(args):
     Mw = args.mw
     northlat = args.northlat
     southlat = args.southlat
-    dx = args.dx
-    dy = args.dy
     n_slip = args.nslip
+    n_subfaults=args.ns
     
     # Generar escenarios de longitud y ancho para la magnitud dada
     scenarios = generate_scenarios(Mw, n_slip)
@@ -70,7 +71,7 @@ def main(args):
     
     # Paralelización del proceso de generación de modelos de deslizamiento
     results = Parallel(n_jobs=-1)(
-        delayed(generate_grid)(i, n_slip, northlat, southlat, dx, dy, Mw, lonsfosa, latsfosa, strikefosa, slabdep, slabdip, slabstrike, slabrake, scenarios)
+        delayed(generate_grid)(i, n_slip,n_subfaults, northlat, southlat, Mw, lonsfosa, latsfosa, strikefosa, slabdep, slabdip, slabstrike, slabrake, scenarios)
         for i in trange(1, n_slip + 1, desc='Generation process')
     )
 
@@ -108,6 +109,20 @@ def generate_scenarios(M, n_slips, sigma_L=0.18**2, alpha_W=0.17**2):
     scenarios = list(zip(L, W))
     return scenarios
 
+def find_best_factors(length, width, total_subfallas):
+    # Encontrar factores de total_subfallas
+    factores_subfallas = np.arange(1, total_subfallas + 1)[total_subfallas % np.arange(1, total_subfallas + 1) == 0]
+
+    # Calcular diferencias mínimas y encontrar la mejor proporción
+    dx = width / factores_subfallas
+    dy = length / (total_subfallas // factores_subfallas)
+    diferencias = np.abs(dx - dy)
+    indice_min_diferencia = np.argmin(diferencias)
+
+    mejor_nx = factores_subfallas[indice_min_diferencia]
+    mejor_ny = total_subfallas // mejor_nx
+    return mejor_nx, mejor_ny, width / mejor_nx, length / mejor_ny
+
 if __name__ == "__main__":
     desc = """
         Expected region to segmentation "lonmin" "lonmax" "latmin" "latmax" (-r), north corner fault "lat" (-nlat),
@@ -118,7 +133,7 @@ if __name__ == "__main__":
                  LON from -180 to 180
 
         Example 1 input:
-            python Slip_generator.py -r -77 -69 -37 -29 -nlat -28 -slat -36 -nx 15 -ny 45 -w 150 -l 450 -n 10 -m 9.0
+            python Slip_prueba2.py -r -77 -69 -37 -29 -nlat -28 -slat -36 -ns 600 -n 10 -m 9.0
     """
     parser = argparse.ArgumentParser(
         description=desc, formatter_class=argparse.RawDescriptionHelpFormatter
@@ -126,8 +141,7 @@ if __name__ == "__main__":
     parser.add_argument("-n", "--nslip", dest="nslip", type=int, help="number of iterations for slip models.", required=True)
     parser.add_argument("-m", "--Mw", dest="mw", type=float, help="Moment magnitude of slip models.", required=True)
     parser.add_argument("-r", "--region", metavar=("lonmin", "lonmax", "latmin", "latmax"), dest="region", type=float, nargs=4, help="limits of map [lonmin lonmax latmin latmax] ", required=True)
-    parser.add_argument("-dx", "--lengthofsubfault", dest="dx", type=int, required=True, help="number of x points")
-    parser.add_argument("-dy", "--widthofsubfault", dest="dy", type=int, required=True, help="number of y points")
+    parser.add_argument("-ns", "--numbersubfaults", dest="ns", type=int, required=True, help="number of subfaults")
     parser.add_argument("-nlat", "--northlat", dest="northlat", type=float, help="north lat of possible segment", required=True)
     parser.add_argument("-slat", "--southlat", dest="southlat", type=float, help="south lat of possible segment", required=True)
     pargs = parser.parse_args()
