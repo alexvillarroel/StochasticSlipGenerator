@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Main package &mdash; geostochpy Documentation 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+      <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="_static/copybutton.js?v=ccdb6887"></script>
+        <script src="_static/design-tabs.js?v=36754332"></script>
+        <script src="_static/dark_mode_js/default_light.js?v=c2e647ce"></script>
+        <script src="_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Overview" href="overview.html" />
+    <link rel="prev" title="Slip_generation" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            geostochpy Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Slip_generation</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Main package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-geostochpy">Module contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.Mw_kauselramirez"><code class="docutils literal notranslate"><span class="pre">Mw_kauselramirez()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.N_max_matriz_covarianza"><code class="docutils literal notranslate"><span class="pre">N_max_matriz_covarianza()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.calcula_laplaciano"><code class="docutils literal notranslate"><span class="pre">calcula_laplaciano()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.corr2d_fourier"><code class="docutils literal notranslate"><span class="pre">corr2d_fourier()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.crea_falla"><code class="docutils literal notranslate"><span class="pre">crea_falla()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.deg2km"><code class="docutils literal notranslate"><span class="pre">deg2km()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.dist_haversine"><code class="docutils literal notranslate"><span class="pre">dist_haversine()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.dist_sf"><code class="docutils literal notranslate"><span class="pre">dist_sf()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.dist_sf_alt"><code class="docutils literal notranslate"><span class="pre">dist_sf_alt()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.dist_sf_vectorized"><code class="docutils literal notranslate"><span class="pre">dist_sf_vectorized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.distribucion_slip"><code class="docutils literal notranslate"><span class="pre">distribucion_slip()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.escalar_magnitud_momento"><code class="docutils literal notranslate"><span class="pre">escalar_magnitud_momento()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.estima_rigidez_BilekModel"><code class="docutils literal notranslate"><span class="pre">estima_rigidez_BilekModel()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.estima_rigidez_prem"><code class="docutils literal notranslate"><span class="pre">estima_rigidez_prem()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.get_data"><code class="docutils literal notranslate"><span class="pre">get_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.hypocenter"><code class="docutils literal notranslate"><span class="pre">hypocenter()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.interp_slabtofault"><code class="docutils literal notranslate"><span class="pre">interp_slabtofault()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.km2deg"><code class="docutils literal notranslate"><span class="pre">km2deg()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.load_PREM"><code class="docutils literal notranslate"><span class="pre">load_PREM()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.load_files_slab2"><code class="docutils literal notranslate"><span class="pre">load_files_slab2()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.load_trench"><code class="docutils literal notranslate"><span class="pre">load_trench()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.magnitud_momento"><code class="docutils literal notranslate"><span class="pre">magnitud_momento()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.make_fault_alongtrench"><code class="docutils literal notranslate"><span class="pre">make_fault_alongtrench()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.make_fault_alongtrench_optimized"><code class="docutils literal notranslate"><span class="pre">make_fault_alongtrench_optimized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.matriz_covarianza"><code class="docutils literal notranslate"><span class="pre">matriz_covarianza()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.matriz_covarianza_optimized"><code class="docutils literal notranslate"><span class="pre">matriz_covarianza_optimized()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.matriz_medias"><code class="docutils literal notranslate"><span class="pre">matriz_medias()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.matriz_medias_villarroel"><code class="docutils literal notranslate"><span class="pre">matriz_medias_villarroel()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.media_slip"><code class="docutils literal notranslate"><span class="pre">media_slip()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.nearest_value"><code class="docutils literal notranslate"><span class="pre">nearest_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.plot_3d"><code class="docutils literal notranslate"><span class="pre">plot_3d()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.plot_deformation"><code class="docutils literal notranslate"><span class="pre">plot_deformation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.plot_deformation_gmt"><code class="docutils literal notranslate"><span class="pre">plot_deformation_gmt()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.plot_grid"><code class="docutils literal notranslate"><span class="pre">plot_grid()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.plot_slip"><code class="docutils literal notranslate"><span class="pre">plot_slip()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.plot_slip_css"><code class="docutils literal notranslate"><span class="pre">plot_slip_css()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.plot_slip_gmt"><code class="docutils literal notranslate"><span class="pre">plot_slip_gmt()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.plot_slip_gmt_relief"><code class="docutils literal notranslate"><span class="pre">plot_slip_gmt_relief()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.sigmoid"><code class="docutils literal notranslate"><span class="pre">sigmoid()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.taper_LeVeque"><code class="docutils literal notranslate"><span class="pre">taper_LeVeque()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.taper_borders"><code class="docutils literal notranslate"><span class="pre">taper_borders()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.taper_except_trench"><code class="docutils literal notranslate"><span class="pre">taper_except_trench()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.taper_except_trench_tukey"><code class="docutils literal notranslate"><span class="pre">taper_except_trench_tukey()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.taper_slip_fosa"><code class="docutils literal notranslate"><span class="pre">taper_slip_fosa()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.tau_ruptura_BilekModel"><code class="docutils literal notranslate"><span class="pre">tau_ruptura_BilekModel()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.tukey_window"><code class="docutils literal notranslate"><span class="pre">tukey_window()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.tukey_window_equal"><code class="docutils literal notranslate"><span class="pre">tukey_window_equal()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.ventana_taper_slip_fosa"><code class="docutils literal notranslate"><span class="pre">ventana_taper_slip_fosa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#geostochpy-modcomcot-module">geostochpy.modcomcot module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.modcomcot.make_comcot_ctl"><code class="docutils literal notranslate"><span class="pre">make_comcot_ctl()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.modcomcot.make_multifault"><code class="docutils literal notranslate"><span class="pre">make_multifault()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.modcomcot.save_matformat"><code class="docutils literal notranslate"><span class="pre">save_matformat()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#geostochpy-modfilters-module">geostochpy.modfilters module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.modfilters.corr2_coeff"><code class="docutils literal notranslate"><span class="pre">corr2_coeff()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.modfilters.couplingfilter"><code class="docutils literal notranslate"><span class="pre">couplingfilter()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.modfilters.depth_max_slip"><code class="docutils literal notranslate"><span class="pre">depth_max_slip()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.modfilters.depthfilter"><code class="docutils literal notranslate"><span class="pre">depthfilter()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.modfilters.obtain_border"><code class="docutils literal notranslate"><span class="pre">obtain_border()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.modfilters.physical_filter"><code class="docutils literal notranslate"><span class="pre">physical_filter()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#geostochpy-modokada-module">geostochpy.modokada module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.modokada.calcula_Mw"><code class="docutils literal notranslate"><span class="pre">calcula_Mw()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.modokada.cargar_deformacion"><code class="docutils literal notranslate"><span class="pre">cargar_deformacion()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.modokada.crea_falla_dtopo"><code class="docutils literal notranslate"><span class="pre">crea_falla_dtopo()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.modokada.guardar_okada"><code class="docutils literal notranslate"><span class="pre">guardar_okada()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.modokada.leer_okada"><code class="docutils literal notranslate"><span class="pre">leer_okada()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.modokada.leer_shape_deformacion"><code class="docutils literal notranslate"><span class="pre">leer_shape_deformacion()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.modokada.leer_xls_observaciones_1960"><code class="docutils literal notranslate"><span class="pre">leer_xls_observaciones_1960()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.modokada.okada_solucion"><code class="docutils literal notranslate"><span class="pre">okada_solucion()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geostochpy.modokada.okada_solucion_optimized"><code class="docutils literal notranslate"><span class="pre">okada_solucion_optimized()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html">Stochastic process Gallery 📖 📈 🌎</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="team.html">Team Gallery</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">geostochpy Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Slip_generation</a></li>
+      <li class="breadcrumb-item active">Main package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/main.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="main-package">
+<h1>Main package<a class="headerlink" href="#main-package" title="Link to this heading"></a></h1>
+<section id="module-geostochpy">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-geostochpy" title="Link to this heading"></a></h2>
+<dl>
+<dt>Module with functions necessary for the creation of faults and the calculation of slip distributions</dt><dd><p>Author/Github: Alex Villarroel Carrasco / &#64;alexvillarroel
+University of Concepcion,Chile.</p>
+<p>SOME FUNCTIONS ARE COPYRIGHTED BY RODRIGO CIFUENTES LOBOS
+in his github repository: &#64;RCifuentesLobos : PaleoTsunami</p>
+<p>/</p>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.Mw_kauselramirez">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">Mw_kauselramirez</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ms</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#Mw_kauselramirez"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.Mw_kauselramirez" title="Link to this definition"></a></dt>
+<dd><p>calculate the Mw with a ms</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ms</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>[description]</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>[type]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.N_max_matriz_covarianza">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">N_max_matriz_covarianza</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">C</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#N_max_matriz_covarianza"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.N_max_matriz_covarianza" title="Link to this definition"></a></dt>
+<dd><p>Busca la esquina de la curva l de los valores propios
+Entrada:
+C : matriz de covarianza de la falla</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.calcula_laplaciano">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">calcula_laplaciano</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tamano_sf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">F</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#calcula_laplaciano"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.calcula_laplaciano" title="Link to this definition"></a></dt>
+<dd><p>Entradas
+tamano_sf: tamano subfalla
+F: Campo escalar a calcularle el laplaciano</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.corr2d_fourier">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">corr2d_fourier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lonslip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latslip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lontest</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lattest</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalizar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#corr2d_fourier"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.corr2d_fourier" title="Link to this definition"></a></dt>
+<dd><p>Calcula la correlacion cruzada entre 2 arrays 2d utilizando el metodo de la
+transformada rapida de fourier para obtener indices para filtrar
+Entradas:
+slip: array que contiene el slip generado
+test: arrray de prueba con el cual se busca realzar el filtro (e.g.: anom. de gravedad)
+lonslip, latslip: longitud y latitud de las subfallas que componen el slip
+lontest, lattest: longitud y latitud de las subfallas que componen el test</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.crea_falla">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">crea_falla</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lats</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lons</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prof</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strike</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latini</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latfin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area_sf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">profundidad</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">razon_aspecto</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#crea_falla"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.crea_falla" title="Link to this definition"></a></dt>
+<dd><p>Crea una falla a partir de datos del modelo Slab2.0 de Hayes, 2018
+Entradas:
+lats: latitudes de Slab2.0
+lons: longitudes de Slab2.0
+prof: profundidades de Slab2.0
+dip: dip de Slab2.0
+strike: strike de Slab2.0
+latini: latitud inicial (norte)
+latfin: latitud final (sur)
+area_sf: Area deseada para cada subfalla
+profundidad: profundidad media de la falla, sobre la cual se calculara el punto medio de la distribucion
+razon_aspecto : Razon de aspecto de la falla (largo/ancho) se calcula el ancho de la falla a partir del largo, para respetar la relacion L/A = const. de Kanamori Anderson, 1975</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.deg2km">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">deg2km</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#deg2km"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.deg2km" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.dist_haversine">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">dist_haversine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lon1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#dist_haversine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.dist_haversine" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.dist_sf">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">dist_sf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lon1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#dist_sf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.dist_sf" title="Link to this definition"></a></dt>
+<dd><p>Calcula la distancia en metros entre dos subfallas (sf) i y j utilizando el metodo de karney, 2013 y el elipsoide wgs84
+Entradas:
+lon1: longitud de subfalla i-esima
+lon2: longitud de subfalla j-esima
+lat1: latitud de subfalla i-esima
+lat2: latitud de subfalla j-esima</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.dist_sf_alt">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">dist_sf_alt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lon1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#dist_sf_alt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.dist_sf_alt" title="Link to this definition"></a></dt>
+<dd><p>Calcula la distancia en metros entre dos subfallas (sf) i y j resolviendo el problema inverso
+de la geodesia. Utiliza el elipsoide WGS84.
+Entradas:
+lon1: longitud de subfalla i-esima
+lon2: longitud de subfalla j-esima
+lat1: latitud de subfalla i-esima
+lat2: latitud de subfalla j-esima</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.dist_sf_vectorized">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">dist_sf_vectorized</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lon1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#dist_sf_vectorized"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.dist_sf_vectorized" title="Link to this definition"></a></dt>
+<dd><p>Compute the distance between two points on the sphere .</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lon1</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>lon2</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>lat1</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>lat2</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>[description]</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>[type]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.distribucion_slip">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">distribucion_slip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">C</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#distribucion_slip"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.distribucion_slip" title="Link to this definition"></a></dt>
+<dd><p>Calcula la distribucion de slip con la expansion de karhunen-loeve log-normal
+exp(mu)exp(sum(zk*sqrt(lambdak)*vk))
+Entradas:
+C: matriz de covarianza, se le calculan los eigenvalues y vectors
+mu: matriz con medias
+N: numero de modos a contar para la sumatoria</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.escalar_magnitud_momento">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">escalar_magnitud_momento</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Mw</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prof</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">largo_subfalla</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ancho_subfalla</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prem</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#escalar_magnitud_momento"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.escalar_magnitud_momento" title="Link to this definition"></a></dt>
+<dd><p>Escala la distribucion de slip a la magnitud de momento deseada de entrada.
+crea una matriz de slip uniforme con magnitud de momento igual a la primitiva
+para normalizar el slip. Despues escala con matriz uniforme con magnitud de momento
+deseada
+Entradas:
+Mw: magnitud de momento deseada
+slip: distribucion “primitiva” de slip
+prof: matriz de profundidades de la interfaz
+lons: longitudes de las subfallas
+lats: latitudes de las subfallas
+observacion: los 4 ultimos argumentos son para calcular la magnitud de momento
+con la funcion “magnitud_momento” definida anteriormente</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.estima_rigidez_BilekModel">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">estima_rigidez_BilekModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">largo_subfalla</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prem</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">profs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#estima_rigidez_BilekModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.estima_rigidez_BilekModel" title="Link to this definition"></a></dt>
+<dd><p>Estima la rigidez de la falla dado el tiempo de ruptura y el largo de la falla
+segun la relacion dada en Bilek y Lay, 1999 mu = densidad*largo_falla**2/(0.8**2*tau**2).
+entradas:
+largo_falla: largo de la falla en metros
+tau: tiempo de duracion de la ruptura</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.estima_rigidez_prem">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">estima_rigidez_prem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">profs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#estima_rigidez_prem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.estima_rigidez_prem" title="Link to this definition"></a></dt>
+<dd><p>Estima la rigidez de cada subfalla en funcion de su profunidad a partir de los
+datos de velocidad de onda S y densdidad del modelo PREM, dada Vs=sqrt(mu/rho)
+Entradas:
+profs: profundidades de las subfallas</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.get_data">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#get_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.get_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.hypocenter">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">hypocenter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lons</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lats</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#hypocenter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.hypocenter" title="Link to this definition"></a></dt>
+<dd><p>Generate a random hypocenter from a given grid .</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lons</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>lats</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>depth</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>length</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>width</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>[description]</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>[type]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.interp_slabtofault">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">interp_slabtofault</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lons</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lats</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slabdep</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slabdip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slabstrike</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slabrake</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#interp_slabtofault"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.interp_slabtofault" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.km2deg">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">km2deg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">km</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#km2deg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.km2deg" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.load_PREM">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">load_PREM</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#load_PREM"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.load_PREM" title="Link to this definition"></a></dt>
+<dd><p>carga los datos de velocidad de onda de corte del modelo prem
+directorio: directorio donde esta el archivo del modelo slab2</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.load_files_slab2">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">load_files_slab2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">zone</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'south_america'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rake</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#load_files_slab2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.load_files_slab2" title="Link to this definition"></a></dt>
+<dd><p>Load data from the hayes 2018 slab2.0 model.</p>
+<p>Inputs:
+zone : str
+Subduction zone to fech the model.
+Available zones:
+- <code class="docutils literal notranslate"><span class="pre">alaska</span></code>: Alaska
+- <code class="docutils literal notranslate"><span class="pre">calabria</span></code>: Calabria
+- <code class="docutils literal notranslate"><span class="pre">caribbean</span></code>: Caribbean
+- <code class="docutils literal notranslate"><span class="pre">cascadia</span></code>: Cascadia
+- <code class="docutils literal notranslate"><span class="pre">central_america</span></code>: Central America
+- <code class="docutils literal notranslate"><span class="pre">cotabalo</span></code>: Cotabalo
+- <code class="docutils literal notranslate"><span class="pre">halmahera</span></code>: Halmahera
+- <code class="docutils literal notranslate"><span class="pre">hellenic</span></code>: Hellenic Arc
+- <code class="docutils literal notranslate"><span class="pre">himalaya</span></code>: Himalaya
+- <code class="docutils literal notranslate"><span class="pre">hindu_kush</span></code>: Hindu Kush
+- <code class="docutils literal notranslate"><span class="pre">izu_bonin</span></code>: Izu-Bonin
+- <code class="docutils literal notranslate"><span class="pre">kamchatka</span></code>: Kamchatka-Kuril Islands-Japan
+- <code class="docutils literal notranslate"><span class="pre">kermadec</span></code>: Kermadec
+- <code class="docutils literal notranslate"><span class="pre">makran</span></code>: Makran
+- <code class="docutils literal notranslate"><span class="pre">manila_trench</span></code>: Manila Trench
+- <code class="docutils literal notranslate"><span class="pre">muertos_trough</span></code>: Muertos Trough
+- <code class="docutils literal notranslate"><span class="pre">new_guinea</span></code>: New Guinea
+- <code class="docutils literal notranslate"><span class="pre">pamir</span></code>: Pamir
+- <code class="docutils literal notranslate"><span class="pre">philippines</span></code>: Philippines
+- <code class="docutils literal notranslate"><span class="pre">puysegur</span></code>: Puysegur
+- <code class="docutils literal notranslate"><span class="pre">ryukyu</span></code>: Ryukyu
+- <code class="docutils literal notranslate"><span class="pre">scotia_sea</span></code>: Scotia Sea
+- <code class="docutils literal notranslate"><span class="pre">solomon_islands</span></code>: Solomon Islands
+- <code class="docutils literal notranslate"><span class="pre">south_america</span></code>: South America
+- <code class="docutils literal notranslate"><span class="pre">sulawesi</span></code>: Sulawesi
+- <code class="docutils literal notranslate"><span class="pre">sumatra_java</span></code>: Sumatra-Java
+- <code class="docutils literal notranslate"><span class="pre">vanuatu</span></code>: Vanuatu
+If you have and wanna load rake file,
+invoke function like load_file_slab2(zone,True)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.load_trench">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">load_trench</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trench_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#load_trench"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.load_trench" title="Link to this definition"></a></dt>
+<dd><p>upload file with the location of the south american plate trench
+Input: trench file</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.magnitud_momento">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">magnitud_momento</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prof</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">largo_subfalla</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ancho_subfalla</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prem</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#magnitud_momento"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.magnitud_momento" title="Link to this definition"></a></dt>
+<dd><p>Calcula la magnitud de momento Mw de la distribucion de slip con la ecuacion
+Mw = 2/3log(Mo)-6.05
+donde Mo = mu * area de ruptura * slip
+Entradas:
+slip: corresponde a la distribucion de slip
+prof: matriz con profundidades
+lons: matriz con longitudes
+lats: matriz con latitudes</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.make_fault_alongtrench">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">make_fault_alongtrench</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lons_trench</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lats_trench</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">northlat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#make_fault_alongtrench"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.make_fault_alongtrench" title="Link to this definition"></a></dt>
+<dd><p>Function that creates a fault by calculating the latitudes and longitudes of various subfaults, considering the trench as a boundary.
+Inputs:</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.make_fault_alongtrench_optimized">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">make_fault_alongtrench_optimized</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lons_trench</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lats_trench</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">northlat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#make_fault_alongtrench_optimized"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.make_fault_alongtrench_optimized" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.matriz_covarianza">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">matriz_covarianza</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prof</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lons</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lats</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#matriz_covarianza"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.matriz_covarianza" title="Link to this definition"></a></dt>
+<dd><p>calcula la matriz de correlacion:
+Cij = exp(-(dstrike(i,j)/rstrike)-(ddip(i,j)/rdip)
+donde:
+dstrike y ddip son estimados de las distancias entre las subfallas i &amp; j
+ddip = dprof/sin(dip)
+d es la distancia euclidiana entre dos puntos aproximada segun sus lats y lons
+rstrike y rdip son los largos de correlacion en cada direccion
+Entradas:
+dip: matriz con los dips de cada punto
+prof: matriz con las profundidades de cada punto
+lons: matriz con longitud de cada subfalla, necesaria para el calculo de las distancias entre estas
+lats: matriz con latitud de cada subfalla, necesaria para el calculo de las distancias entre estas
+Observacion: en esta primera instancia se considera la aproximacion  1 grado approx 111.12 km (generalizar para fallas mas grandes)
+Observacion 2: aproximacion para calculo de distancia corregida con calculo geodesico de distancia (aumenta el costo computacional bastante)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.matriz_covarianza_optimized">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">matriz_covarianza_optimized</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prof</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lons</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lats</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">largo_falla</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ancho_falla</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#matriz_covarianza_optimized"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.matriz_covarianza_optimized" title="Link to this definition"></a></dt>
+<dd><p>calcula la matriz de correlacion:
+Cij = exp(-(dstrike(i,j)/rstrike)-(ddip(i,j)/rdip)
+donde:
+dstrike y ddip son estimados de las distancias entre las subfallas i &amp; j
+ddip = dprof/sin(dip)
+d es la distancia euclidiana entre dos puntos aproximada segun sus lats y lons
+rstrike y rdip son los largos de correlacion en cada direccion
+Entradas:
+dip: matriz con los dips de cada punto
+prof: matriz con las profundidades de cada punto
+lons: matriz con longitud de cada subfalla, necesaria para el calculo de las distancias entre estas
+lats: matriz con latitud de cada subfalla, necesaria para el calculo de las distancias entre estas
+Observacion: en esta primera instancia se considera la aproximacion  1 grado approx 111.12 km (generalizar para fallas mas grandes)
+Observacion 2: aproximacion para calculo de distancia corregida con calculo geodesico de distancia (aumenta el costo computacional bastante)
+Obeservacion 3: el ancho y largo de la falla debe ser en metros</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.matriz_medias">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">matriz_medias</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">media</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prof</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#matriz_medias"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.matriz_medias" title="Link to this definition"></a></dt>
+<dd><p>calcula las medias mu_i para cada subfalla segun mu_i = log(mu*tau_i)-1/2log(alpha**2+1)
+Entradas:
+media: valor promedio alrededor del que se desea que se centre el slip
+prof: matriz con profundidades de cada subfalla, necesaria para el taper</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.matriz_medias_villarroel">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">matriz_medias_villarroel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">media</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">taper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#matriz_medias_villarroel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.matriz_medias_villarroel" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.media_slip">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">media_slip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Mw</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">largo_subfalla</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ancho_subfalla</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prof</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#media_slip"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.media_slip" title="Link to this definition"></a></dt>
+<dd><p>Largo, ancho y profundidad deben estar en metros</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.nearest_value">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">nearest_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matrix</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#nearest_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.nearest_value" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.plot_3d">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">plot_3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y_array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Slip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#plot_3d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.plot_3d" title="Link to this definition"></a></dt>
+<dd><p>Plot a 3D plot of a 3D Slip grid with a depth of the surface .</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X_array</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>Y_array</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>depth</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>Slip</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>filename</strong> (<em>[</em><em>type</em><em>]</em><em>, </em><em>optional</em>) – [description], defaults to None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>[description]</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>[type]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.plot_deformation">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">plot_deformation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_grid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y_grid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lonfosa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latfosa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Deformation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#plot_deformation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.plot_deformation" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.plot_deformation_gmt">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">plot_deformation_gmt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_grid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y_grid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lonfosa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latfosa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Deformation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#plot_deformation_gmt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.plot_deformation_gmt" title="Link to this definition"></a></dt>
+<dd><p>Plot a Slip grid of data on a grid</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>region</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>X_grid</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>Y_grid</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>lonfosa</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>latfosa</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>Slip</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>dx</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>dy</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>archivo_salida</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.plot_grid">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">plot_grid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#plot_grid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.plot_grid" title="Link to this definition"></a></dt>
+<dd><p>Plot the grid of earthquake data .</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.plot_slip">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">plot_slip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_grid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y_grid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lonfosa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latfosa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Slip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rainbow'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#plot_slip"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.plot_slip" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.plot_slip_css">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">plot_slip_css</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lons</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lats</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lonfosa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latfosa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Slip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rainbow'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#plot_slip_css"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.plot_slip_css" title="Link to this definition"></a></dt>
+<dd><p>Plots the CSS projection of a SlipLine</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>region</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>lons</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>lats</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>lonfosa</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>latfosa</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>Slip</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>cmap</strong> (<em>str</em><em>, </em><em>optional</em>) – [description], defaults to ‘rainbow’</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.plot_slip_gmt">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">plot_slip_gmt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_grid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y_grid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lonfosa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latfosa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Slip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#plot_slip_gmt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.plot_slip_gmt" title="Link to this definition"></a></dt>
+<dd><p>Plot a Slip grid of data on a grid</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>region</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>X_grid</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>Y_grid</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>lonfosa</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>latfosa</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>Slip</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>dx</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>dy</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>archivo_salida</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.plot_slip_gmt_relief">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">plot_slip_gmt_relief</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">region</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_grid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y_grid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lonfosa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latfosa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Slip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#plot_slip_gmt_relief"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.plot_slip_gmt_relief" title="Link to this definition"></a></dt>
+<dd><p>Plot a Slip grid of data on a grid</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>region</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>X_grid</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>Y_grid</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>lonfosa</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>latfosa</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>Slip</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>dx</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>dy</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>archivo_salida</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.sigmoid">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">sigmoid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#sigmoid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.sigmoid" title="Link to this definition"></a></dt>
+<dd><p>Funcion auxiliar para crear ventana sigmoidal para el taper</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.taper_LeVeque">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">taper_LeVeque</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dmax</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#taper_LeVeque"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.taper_LeVeque" title="Link to this definition"></a></dt>
+<dd><p>realiza el taper propuesto por leveque et al., 2016
+t(d)=1-exp(-20|d-dmax|/dmax)
+donde dmax es la profunidad maxima y de la falla y d es la profundidad
+de cada subfalla
+Entrada:
+d: matriz con profundidades</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.taper_borders">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">taper_borders</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Slip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">taperfunc=&lt;function</span> <span class="pre">hanning&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#taper_borders"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.taper_borders" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.taper_except_trench">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">taper_except_trench</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Slip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">taperfunc=&lt;function</span> <span class="pre">hanning&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#taper_except_trench"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.taper_except_trench" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.taper_except_trench_tukey">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">taper_except_trench_tukey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dip_taperfunc=&lt;function</span> <span class="pre">tukey_window&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strike_taperfunc=&lt;function</span> <span class="pre">tukey_window_equal&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_dip=0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_strike=0.5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#taper_except_trench_tukey"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.taper_except_trench_tukey" title="Link to this definition"></a></dt>
+<dd><p>2-D Taper to a Slip. Tukey windows along the strike and along the dip.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Slip</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p></li>
+<li><p><strong>dip_taperfunc</strong> (<em>[</em><em>type</em><em>]</em><em>, </em><em>optional</em>) – [description], defaults to tukey_window</p></li>
+<li><p><strong>strike_taperfunc</strong> (<em>[</em><em>type</em><em>]</em><em>, </em><em>optional</em>) – [description], defaults to windows.tukey</p></li>
+<li><p><strong>alpha_dip</strong> (<em>float</em><em>, </em><em>optional</em>) – [description], defaults to 0.5</p></li>
+<li><p><strong>alpha_strike</strong> (<em>float</em><em>, </em><em>optional</em>) – [description], defaults to 0.5</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>[description]</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>[type]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.taper_slip_fosa">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">taper_slip_fosa</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Slip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ventana</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#taper_slip_fosa"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.taper_slip_fosa" title="Link to this definition"></a></dt>
+<dd><p>Aplica un taper para atenuar el slip en las cercanias de la fosa
+Entradas:
+Slip: array con los valores de slip por subfalla
+ventana: ventana a usarse para aplicar el taper</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.tau_ruptura_BilekModel">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">tau_ruptura_BilekModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">largo_subfalla</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prem</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">profs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#tau_ruptura_BilekModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.tau_ruptura_BilekModel" title="Link to this definition"></a></dt>
+<dd><p>Para modelo sin PREM, es decir, velocidad de corte constante
+#
+Calcula el tiempo de ruptura de la falla dada a partir del largo de falla, considerando
+la velocidad de ruptura como 0.8 de la velocidad de propagacion de onda S y
+una velocidad de cizalle de 3.5 km/s utilizando la aproximacion dada en Bilek y Lay, 1999
+tau approx L/(0.8beta)
+Entradas:
+largo_falla: largo de la falla en metros dado por la funcion que crea la falla
+beta: velocidad de la onda de cizalle en metros/segundo
+#
+Para modelo prem, es decir, velocidad de corte variable
+Calcula el tiempo de ruptura de la falla dada a partir del largo de falla, considerando
+la velocidad de ruptura como 0.8 de la velocidad de propagacion de onda S y
+una velocidad de cizalle dependiente de la profundidad media de la falla
+y la velocidad vs asociada a esta en el modelo prem, utilizando la aproximacion dada en Bilek y Lay, 1999
+tau approx L/(0.8beta)
+Entradas:
+largo_falla: largo de la falla en metros dado por la funcion que crea la falla
+prof_media: profundidad media de la falla
+prof_prem: profundidades del modelo prem
+vs: modelo de velocidades del modelo prem asociadas a las profundidades de prof_prem</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.tukey_window">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">tukey_window</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#tukey_window"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.tukey_window" title="Link to this definition"></a></dt>
+<dd><p>Genera una ventana Tukey.Se ha
+ajustado los valores de la parte de Hann para que no alcancen completamente cero al comienzo</p>
+<p>Parámetros:
+- N: Longitud de la ventana.
+- alpha: Parámetro de apertura (0 para una ventana rectangular, 1 para una ventana Hann).</p>
+<p>Retorna:
+- Ventana Tukey.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.tukey_window_equal">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">tukey_window_equal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#tukey_window_equal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.tukey_window_equal" title="Link to this definition"></a></dt>
+<dd><p>Genera una ventana Tukey.Se ha
+ajustado los valores de la parte de Hann para que no alcancen completamente cero al comienzo</p>
+<p>Parámetros:
+- N: Longitud de la ventana.
+- alpha: Parámetro de apertura (0 para una ventana rectangular, 1 para una ventana Hann).</p>
+<p>Retorna:
+- Ventana Tukey.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.ventana_taper_slip_fosa">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.</span></span><span class="sig-name descname"><span class="pre">ventana_taper_slip_fosa</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Slip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ventana_flag</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy.html#ventana_taper_slip_fosa"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.ventana_taper_slip_fosa" title="Link to this definition"></a></dt>
+<dd><p>Crea una ventana para aplicar un taper al slip en cercanias de la fosa
+Entradas:
+Slip: array con los valores de slip por subfalla
+lon: array de longitudes de las subfallas
+lat: array con las latitudes de las subfallas</p>
+</dd></dl>
+
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="geostochpy-modcomcot-module">
+<h2>geostochpy.modcomcot module<a class="headerlink" href="#geostochpy-modcomcot-module" title="Link to this heading"></a></h2>
+<dl class="py function" id="module-geostochpy.modcomcot">
+<dt class="sig sig-object py" id="geostochpy.modcomcot.make_comcot_ctl">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.modcomcot.</span></span><span class="sig-name descname"><span class="pre">make_comcot_ctl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total_runtime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_save_interval</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_subfaults</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list_segment1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename_layers</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy/modcomcot.html#make_comcot_ctl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.modcomcot.make_comcot_ctl" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.modcomcot.make_multifault">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.modcomcot.</span></span><span class="sig-name descname"><span class="pre">make_multifault</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filemat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fname_layerdomain</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy/modcomcot.html#make_multifault"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.modcomcot.make_multifault" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.modcomcot.save_matformat">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.modcomcot.</span></span><span class="sig-name descname"><span class="pre">save_matformat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lons_ep</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lats_ep</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rake</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strike</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy/modcomcot.html#save_matformat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.modcomcot.save_matformat" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="geostochpy-modfilters-module">
+<h2>geostochpy.modfilters module<a class="headerlink" href="#geostochpy-modfilters-module" title="Link to this heading"></a></h2>
+<dl class="py function" id="module-geostochpy.modfilters">
+<dt class="sig sig-object py" id="geostochpy.modfilters.corr2_coeff">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.modfilters.</span></span><span class="sig-name descname"><span class="pre">corr2_coeff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy/modfilters.html#corr2_coeff"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.modfilters.corr2_coeff" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.modfilters.couplingfilter">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.modfilters.</span></span><span class="sig-name descname"><span class="pre">couplingfilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_grid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y_grid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Slip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">couplingfilename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lonfosa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latfosa</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy/modfilters.html#couplingfilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.modfilters.couplingfilter" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.modfilters.depth_max_slip">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.modfilters.</span></span><span class="sig-name descname"><span class="pre">depth_max_slip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Slip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prof_range</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy/modfilters.html#depth_max_slip"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.modfilters.depth_max_slip" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.modfilters.depthfilter">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.modfilters.</span></span><span class="sig-name descname"><span class="pre">depthfilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Slip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prctile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy/modfilters.html#depthfilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.modfilters.depthfilter" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.modfilters.obtain_border">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.modfilters.</span></span><span class="sig-name descname"><span class="pre">obtain_border</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy/modfilters.html#obtain_border"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.modfilters.obtain_border" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.modfilters.physical_filter">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.modfilters.</span></span><span class="sig-name descname"><span class="pre">physical_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Slip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lats</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">profmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">profmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latmax</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy/modfilters.html#physical_filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.modfilters.physical_filter" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="geostochpy-modokada-module">
+<h2>geostochpy.modokada module<a class="headerlink" href="#geostochpy-modokada-module" title="Link to this heading"></a></h2>
+<p id="module-geostochpy.modokada">modulo con funciones que calculan la deformacion a partir del slip utilizando las funciones del modulo dtopotools</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.modokada.calcula_Mw">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.modokada.</span></span><span class="sig-name descname"><span class="pre">calcula_Mw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lons</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lats</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">razon_aspecto</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strike</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prof</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rake</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">largo_falla</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy/modokada.html#calcula_Mw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.modokada.calcula_Mw" title="Link to this definition"></a></dt>
+<dd><p>con la funcion nativa de dtopotools .Mw() se calcula la magnitud de momento de la distribucion de slip
+Entradas:
+lons: array con las longitudes de cada subfalla
+lats: array con las latitudes de cada subfalla
+razon_aspecto: razon de aspecto de la falla (largo/ancho)
+strike: array con los strikes de cada subfalla
+dip: array con los dips de cada subfalla
+prof: array con la profundidad de cada subfalla en metros
+rake: array con los rakes de cada subfalla
+slip: array con el slip de cada subfalla generado con la metodologia de LeVeque, 2016
+largo_falla: largo de la falla en metros</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.modokada.cargar_deformacion">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.modokada.</span></span><span class="sig-name descname"><span class="pre">cargar_deformacion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nombre_archivo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directorio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tipo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy/modokada.html#cargar_deformacion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.modokada.cargar_deformacion" title="Link to this definition"></a></dt>
+<dd><p>Funcion para cargar los valores del calculo de la deformacion del suelo oceanico obtenidas
+con dtopo. Por defecto buscara en el cwd, pero se puede especificar un directorio si se
+desea leer un archivo ubicado en otro directorio.
+Entradas:
+nombre_archivo: nombre del archivo tt3 a leer
+directorio: por defecto se trabajara en el directorio actual, se puede especificar otro si se desea
+tipo: tipo de archivo dtopo a leer. Por defecto se utilizara en dtopo_type = 3</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.modokada.crea_falla_dtopo">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.modokada.</span></span><span class="sig-name descname"><span class="pre">crea_falla_dtopo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lons</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lats</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">razon_aspecto</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strike</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prof</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rake</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">largo_falla</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy/modokada.html#crea_falla_dtopo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.modokada.crea_falla_dtopo" title="Link to this definition"></a></dt>
+<dd><p>Crea un objeto Falla
+generando listas con los atributos de cada subfalla
+Entradas:
+lons: array con las longitudes de cada subfalla
+lats: array con las latitudes de cada subfalla
+razon_aspecto: razon de aspecto de la falla (largo/ancho)
+strike: array con los strikes de cada subfalla
+dip: array con los dips de cada subfalla
+prof: array con la profundidad de cada subfalla en metros
+rake: array con los rakes de cada subfalla
+slip: array con el slip de cada subfalla generado con la metodologia de LeVeque, 2016
+largo_falla: largo de la falla en metros</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.modokada.guardar_okada">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.modokada.</span></span><span class="sig-name descname"><span class="pre">guardar_okada</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dtopo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nombre_archivo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tipo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy/modokada.html#guardar_okada"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.modokada.guardar_okada" title="Link to this definition"></a></dt>
+<dd><p>Funcion para guardar las salidas del calculo de la deformacion del suelo oceanico
+a partir de la distribucion de slip
+Entradas:
+dtopo: deformacion oceanica calculada con el modelo de okada
+nombre_archivo: nombre del archivo de salida
+tipo: tipo de data a guardar, por defecto se utiliza dtopo_type = 3</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.modokada.leer_okada">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.modokada.</span></span><span class="sig-name descname"><span class="pre">leer_okada</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nombre_archivo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directorio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tipo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy/modokada.html#leer_okada"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.modokada.leer_okada" title="Link to this definition"></a></dt>
+<dd><p>Funcion para leer las salidas del calculo de la deformacion del suelo oceanico obtenidas
+con dtopo. Por defecto buscara en el cwd, pero se puede especificar un directorio si se
+desea leer un archivo ubicado en otro directorio.
+Entradas:
+nombre_archivo: nombre del archivo tt3 a leer
+directorio: por defecto se trabajara en el directorio actual, se puede especificar otro si se desea
+tipo: tipo de archivo dtopo a leer. Por defecto se utilizara en dtopo_type = 3</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.modokada.leer_shape_deformacion">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.modokada.</span></span><span class="sig-name descname"><span class="pre">leer_shape_deformacion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nombre_shape</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy/modokada.html#leer_shape_deformacion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.modokada.leer_shape_deformacion" title="Link to this definition"></a></dt>
+<dd><p>Funcion para leer shapefiles con datos historicos de deformacion postsismica de terremotos en formato shp
+de acuerdo a los archivos entregados por cristian s
+Entradas: nombre de archivo shp. Especificar ruta relativa del archivo shp sin considerar el directorio madre de deformacion</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.modokada.leer_xls_observaciones_1960">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.modokada.</span></span><span class="sig-name descname"><span class="pre">leer_xls_observaciones_1960</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nombre_xls</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy/modokada.html#leer_xls_observaciones_1960"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.modokada.leer_xls_observaciones_1960" title="Link to this definition"></a></dt>
+<dd><p>Funcion para leer los archivos xls de datos de observaciones del terremoto y tsunami de 1960
+otorgados por el dr. patricio winkler
+el formato de estos archivos es, por columna
+n sitio , nombre sitio, lat, lon, runup, profundidad de agua, altura de ola, inundacion, cambio de tierra, rango de marea, autor, comentarios
+Entradas:
+nombre_xls: nombre del archivo con datos</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.modokada.okada_solucion">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.modokada.</span></span><span class="sig-name descname"><span class="pre">okada_solucion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lons</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lats</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">razon_aspecto</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strike</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prof</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rake</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">largo_falla</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolucion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.03333333333333333</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tamano_buffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy/modokada.html#okada_solucion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.modokada.okada_solucion" title="Link to this definition"></a></dt>
+<dd><p>Calcula la deformacion provocada por la distribucion de slip generada resolviendo okada
+utilizando las herramientas de clawpack dtopotools. Se crea un objeto Falla
+generando listas con los atributos de cada subfalla
+Entradas:
+lons: array con las longitudes de cada subfalla
+lats: array con las latitudes de cada subfalla
+razon_aspecto: razon de aspecto de la falla (largo/ancho)
+strike: array con los strikes de cada subfalla
+dip: array con los dips de cada subfalla
+prof: array con la profundidad de cada subfalla en metros
+rake: array con los rakes de cada subfalla
+slip: array con el slip de cada subfalla generado con la metodologia de LeVeque, 2016
+largo_falla: largo de la falla en metros
+resolucion: resolucion espacial con la que se calculara la deformacion (valor default: 1 minuto)
+tamano_buffer: tamano (en grados) de espacio “extra” en los bordes de la falla (valor default: 2 grados)
+verbose: booleano para mostrar por terminal el estado de la resolucion de okada. True: muestra mensaje False: no muestra mensaje (valor default: False)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geostochpy.modokada.okada_solucion_optimized">
+<span class="sig-prename descclassname"><span class="pre">geostochpy.modokada.</span></span><span class="sig-name descname"><span class="pre">okada_solucion_optimized</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lons</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lats</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">razon_aspecto</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strike</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prof</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rake</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">largo_falla</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolucion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.03333333333333333</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tamano_buffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/geostochpy/modokada.html#okada_solucion_optimized"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geostochpy.modokada.okada_solucion_optimized" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="Slip_generation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="overview.html" class="btn btn-neutral float-right" title="Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Alex Villarroel.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

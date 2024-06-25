@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stochastic Slip generation - 1D Fault &mdash; geostochpy Documentation 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+      <link rel="stylesheet" type="text/css" href="../_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="../_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=ccdb6887"></script>
+        <script src="../_static/design-tabs.js?v=36754332"></script>
+        <script src="../_static/dark_mode_js/default_light.js?v=c2e647ce"></script>
+        <script src="../_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Stochastic Slip generation - 2D Fault" href="plot_Case2D-Karhunen-Loeve.html" />
+    <link rel="prev" title="Slip and deformation figure of a Stochastic generation" href="plot_slips_and_def.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            geostochpy Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Slip_generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Stochastic process Gallery 📖 📈 🌎</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="plot_3D-plot.html">3D Slip Figure of a Stochastic generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_Coupling.html">Coupling figure - 2D Fault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_events.html">Seismicity Chile 2011-2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_slips_and_def.html">Slip and deformation figure of a Stochastic generation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Stochastic Slip generation - 1D Fault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_Case2D-Karhunen-Loeve.html">Stochastic Slip generation - 2D Fault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_tukey.html">Tukey Filter - 2D Fault</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../team.html">Team Gallery</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">geostochpy Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Stochastic process Gallery 📖 📈 🌎</a></li>
+      <li class="breadcrumb-item active">Stochastic Slip generation - 1D Fault</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/auto_examples/plot_Introduction-Karhunen-Loeve.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#sphx-glr-download-auto-examples-plot-introduction-karhunen-loeve-py"><span class="std std-ref">Go to the end</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="stochastic-slip-generation-1d-fault">
+<span id="sphx-glr-auto-examples-plot-introduction-karhunen-loeve-py"></span><h1>Stochastic Slip generation - 1D Fault<a class="headerlink" href="#stochastic-slip-generation-1d-fault" title="Link to this heading"></a></h1>
+<blockquote>
+<div><p>Function to plot the 2D cross - product of the two - sided LaTeX .</p>
+<dl class="field-list simple">
+<dt class="field-odd">return<span class="colon">:</span></dt>
+<dd class="field-odd"><p>[description]</p>
+</dd>
+<dt class="field-even">rtype<span class="colon">:</span></dt>
+<dd class="field-even"><p>[type]</p>
+</dd>
+</dl>
+</div></blockquote>
+<ul class="sphx-glr-horizontal">
+<li><img src="../_images/sphx_glr_plot_Introduction-Karhunen-Loeve_001.png" srcset="../_images/sphx_glr_plot_Introduction-Karhunen-Loeve_001.png" alt="plot Introduction Karhunen Loeve" class = "sphx-glr-multi-img"/></li>
+<li><img src="../_images/sphx_glr_plot_Introduction-Karhunen-Loeve_002.png" srcset="../_images/sphx_glr_plot_Introduction-Karhunen-Loeve_002.png" alt="First 20 eigenvalues of Covariance matrix, Eigenmodes" class = "sphx-glr-multi-img"/></li>
+</ul>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># # Cuaderno 1: Explicación del proceso estocástico con transformada de Karhunen-Loéve</span>
+<span class="c1"># ### Caso 1D: Falla con variaciones de slip a lo largo del dip (along down-dip)</span>
+<span class="c1"># Ejemplo de referencia: R. J LeVeque et al. 2016</span>
+<span class="c1">#</span>
+<span class="c1"># #### Teorema K-L</span>
+<span class="c1">#</span>
+<span class="c1"># ### $X_t=\sum_{k=1}^\infty Z_ke_k(t)$</span>
+<span class="c1">#</span>
+<span class="c1"># ### Para la generación estocástica de Slips:</span>
+<span class="c1"># # $Slip=\mu+\sum_{k=1}^Nz_k\sqrt{\lambda_k}v_k$</span>
+<span class="c1">#</span>
+<span class="c1"># Una analogía puede ser la serie de fourier</span>
+<span class="c1">#</span>
+<span class="c1"># $F(t) = a_0 + \sum_{n=1}^{\infty} \left( a_n \cos\left(\frac{2\pi n t}{T}\right) + b_n \sin\left(\frac{2\pi n t}{T}\right) \right)$</span>
+
+<span class="c1"># Importamos los paquetes necesarios, es decir, main</span>
+
+<span class="c1"># In[291]:</span>
+
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">geostochpy</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+
+<span class="c1"># Primero, crearemos un ejercicio en donde nos importa la variación del Slip a lo largo del dip.</span>
+<span class="c1"># Trabajando en un espacio de coordenadas X-Y, La variación sería a lo largo de X.</span>
+<span class="c1"># Estableceremos, para este caso, 200 Subfallas (Particularmente alto), para un espacio (Ancho) de 100 km.</span>
+<span class="c1"># lo que cada subfalla tendría</span>
+<span class="c1">#</span>
+<span class="c1"># $N*dx=Ancho$ , $dx=\frac{Ancho}{N}=\frac{100}{200}=0.5km$</span>
+<span class="c1">#</span>
+<span class="c1"># Además, se asumirá que la falla presenta un dip de $13\degree$, y una magnitud de momento de 9.0, una rigidez constante (por simplicidad) de 3.55e10 N*m</span>
+<span class="c1">#</span>
+<span class="c1"># Las profundidades de cada subfalla también deben ser definidas, para este ejemplo será lineal desde 5000 m hasta 22500 m</span>
+<span class="c1">#</span>
+
+<span class="c1"># In[292]:</span>
+
+
+<span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span> <span class="c1"># Posición de cada subfalla en eje X</span>
+<span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">200</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="c1"># Posición de cada subfalla en eje Y</span>
+<span class="c1"># propiedades de la falla</span>
+<span class="n">dip</span><span class="o">=</span><span class="mi">13</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">200</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">rigidez</span><span class="o">=</span><span class="mf">3.55e10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">200</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">ancho</span><span class="o">=</span><span class="mi">100</span>
+<span class="n">profundidades</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5000</span><span class="p">,</span><span class="mi">22500</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+
+
+<span class="c1"># Definimos algunas funciones ...</span>
+
+<span class="c1"># In[294]:</span>
+
+
+<span class="n">taper</span><span class="o">=</span><span class="n">geostochpy</span><span class="o">.</span><span class="n">taper_LeVeque</span><span class="p">(</span><span class="n">profundidades</span><span class="p">,</span><span class="mi">22000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">profundidades</span><span class="p">,</span><span class="n">taper</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Profundidad a lo largo del dip&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Taper&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># Definimos la matriz de covarianza $\hat{C}_{ij} =\sigma_i \sigma_j C_{ij}$ en donde $\sigma_i=\alpha \mu_i$ para algun escalar $\alpha \in \mathbb{R}$, y C es la matriz de correlación. Ya que $\alpha$ escala la desviacion estandar relativa al promedio, con 0.75 se asegura que el slip se mantenga positivo en donde sea. Se define la matriz de correlación como</span>
+<span class="c1">#</span>
+<span class="c1"># $C_{ij}=corr(|x_i-x_j|)$, en terminos de alguna funcion de autocorrelacion corr(r), en donde se eligió:</span>
+<span class="c1">#</span>
+<span class="c1"># $ corr(r)=exp(-r/r_o)$</span>
+
+<span class="c1"># El autor propone un alpha de 0.75, y el slip promedio es ponderado por el taper, por ejemplo, daremos una media de 10 m.</span>
+
+<span class="c1"># In[332]:</span>
+
+
+<span class="k">def</span> <span class="nf">corr_1d_Leveque</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">r_0</span><span class="p">):</span>
+    <span class="n">matrix_corr</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">,</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
+            <span class="n">r</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+            <span class="n">matrix_corr</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">r</span><span class="o">/</span><span class="n">r_0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">matrix_corr</span>
+
+<span class="k">def</span> <span class="nf">cov_1d_Leveque</span><span class="p">(</span><span class="n">corr_matrix</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">mean_slip</span><span class="p">):</span>
+    <span class="n">matrix_cov</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">corr_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">corr_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">corr_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">corr_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="n">matrix_cov</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">alpha</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">mean_slip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">mean_slip</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">corr_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">matrix_cov</span>
+
+
+<span class="c1"># In[357]:</span>
+
+
+<span class="n">r_0</span><span class="o">=</span><span class="mf">0.4</span><span class="o">*</span><span class="n">ancho</span> <span class="c1"># en km</span>
+<span class="n">Matriz_correlacion</span><span class="o">=</span><span class="n">corr_1d_Leveque</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">r_0</span><span class="p">)</span>
+
+<span class="c1">#</span>
+<span class="n">mean_slip</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
+<span class="n">mean_slip</span><span class="o">=</span><span class="p">(</span><span class="n">mean_slip</span><span class="o">*</span><span class="n">taper</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="c1">#</span>
+<span class="n">matriz_covarianza</span><span class="o">=</span><span class="n">cov_1d_Leveque</span><span class="p">(</span><span class="n">Matriz_correlacion</span><span class="p">,</span><span class="mf">0.75</span><span class="p">,</span><span class="n">mean_slip</span><span class="p">)</span>
+<span class="n">eigen_valores</span><span class="p">,</span><span class="n">eigen_vectores</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">matriz_covarianza</span><span class="p">)</span>
+
+<span class="c1"># obtenemos los primero 20 valores</span>
+<span class="n">eigen_valores20</span><span class="p">,</span><span class="n">eigen_vectores20</span><span class="o">=</span><span class="n">eigen_valores</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">19</span><span class="p">],</span><span class="n">eigen_vectores</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">19</span><span class="p">]</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">axes</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">eigen_valores20</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Eigenvalores&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;First 20 eigenvalues of Covariance matrix&#39;</span><span class="p">)</span>
+
+<span class="c1">#</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">taper</span><span class="p">,</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;taper&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">eigen_vectores20</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">eigen_vectores20</span><span class="p">[:,</span><span class="n">i</span><span class="p">]),</span><span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;k=</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">markersize</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;km down-dip&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Eigenmodes&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">((</span><span class="o">-</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">1.1</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1"># Se puede ver La alta similitud del eigenvector cuando k=0 con el taper</span>
+
+<span class="c1"># In[ ]:</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.467 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-introduction-karhunen-loeve-py">
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/8fe43fdad3d159ce85d0e8d802b08820/plot_Introduction-Karhunen-Loeve.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_Introduction-Karhunen-Loeve.ipynb</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/076a9b70bc5c85e2bfad7e4157c1d9eb/plot_Introduction-Karhunen-Loeve.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_Introduction-Karhunen-Loeve.py</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="plot_slips_and_def.html" class="btn btn-neutral float-left" title="Slip and deformation figure of a Stochastic generation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_Case2D-Karhunen-Loeve.html" class="btn btn-neutral float-right" title="Stochastic Slip generation - 2D Fault" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Alex Villarroel.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
