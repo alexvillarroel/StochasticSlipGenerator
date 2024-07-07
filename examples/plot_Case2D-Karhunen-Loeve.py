@@ -57,7 +57,7 @@ slabdep,slabdip,slabstrike,slabrake=geostochpy.load_files_slab2(zone='south_amer
 # In[4]:
 
 
-north=-29.5
+north=-28
 lons,lons_ep,lats,lats_ep=geostochpy.make_fault_alongtrench(lons_fosa,lats_fosa,north, nx,ny,width,length)
 [X_grid,Y_grid,dep,dip,strike,rake]=geostochpy.interp_slabtofault(lons,lats,nx,ny,slabdep,slabdip,slabstrike,slabrake)
 

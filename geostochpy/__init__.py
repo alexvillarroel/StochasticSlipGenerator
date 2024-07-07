@@ -12,7 +12,7 @@ Module with functions necessary for the creation of faults and the calculation o
 """
 
 import numpy as np
-
+import warnings
 from numpy import linalg as la
 import matplotlib.pyplot as plt 
 from mpl_toolkits.basemap import Basemap, cm
@@ -30,6 +30,7 @@ import scipy.ndimage.filters as filters
 from clawpack.geoclaw import dtopotools, topotools
 from multiprocessing import Pool, Process, cpu_count
 import rockhound as rh
+from scipy import linalg as la
 from rockhound.slab2 import ZONES
 import pygmt
 import os
@@ -341,11 +342,11 @@ def make_fault_alongstriketrench(lons_trench, lats_trench, strike_trench, northl
 
     lat = lat_trench[J] - lat_offset
     lon = lon_trench[J] + lon_offset
-
-    # Aplanar los resultados si es necesario
+    # posicion aleatorea de la falla a lo largo del dip
+    desplazamiento_aleatorio = np.random.uniform(0,1.71-km2deg(width))
+    lon += desplazamiento_aleatorio
     lat_flat = lat.flatten()
     lon_flat = lon.flatten()
-
     return lon,lat,lon_flat,lat_flat
 
 def make_fault_alongtrench_optimized(lons_trench, lats_trench, northlat, nx, ny, width, length):
@@ -696,7 +697,11 @@ def matriz_covarianza_optimized( dip, prof, lons, lats,largo_falla,ancho_falla,a
 # distribucion de slip
 # Función de correlación von Karman
 def von_karman_correlation(r, H):
-    return (r ** H) * kv(H, r)
+    r = np.nan_to_num(r, nan=0.0, posinf=1e10, neginf=-1e10)
+    H = np.nan_to_num(H, nan=0.0, posinf=1e10, neginf=-1e10)
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore", RuntimeWarning)
+        return (r ** H) * kv(H, r)
 
 # Calculo matriz de covarianza usando VK-ACF
 def matriz_covarianza_von_karman(dip, prof, lons, lats,length_fault,width_fault, H=0.7):
@@ -759,7 +764,6 @@ def distribucion_slip( C, mu, N ):
 
 
 def distribucion_slip_optimizada(C, mu, N):
-    from scipy import linalg as la
     """
     Calcula la distribucion de slip con la expansion de karhunen-loeve log-normal
     exp(mu)exp(sum(zk*sqrt(lambdak)*vk))
