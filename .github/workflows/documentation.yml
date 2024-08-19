@@ -1,0 +1,62 @@
+name: documentation_workflow
+
+on: [push, pull_request, workflow_dispatch]
+
+permissions:
+  contents: write
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout current git repository
+      - name: Checkout
+        uses: actions/checkout@v4.1.1
+        with:
+          # fetch all history so that setuptools-scm works
+          fetch-depth: 0
+
+      # Install Micromamba with conda-forge dependencies
+      - name: Setup Micromamba
+        uses: mamba-org/setup-micromamba@v1.7.3
+        with:
+          environment-name: pygmt
+          condarc: |
+            channels:
+              - conda-forge
+              - nodefaults
+          cache-downloads: true
+          cache-environment: true
+          create-args: >-
+            python=3.12
+            gmt=6.4.0
+            ghostscript=9.54.0
+            numpy
+            pandas
+            xarray
+            netCDF4
+            packaging
+            contextily
+            geopandas
+            ipython
+            rioxarray
+            build
+            make
+            pip
+            myst-parser
+            panel
+            sphinx
+            sphinx-autodoc-typehints
+            sphinx-copybutton
+            sphinx-design
+            sphinx-gallery
+            sphinx_rtd_theme
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        with:
+          publish_branch: gh-pages
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/_build/html
+          force_orphan: true

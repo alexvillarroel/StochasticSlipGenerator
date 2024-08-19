@@ -1,0 +1,100 @@
+============================================================
+=== Check configurations! [Begin] ==========================
+============================================================
+[Make-time configurations]
+- Coordination: Polar (Default)
+- Difference scheme for advection: 1st order upwind (Default)
+- Precision: Double precision except file I/O (-DREAL_DBLE)
+- MPI parallelization: ON (-DMPI)
+   - Undecomposed input/output files: ON (-DONEFILE)
+   - Inter-domain communication: MPI_Alltoallv (-DUSE_ALLTOALLV)
+- OpenMP parallelization: ON
+- Built-in timer: DETAIL (-DTIMER -DTIMER_DETAIL)
+- Convergence check on dispersive: ON (-DCONV_CHECK)
+- Snapshot output: Orignal GMT output
+
+[Run-time configurations]
+(Model parameters)
+- Time step[s] (dt):    0.100000E+01
+- End time[s] (tend):    0.360000E+03
+- Snapshot interval[steps] (itmap):       360
+   - From [step] (itmap_start):         0
+   - To [step] (itmap_end):      99999999
+- Time step between ruptures[s] (tau):    0.100000E+01
+- Non-dimensional coeff. (positive val.) or Manning's roughtness coeff. (negative val)
+   - For sea (cf):     -0.250000E-01
+   - For land (cfl):   -0.250000E-01
+- Max. Froude number (froude_lim):    0.200000E+01
+- Coriolis force (coriolis=1:ON/0:OFF):   0
+- Deformation bathymetry (def_bathy=1:ON/0:OFF):   1
+- Smooth edges (smooth_edges=1:ON/0:OFF):   0
+- All grids are copiedy to coarse (c2p_all=1:ON/0:OFF):   1
+- Only p2c interpolation is performed. (nest_1way=1:ON/0:OFF):   0
+- Multiple ruptures (multrupt=1:ON/0:OFF):   0
+- Initial disp. with interpolation (init_disp_interpolation=1:ON/0:OFF):   1
+   - 3rd order spline interpolation is utilized.
+- Initial disp. with Gaussian (init_disp_gaussian=1:ON/0:OFF):   0
+- Initial disp. with sin wave (init_disp_sinwave=1:ON/0:OFF):   0
+- Initial disp. with fault calc. (init_disp_fault=1:ON/0:OFF):   1
+   - Fault parameter file (fault_param_file): faults.txt
+   - Adopt horizontal disp. effect (hzdisp_effect=1:ON/0:OFF):   1
+      - Lower limit of depth to apply it[m] (min_depth_hde):    0.500000E+02
+- Apply Kajiura filter. (apply_kj_filter=1:ON/0:OFF):   1
+- Elastic loading (with_elastic_loading=1:ON/0:OFF):   0
+- Density (with_density=1:ON/0:OFF):   0
+- Check arrival time (check_arrival_time=1:ON/0:OFF):   1
+   - Threshold height[m] (check_arrival_height):    0.100000E-01
+
+(Domains)
+- Grid file: gridfile.dat
+- Number of domains:      3
+
+   ID  Name     Parent  Linear  disp_file wod_file bcf_file
+     1 SD01     SD01         1          0        0        0
+     2 SD02     SD01         0          0        0        0
+     3 SD03     SD02         0          0        0        0
+
+(Dispersive)
+- Dispersive (with_disp=0:OFF/1:ON/2:Except root dom.):   0
+
+(Absorbing boundary condition)
+- Absorbing boundary condition (with_abc=1:ON/0:OFF):   0
+
+(Restart)
+- Restart step [step] (restart=0:OFF):         0
+- Restart file interval [steps] (restartinterval=0:OFF):         0
+
+(MPI parallelization)
+- Number of processes:       6
+   - East-West direction (procx):         2
+   - North-South direction (procy):       3
+
+(OpenMP parallelization)
+- Number of threads:       6
+============================================================
+=== Check configurations! [End] ============================
+============================================================
+
+  *** grid 2, parent= 1 parent_base= SD01
+       niz=36 njz=24 tend=360.000(sec) dt=1.000(sec) nstep=361
+       th0=2.141379(rad) dxdy=.009000(deg) dth= 0.157079625917557E-003
+       mlon0=17279.520 (287.992) mlat0=7385.820 (123.097)
+
+  *** from global origin (deg):
+       mlon0=  287.99199966 input value=  287.99200439
+       mlat0=  122.69199993 input value=  122.69200134
+
+             H= .036000
+             h= .009000
+             H/h= 4.
+       grid reduction factor= 4
+
+             totalNx= 69 zeroIX= 223 NX= 18
+             totalNy= 69 zeroIY= 48 NY= 18
+
+*** NOTE: c2p_all is defined!
+
+  *** grid 3, parent= 2 parent_base= SD02
+       niz=231 njz=98 tend=360.000(sec) dt=1.000(sec) nstep=361
+       th0=2.146378(rad) dxdy=.000300(deg) dth= 0.523598800467906E-005
+       mlon0=17300.808 (288.347) mlat0=7382.178 (123.036)

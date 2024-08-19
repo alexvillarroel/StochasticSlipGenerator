@@ -1,0 +1,45 @@
+name: geostochpy
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python
+  # Required dependencies
+  - gmt=6.4.0
+  - numpy>=1.22
+  - pandas
+  - xarray
+  - netCDF4
+  - packaging
+  - pygmt
+  - clawpack
+  - basemap
+  - basemap-data-hires
+  - matplotlib
+  - scikit-learn
+  - rockhound
+  - tqdm
+  - pip
+  - cartopy
+  - geopy
+  - obspy
+  - openpyxl
+  # Development dependencies (general)
+  - myst-parser
+  - panel
+  - sphinx
+  - sphinx-autodoc-typehints
+  - sphinx-copybutton
+  - sphinx-design
+  - sphinx-gallery
+  - sphinx_rtd_theme
+  - build
+  - dvc
+  - jupyter
+  - make
+  - pip
+  - pip:
+    - clawpack
+    - sphinxcontrib-bibtex
+    - sphinxemoji
+    - sphinx-rtd-dark-mode

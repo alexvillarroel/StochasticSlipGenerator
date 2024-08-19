@@ -1,0 +1,57 @@
+% specify the folders
+folders = {'C:\Users\axlph\OneDrive - Universidad de Concepción\magister\Proyecto de Tesis\Slips\Simulation_8.7',...
+    'C:\Users\axlph\OneDrive - Universidad de Concepción\magister\Proyecto de Tesis\Slips\Simulation_8.8',...
+    'C:\Users\axlph\OneDrive - Universidad de Concepción\magister\Proyecto de Tesis\Slips\Simulation_8.9',...
+    'C:\Users\axlph\OneDrive - Universidad de Concepción\magister\Proyecto de Tesis\Slips\Simulation_9.0',...
+    'C:\Users\axlph\OneDrive - Universidad de Concepción\magister\Proyecto de Tesis\Slips\Simulation_9.1',...
+    'C:\Users\axlph\OneDrive - Universidad de Concepción\magister\Proyecto de Tesis\Slips\Simulation_9.2',...
+    'C:\Users\axlph\OneDrive - Universidad de Concepción\magister\Proyecto de Tesis\Slips\Simulation_9.3'};
+
+% create a figure
+figure;
+
+% iterate over each folder
+for i = 1:length(folders)
+    % get all .mat files in the folder
+    mat_files = dir(fullfile(folders{i}, '*.mat'));
+
+    % initialize an array to store all max slips
+    max_slips = [];
+
+    % iterate over each file
+    for j = 1:length(mat_files)
+        % load the .mat file
+        mat_data = load(fullfile(folders{i}, mat_files(j).name));
+    
+        % assuming 'slip' is a variable in the .mat file
+        if isfield(mat_data, 'slip')
+            % get the maximum of 'slip'
+            max_slip = max(mat_data.slip(:));
+            max_slips = [max_slips; max_slip];
+        end
+    end
+
+    % calculate mean and standard deviation
+    mean_slip = mean(max_slips);
+    std_slip = std(max_slips);
+
+    % create a subplot for this folder
+    subplot(3, 3, i);
+    histogram(max_slips);
+    hold on;
+
+    % plot mean and standard deviations
+    xline(mean_slip, 'r', 'Mean', 'LineWidth', 2);
+    xline(mean_slip + std_slip, 'g', 'Mean + 1 SD', 'LineWidth', 2);
+    xline(mean_slip - std_slip, 'g', 'Mean - 1 SD', 'LineWidth', 2);
+    xline(mean_slip + 2*std_slip, 'b', 'Mean + 2 SDs', 'LineWidth', 2);
+    xline(mean_slip - 2*std_slip, 'b', 'Mean - 2 SDs', 'LineWidth', 2);
+    xline(mean_slip + 3*std_slip, 'k', 'Mean + 3 SDs', 'LineWidth', 2);
+    xline(mean_slip - 3*std_slip, 'k', 'Mean - 3 SDs', 'LineWidth', 2);
+    xlabel('Max Slip[m]')
+    ylabel('Distributions of ')
+    % set the plot box aspect ratio
+    pbaspect([1 1 1]);
+
+    hold off;
+end
