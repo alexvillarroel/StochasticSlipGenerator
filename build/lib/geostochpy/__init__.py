@@ -16,8 +16,10 @@ import warnings
 from numpy import linalg as la
 import matplotlib.pyplot as plt 
 from mpl_toolkits.basemap import Basemap, cm
-import cartopy.crs as ccr
-import cartopy.feature as cf
+import cartopy.crs as ccrs
+import cartopy.feature as cfeature
+import cartopy.mpl.geoaxes
+from mpl_toolkits.axes_grid1.inset_locator import inset_axes
 import collections as col
 from geopy import distance
 import geographiclib as geo 
@@ -320,6 +322,12 @@ def make_fault_alongtrench(lons_trench,lats_trench,northlat, nx,ny,width,length)
             lons_ep.append(lon)
     return lons,lons_ep,lats,lats_ep
 # LATS SUBFALLAS
+import numpy as np
+
+def km2deg(km):
+    # Conversión simple de kilómetros a grados
+    return km / 111.32
+
 def make_fault_alongstriketrench(lons_trench, lats_trench, strike_trench, northlat, nx, ny, width, length):
     dy = length / ny
     j = np.arange(ny)
@@ -340,14 +348,20 @@ def make_fault_alongstriketrench(lons_trench, lats_trench, strike_trench, northl
     lat_offset = km2deg(np.sin(np.deg2rad(strike_repeated)) * (dx * (I + 1) - 1 / 2))
     lon_offset = km2deg(np.cos(np.deg2rad(strike_repeated)) * (dx * (I + 1) - 1 / 2))
 
-    lat = lat_trench[J] - lat_offset
+    # Calcular latitud considerando el signo de strike_repeated
+    lat = np.where(strike_repeated < 0, lat_trench[J] + lat_offset, lat_trench[J] - lat_offset)
+
     lon = lon_trench[J] + lon_offset
-    # posicion aleatorea de la falla a lo largo del dip
-    desplazamiento_aleatorio = np.random.uniform(0,1.71-km2deg(width))
+
+    # Posición aleatoria de la falla a lo largo del dip
+    desplazamiento_aleatorio = np.random.uniform(0, 1.71 - km2deg(width))
     lon += desplazamiento_aleatorio
+
     lat_flat = lat.flatten()
     lon_flat = lon.flatten()
-    return lon,lat,lon_flat,lat_flat
+    
+    return lon, lat, lon_flat, lat_flat
+
 
 def make_fault_alongtrench_optimized(lons_trench, lats_trench, northlat, nx, ny, width, length):
     dx = width / nx
@@ -832,6 +846,16 @@ def media_slip(Mw,largo_subfalla,ancho_subfalla,prof):
     matriz_area=np.ones_like(prof)*largo_subfalla*ancho_subfalla
     media_slip=Mo/np.sum(matriz_area*rigidez)
     return media_slip/np.size(matriz_area),rigidez
+# calcula la media de slip
+def media_slip_area(Mw,largo_subfalla,ancho_subfalla,matriz_area,prof):
+    """
+    Largo, ancho y profundidad deben estar en metros
+    """
+    tau=tau_ruptura_BilekModel( largo_subfalla,beta=2500,prem=True,profs=prof)
+    rigidez=estima_rigidez_BilekModel(largo_subfalla,tau,prem=True,profs=prof)
+    Mo=10**(3/2*Mw+9.1)
+    media_slip=Mo/np.sum(matriz_area*10**6*rigidez)
+    return media_slip/np.size(matriz_area),rigidez
 # escala la magnitud
 def escalar_magnitud_momento(Mw, slip, prof, largo_subfalla,ancho_subfalla,prem=False):
     """
@@ -971,7 +995,7 @@ def deg2km(deg):
 # based in Melgar and Hayes 2017. along strike and along-dip values
 def nearest_value(value, matrix):
     return matrix.flat[np.abs(matrix - value).argmin()]
-
+# KINEMATIC RUPTURE FUNCTIONS
 def hypocenter(lons,lats,depth,length,width):
     """
     Generate a random hypocenter from a given grid .
@@ -1026,6 +1050,19 @@ def hypocenter(lons,lats,depth,length,width):
         z=depth[nearest_x_pos[0][0]][nearest_x_pos[0][1]]
     hypocenter=[x,y,z]
     return hypocenter
+def rupture_velocity_hypocenter(hypocenter):
+    vs,prof=load_PREM()
+    
+    """
+    Compute the rupture velocity for a given grid.
+
+    """
+    # compute the rupture velocity
+    vr=np.zeros_like(vs)
+    for i in range(1,np.size(lons)-1):
+        for j in range(1,np.size(lats)-1):
+            vr[i][j]=np.sqrt((vs[i][j+1]-vs[i][j-1])**2+(vs[i+1][j]-vs[i-1][j])**2)
+    return vr
 ################ FILTER FUNCTIONS
 # crea ventana para hacerle un taper al patron de slip
 def ventana_taper_slip_fosa( Slip, lon, lat, ventana_flag ):
@@ -1202,6 +1239,38 @@ def taper_except_trench_tukey(depth,dip_taperfunc=tukey_window,strike_taperfunc=
 
     return taper_2d #Slip_taper, taper_2d
 ################ PLOT FUNCTIONS
+def plot_slip(region,X_grid,Y_grid,lonfosa,latfosa,Slip,filename,show=False,cmap='rainbow'):
+        fig = plt.figure()
+        # iniciliazar mapa
+        ax=fig.add_subplot(111,projection=ccrs.PlateCarree())
+        ax.set_extent(region, crs=ccrs.PlateCarree())
+        ax.add_feature(cfeature.BORDERS)
+        ax.add_feature(cfeature.COASTLINE)
+        ax.add_feature(cfeature.LAND, edgecolor='black')
+        ax.add_feature(cfeature.OCEAN)
+        ax.add_feature(cfeature.LAKES, edgecolor='black')
+        ax.add_feature(cfeature.RIVERS)
+        axins = inset_axes(ax, width="45%", height="45%", loc="upper left", 
+                   axes_class=cartopy.mpl.geoaxes.GeoAxes, 
+                   axes_kwargs=dict(map_projection=cartopy.crs.Orthographic(central_longitude=-70, central_latitude=-30)))
+        axins.add_feature(cartopy.feature.COASTLINE)
+        axins.stock_img()
+        # Dibujar un rectángulo alrededor de Chile en el inset usando plot
+        rect_lons = [-75, -66, -66, -75, -75]  # Longitudes para el rectángulo
+        rect_lats = [-46, -46, -17, -17, -46]  # Latitudes para el rectángulo
+        axins.plot(rect_lons, rect_lats, color='red', linestyle='-', linewidth=1.2,transform=ccrs.PlateCarree())
+        text='Chile'
+        axins.text(-75, -30, text, fontsize=10, ha='right', transform=ccrs.PlateCarree())
+        gl = ax.gridlines(crs=ccrs.PlateCarree(), draw_labels=True,
+                  linewidth=1, color='gray', alpha=0.5, linestyle='--')
+        gl.ylabels_left = False
+        gl.xlabels_top = False
+        if show==False:
+            plt.savefig(filename)
+            plt.close()
+            return fig
+        else:
+            return fig
 def plot_grid(region,lons_trench,lats_trench,lons,lats):
     """
     Plot a grid of regions in a region of land .
@@ -1381,7 +1450,6 @@ def plot_slip_gmt(region,X_grid,Y_grid,lonfosa,latfosa,Slip,dx,dy,filename=False
     else:
         fig.show()
     return
-
 def plot_slip_gmt_relief(region,X_grid,Y_grid,lonfosa,latfosa,Slip,dx,dy,filename=False):
     """
     Plot a Slip grid of data on a grid
