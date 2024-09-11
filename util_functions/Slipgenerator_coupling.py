@@ -9,7 +9,7 @@ import os
 import time
 from tqdm import trange
 from joblib import Parallel, delayed  # Para paralelizar
-
+import pygmt
 
 
 def generate_grid(i, n_slip,n_subfaults, northlat, southlat, Mw, lonsfosa, latsfosa, strikefosa, slabdep, slabdip, slabstrike, slabrake,slabcoupling, scenarios):

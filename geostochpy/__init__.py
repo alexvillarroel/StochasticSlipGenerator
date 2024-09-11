@@ -37,6 +37,66 @@ from rockhound.slab2 import ZONES
 import pygmt
 import os
 _ROOT = os.path.abspath(os.path.dirname(__file__))
+def generate_scenarios_Blaser(M, n_slips, sigma_L=0.18**2, alpha_W=0.17**2):
+    """
+    Genera escenarios de longitud (L) y ancho (W) para un evento sísmico dado.
+
+    Parámetros:
+    M (float): Magnitud del evento sísmico.
+    num_scenarios (int): Número de escenarios a generar.
+    sigma_L (float): Desviación estándar para log10(L).
+    alpha_W (float): Desviación estándar para log10(W).
+    Paper:"Scaling Relations of Earthquake Source Parameter Estimates
+        with Special Focus on Subduction Environment
+        by Lilian Blaser, Frank Krüger, Matthias Ohrnberger, and Frank Scherbaum"
+    Retorna:
+    list: Lista de tuplas (L, W) con los escenarios generados.
+    """
+    # Ecuaciones para log10(L) y log10(W)
+    mu_L = -2.37 + 0.57 * M
+    mu_W = -1.86 + 0.46 * M
+
+    # Generar valores de log10(L) y log10(W)
+    log10_L = np.random.normal(mu_L, sigma_L, n_slips)
+    log10_W = np.random.normal(mu_W, alpha_W, n_slips)
+
+    # Convertir log10(L) y log10(W) a L y W
+    L = 10 ** log10_L
+    W = 10 ** log10_W
+    # Combinar L y W en una lista de escenarios
+    scenarios = list(zip(L, W))
+    return scenarios
+def generate_scenarios_Goda(Mw, n_slips,tsunamigenic=True):
+    """
+    Genera escenarios de longitud (L) y ancho (W) para un evento sísmico dado.
+
+    Parámetros:
+    Mw (float): Magnitud del evento sísmico.
+    num_scenarios (int): Número de escenarios a generar.
+    Paper:"New Scaling Relationships of Earthquake Source
+        Parameters for Stochastic Tsunami Simulation
+        by Katsuichiro Goda et al. 2016"
+    Retorna:
+    list: Lista de tuplas (L, W) con los escenarios generados.
+    """
+    # Ecuaciones para log10(L) y log10(W)
+    sigma_L=0.1717
+    sigma_W=0.1464
+    numbers = np.random.normal(loc=0, scale=1, size=n_slips)
+    mu_L = tsunamigenic * (-1.5021 + 0.4669*Mw) +  (not tsunamigenic)*(-2.1621 + 0.5493*Mw)+sigma_L*numbers
+    mu_W = tsunamigenic * (-0.4877 + 0.3125*Mw) +  (not tsunamigenic)*(-0.6892 + 0.2893*Mw)+sigma_W*numbers
+
+    # Generar valores de log10(L) y log10(W)
+    log10_L = np.random.normal(mu_L, sigma_L, n_slips)
+    log10_W = np.random.normal(mu_W, sigma_W, n_slips)
+
+    # Convertir log10(L) y log10(W) a L y W
+    L = 10 ** mu_L
+    W = 10 ** mu_W
+    # Combinar L y W en una lista de escenarios
+    scenarios = list(zip(L, W))
+    return scenarios
+
 # Ms to Mw kausel Ramirez function
 def Mw_kauselramirez(ms):
     """
@@ -362,7 +422,32 @@ def make_fault_alongstriketrench(lons_trench, lats_trench, strike_trench, northl
     
     return lon, lat, lon_flat, lat_flat
 
+def make_fault_alongstriketrench_not_random(lons_trench, lats_trench, strike_trench, northlat, nx, ny, width, length):
+    dy = length / ny
+    j = np.arange(ny)
+    lat_trench = northlat - km2deg(dy * j)
+    lon_trench = np.interp(lat_trench, lats_trench, lons_trench)
 
+    # Interpolar los datos
+    strike = np.interp(lat_trench, lats_trench, strike_trench)
+
+    # Crear matrices de índices
+    I, J = np.meshgrid(np.arange(nx), j)
+
+    # Repetir el array strike en las columnas nx veces
+    strike_repeated = np.tile(strike[:, np.newaxis], (1, nx))
+
+    # Calcular latitud y longitud sin usar bucles
+    dx = width / nx
+    lat_offset = km2deg(np.sin(np.deg2rad(strike_repeated)) * (dx * (I + 1) - 1 / 2))
+    lon_offset = km2deg(np.cos(np.deg2rad(strike_repeated)) * (dx * (I + 1) - 1 / 2))
+
+    lat = lat_trench[J] - lat_offset
+    lon = lon_trench[J] + lon_offset
+    # posicion aleatorea de la falla a lo largo del dip
+    lat_flat = lat.flatten()
+    lon_flat = lon.flatten()
+    return lon,lat,lon_flat,lat_flat
 def make_fault_alongtrench_optimized(lons_trench, lats_trench, northlat, nx, ny, width, length):
     dx = width / nx
     dy = length / ny
@@ -658,9 +743,9 @@ def matriz_medias( media, prof ):
     alpha = 0.5 # valor sugerido por LeVeque et al, 2016
     mu = np.log( media*tau ) - 1/2 * np.log( alpha**2+1 )
     return mu
-def matriz_medias_villarroel(media,taper,alpha=0.5):
+def matriz_medias_villarroel(media,taper,alpha=0.75):
     #alpha = 0.75 valor sugerido por LeVeque et al, 2016
-    taper[taper==0]=np.min(taper[taper!=0])
+    taper[taper<=0.1]=0.1
     mu = np.log( media*taper) - 1/2 * np.log( alpha**2+1 )
     return mu
 # calculo matriz de covarianza
@@ -1756,3 +1841,53 @@ def plot_deformation(X_grid,Y_grid,lonfosa,latfosa,Deformation,filename,show=Fal
 #### FUNCTION FOR DATABASE
 def get_data(file):
     return os.path.join(_ROOT, 'data', file)
+### FUNCTIOS TO KINEMATIC RUPTURE
+def calcular_vr(dep_fault,vs_model,prof_model):
+    # Cargar el modelo PREM
+    f = interp1d(prof_model, vs_model, bounds_error=False, fill_value=0)
+    # Convertir profundidad a km y obtener la velocidad del modelo PREM
+    VS = f(dep_fault) / 1000  # Convertir a km/s
+    dep_km = dep_fault / 1000  # Convertir a km
+    # Calcular VR utilizando operaciones vectorizadas
+    VR = np.where(dep_km < 10, 0.56 * VS, 
+                  np.where(dep_km > 15, 0.8 * VS,
+                           (0.048 * dep_km + 0.08) * VS))
+    
+    return VR
+def calcular_onset_time(X_grid, Y_grid, dep_fault, hypocenter, VR):
+    # Calcular la distancia y el tiempo de ruptura (onset time)
+    x, y, z = hypocenter
+    xdistance = np.abs(X_grid - x) * 111.111
+    ydistance = np.abs(Y_grid - y) * 111.111
+    zdistance = np.abs(dep_fault - z) / 1000
+    
+    distance = np.sqrt(xdistance**2 + ydistance**2 + zdistance**2)
+    onset_time = distance / VR
+    
+    return onset_time
+
+def calcular_rise_time(Slip, dep_fault, Mo_deseado_Nm):
+    """
+    Calcula el tiempo de ruptura (rise time) para una malla de subfallas con Mo deseado en Nm.
+
+    Parameters:
+    - Slip: numpy array con el slip de cada subfalla.
+    - dep_new: numpy array con la profundidad de cada subfalla en metros.
+    - Mo_deseado_Nm: magnitud del momento sísmico deseado en Newton-metros.
+
+    Returns:
+    - T_i: numpy array con el tiempo de ruptura para cada subfalla.
+    """
+    # Conversión de profundidades a kilómetros
+    d_i = dep_fault / 1000
+    # Calcular T_a2 usando el momento sísmico en Nm
+    T_a2 = 0.82 * 1.6 * 10**(-9) * Mo_deseado_Nm**(1/3)
+    # Inicializar el array de tiempos de ruptura
+    T_i = np.zeros_like(Slip)
+    # Aplicar las condiciones para el cálculo de T_i de manera vectorizada
+    T_i[d_i < 10] = 2 * T_a2 * np.sqrt(Slip[d_i < 10])
+    T_i[d_i > 15] = T_a2 * np.sqrt(Slip[d_i > 15])
+    # Aplicar la transición lineal entre 10 km y 15 km
+    mask = (d_i >= 10) & (d_i <= 15)
+    T_i[mask] = (-0.2 * d_i[mask] + 4) * T_a2 * np.sqrt(Slip[mask])
+    return T_i
